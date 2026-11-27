@@ -466,6 +466,34 @@ nav{left:6px;right:6px}nav button{padding:6px 2px;font-size:9.5px;flex:1;min-wid
 .d .ec{display:block!important;font-size:8px!important;line-height:1.35!important;padding:0 2px!important;border-radius:3px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .d .ec b{display:inline!important;font-size:8px!important;margin-right:2px;opacity:.9}
 .d .more{font-size:8px;color:var(--mu);text-align:center;line-height:1}
+
+/* ===== จอเกมใหญ่ + เบาเครื่อง ===== */
+.pxw{max-width:1400px!important}
+.pxs{aspect-ratio:auto!important;height:clamp(420px,82vh,900px)}
+@media(max-width:700px){.pxw{padding:0 6px!important}.pxs{height:72vh;height:72dvh;min-height:420px}}
+body{animation:none!important}
+.toast{z-index:200!important}
+</style>
+<style>
+/* ===== ตารางเรียน: ใหญ่ เต็มความกว้าง ไม่ต้องเลื่อน (คอม = แถววัน, มือถือ = คอลัมน์วัน) ===== */
+main:has(#t-tt.on){max-width:1240px}
+.tgx,.tvx{border:2px solid var(--br);border-radius:14px;overflow:hidden;background:var(--card)}
+.tgr{display:flex}.tgr+.tgr{border-top:1px solid var(--br)}.tgh{background:var(--bg)}
+.tgd{flex:none;width:70px;display:grid;place-items:center;text-align:center;font-size:13px;font-weight:600;border-right:2px solid var(--br);padding:4px}
+.tgr.now .tgd{background:linear-gradient(135deg,#7c4dff,#ff5c8a);color:#fff}
+.tgt{flex:none;font-size:11px;text-align:center;padding:6px 0;color:var(--mu);border-left:1px solid var(--br);line-height:1.4}.tgt b{display:block;color:var(--tx);font-size:12px}
+.tgb{position:relative;flex:none;cursor:pointer;background-image:linear-gradient(90deg,var(--br) 1px,transparent 1px)}
+.tgi{position:absolute;border-radius:10px;color:#fff;padding:5px 7px;overflow:hidden;font-size:11px;line-height:1.25;cursor:pointer;box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.tgi b{display:block;font-size:13px}.tgi small{display:block;font-size:11px;opacity:.95}
+.tvh,.tvb{display:grid}.tvh{background:var(--bg);border-bottom:2px solid var(--br)}
+.tvn{text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-left:1px solid var(--br);white-space:nowrap}.tvn.now{background:linear-gradient(135deg,#7c4dff,#ff5c8a);color:#fff}
+.tvl>div{font-size:10px;color:var(--mu);text-align:center;padding-top:3px;border-top:1px solid var(--br);box-sizing:border-box}.tvl>div:first-child{border-top:0}
+.tvc{position:relative;border-left:1px solid var(--br);cursor:pointer;background-image:linear-gradient(var(--br) 1px,transparent 1px)}
+.tvc .tgi{left:2px;right:2px;padding:3px 4px;border-radius:8px}.tvc .tgi b{font-size:10.5px;word-break:break-all}.tvc .tgi small{font-size:9.5px}
+@media(max-width:700px){#t-tt .card{padding:12px 6px}}
+/* ===== ชื่อ "ผู้ช่วยส่วนตัว" บนหัว: บรรทัดเดียวเสมอ ทั้งคอมและมือถือ ===== */
+header h1{display:flex!important;flex-wrap:nowrap!important;white-space:nowrap;max-width:100%;font-size:clamp(15px,5.2vw,30px)!important}
+header h1 .bk{padding:2px clamp(3px,1.2vw,8px) 0;margin:7px 1px 4px;border-width:2px;border-radius:7px;box-shadow:inset 0 -4px 0 rgba(0,0,0,.22),0 3px 0 var(--ink)}
 </style>
 </head>
 <body>
@@ -475,7 +503,7 @@ nav{left:6px;right:6px}nav button{padding:6px 2px;font-size:9.5px;flex:1;min-wid
   
   
 </header>
-<div class="pxw"><div class="pxs"><canvas id="px"></canvas><span class="hc tl" id="pxL"></span><span class="hc tr" id="mode">🔴</span><div class="hinfo" id="hinfo"></div><div class="hud"><button data-v="john">🎯 จอห์น</button><button data-v="house">🏠 บ้านจอห์น</button><button data-v="city">🌆 เมือง</button><button data-v="zoo">🦖 สวนสัตว์</button><button id="zi" type="button">＋</button><button id="zo" type="button">－</button><button id="pxN" type="button">⏩ ×30</button></div></div></div>
+<div class="pxw"><div class="pxs"><canvas id="px"></canvas><span class="hc tl" id="pxL"></span><span class="hc tr" id="mode">🔴</span><div class="hinfo" id="hinfo"></div><div class="hud"><button data-v="john">🎯 จอห์น</button><button data-v="house">🏠 บ้านจอห์น</button><button data-v="city">🌆 เมือง</button><button id="zi" type="button">＋</button><button id="zo" type="button">－</button><button id="pxN" type="button">⏩ ×30</button></div></div></div>
 <main>
 
 <!-- HOME -->
@@ -564,7 +592,7 @@ nav{left:6px;right:6px}nav button{padding:6px 2px;font-size:9.5px;flex:1;min-wid
   <div class="card">
     <h3>⚙️ เชื่อมต่อ Google Sheets</h3>
     <label>Apps Script Web App URL</label>
-    <input id="urlIn" placeholder="https://script.google.com/macros/s/AKfycbwr69Oiw1yPvWJYRFs8FB44brirZFa1qRGDRLBrMSVD729Z2fIWjMbk-KF2Qb_PYzxo/exec">
+    <input id="urlIn" placeholder="https://script.google.com/macros/s/AKfycbzBMyUBTFQcQ9P4QG4XGcyqz8K9JBe2hqFdTxCl9qvYJT1UdK6afxhZyIbLI7HAtmk_/exec">
     <button class="btn" id="saveUrl">บันทึกและโหลดข้อมูล</button>
     <p style="font-size:12px;color:var(--mu);margin-top:12px;line-height:1.6">ปล่อยว่างไว้ = โหมดสาธิต (เก็บในเครื่องนี้)<br>ข้อมูลจะถูกเก็บในชีท <b>Transactions</b> และ <b>Events</b> โดยอัตโนมัติ</p>
   </div>
@@ -624,7 +652,7 @@ const lsSet=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 /* ---------- data layer ---------- */
 async function load(){
   if(url){
-    try{const r=await fetch(url+(url.includes('?')?'&':'?')+'t='+Date.now());const d=await r.json();if(d.ok===false)throw new Error(d.error);tx=d.tx||[];ev=d.ev||[];$('#mode').textContent='🟢';window.aiSay&&aiSay(3,'ดึงข้อมูลจากชีทแล้ว ✅')}
+    try{const r=await fetch(url+(url.includes('?')?'&':'?')+'t='+Date.now());const d=await r.json();if(d.ok===false)throw new Error(d.error);window._ttOld=ttFromEv(d.ev);tx=d.tx||[];ev=(d.ev||[]).filter(e=>!(String(e.date)==='2000-01-01'&&String(e.title).indexOf('TT|')===0));$('#mode').textContent='🟢';window.aiSay&&aiSay(3,'ดึงข้อมูลจากชีทแล้ว ✅')}
     catch(e){$('#mode').textContent='🔴'}
   }else{
     $('#mode').textContent='🔴';
@@ -738,31 +766,72 @@ let tt=[],ttErr='',ttLoad=true,ttAt=0,ttRoom=lsGet('ttRoom')||'704';
 const TD=['อา','จ','อ','พ','พฤ','ศ','ส'],TDF=['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'],TC=['#7c4dff','#ff5c8a','#00b894','#ff9f1a','#0ea5e9','#e11d6a'],T0=7,T1=19,TH=46;
 const m2=t=>{const a=String(t).split(':');return (+a[0]||0)*60+(+a[1]||0)};
 const tq=u=>url+(url.includes('?')?'&':'?')+u;
+let ttW=0,ttH0=8,ttN=9,ttCW=60,ttRH=52;
+const TTD='2000-01-01';/* โหมดสำรอง: Apps Script ยังเป็นเวอร์ชันเก่า เก็บตารางเรียนเป็นแถวพิเศษในแท็บ ปฏิทิน (วันที่ 2000-01-01) */
+const ttEnc=it=>({id:String(it.id),date:TTD,time:'00:00',title:'TT|'+JSON.stringify({room:it.room,day:it.day,start:it.start,end:it.end,subject:it.subject,code:it.code,teacher:it.teacher,color:it.color})});
+const ttFromEv=l=>(l||[]).filter(e=>String(e.date)===TTD&&String(e.title).indexOf('TT|')===0).map(e=>{try{return {...JSON.parse(String(e.title).slice(3)),id:String(e.id)}}catch(x){return null}}).filter(Boolean);
+const TT_CAND=['https://script.google.com/macros/s/AKfycbwr69Oiw1yPvWJYRFs8FB44brirZFa1qRGDRLBrMSVD729Z2fIWjMbk-KF2Qb_PYzxo/exec','https://script.google.com/macros/s/AKfycbyLqfOg3Pa0-mucxJb3nLpgc_lyhCLvFDlSKDZmIvn-haTQESsW1RV4bBE4xmu0Srjy/exec',DEFAULT_URL];
+async function ttProbe(manual){
+  const seen=new Set([url]);let hit='';
+  for(const u of TT_CAND){if(seen.has(u))continue;seen.add(u);
+    try{const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),15000);const r=await fetch(u+'?action=ttlist&t='+Date.now(),{signal:ac.signal});clearTimeout(tm);const d=await r.json();if(Array.isArray(d.tt)){hit=u;break}}catch(e){}}
+  if(!hit){if(manual)alert('ยังไม่พบลิงก์ที่เป็นเวอร์ชันใหม่\n\nวิธีแก้: ใน Apps Script วางโค้ด Code.gs ใหม่ > บันทึก > Deploy > New deployment (Web app, Execute as: Me, Who has access: Anyone) แล้วคัดลอก URL ใหม่มาวางที่หน้าตั้งค่า > บันทึกและโหลดข้อมูล');return false}
+  if(confirm('พบลิงก์ Apps Script เวอร์ชันใหม่ (ลงท้าย …'+hit.replace(/\/exec$/,'').slice(-8)+') ที่บันทึกตารางเรียนลงแท็บ ตารางเรียน_DB ได้\nใช้ลิงก์นี้แทนลิงก์เดิมไหม?')){url=hit;try{localStorage.setItem('gs_url2',url)}catch(e){}$('#urlIn').value=url;window._ttLegacy=0;await load();toast('✅ สลับไปใช้ลิงก์เวอร์ชันใหม่แล้ว');return true}
+  return false}
+async function ttMig(){const rows=window._ttOld||[];if(!rows.length||window._ttMigBusy||window._ttLegacy)return;window._ttMigBusy=1;
+  try{let last=null;for(const r of rows){if(!tt.some(x=>String(x.id)===String(r.id)))last=await ttFetch('action=ttwrite&p='+encodeURIComponent(JSON.stringify({action:'add',item:r})));await post('ev','delete',{id:r.id})}
+    window._ttOld=[];if(last&&Array.isArray(last.tt)){tt=last.tt;renderTT()}toast('✅ ย้ายตารางเรียนเข้าแท็บ ตารางเรียน_DB ในชีทแล้ว')}
+  catch(e){}window._ttMigBusy=0}
 async function loadTT(){ttLoad=true;ttErr='';renderTT();
-  if(!url){tt=[];ttErr='🔴';ttLoad=false;renderTT();return}
-  try{const d=await (await fetch(tq('action=ttlist&t='+Date.now()))).json();if(d.ok&&Array.isArray(d.tt)){tt=d.tt;ttAt=Date.now();$('#mode').textContent='🟢'}else{tt=[];ttErr='🔴'}}
-  catch(e){tt=[];ttErr='🔴'}
+  try{const d=await ttFetch('action=ttlist');if(Array.isArray(d.tt)){window._ttLegacy=0;tt=d.tt;setTimeout(ttMig,300)}else if(d.tx){window._ttLegacy=1;tt=ttFromEv(d.ev);if(!window._ttProbed){window._ttProbed=1;setTimeout(()=>ttProbe(false),500)}}else throw new Error(ttOldMsg());ttAt=Date.now();$('#mode').textContent='🟢'}
+  catch(e){tt=[];ttErr=e.message}
   ttLoad=false;renderTT()}
-async function ttWrite(action,item,id){if(!url){toast('🔴');return false}
-  try{const d=await (await fetch(tq('action=ttwrite&p='+encodeURIComponent(JSON.stringify({action,item,id}))))).json();if(!d.ok){toast('🔴');return false}}catch(e){toast('🔴');return false}
-  await loadTT();return !ttErr}
+const ttOldMsg=()=>'ลิงก์ที่เว็บใช้อยู่ (ลงท้าย …'+String(url).replace(/\/exec.*$/,'').slice(-12)+'/exec) ยังตอบเป็นโค้ดเก่า · ไปที่หน้าตั้งค่า แล้ววาง Web app URL ของ deployment ที่เพิ่งอัปเดต (Deploy > Manage deployments > คัดลอก URL) กด “บันทึกและโหลดข้อมูล” · ทดสอบ: เปิดลิงก์นั้นต่อท้าย ?action=ttlist ในเบราว์เซอร์ ต้องเห็นคำว่า \"tt\" · ที่เซิร์ฟเวอร์ตอบมา: '+(window._ttLast||'-');
+async function ttFetch(q){if(!url)throw new Error('ยังไม่ได้ใส่ลิงก์ Apps Script ในหน้าตั้งค่า');
+  const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),30000);let txt;
+  try{const r=await fetch(tq(q+'&t='+Date.now()),{signal:ac.signal});txt=await r.text();window._ttLast=txt.slice(0,140)}
+  catch(e){throw new Error('ติดต่อชีทไม่ได้ ตรวจอินเทอร์เน็ต ลิงก์ /exec และสิทธิ์ Deploy ต้องเป็น "ทุกคน (Anyone)"')}
+  finally{clearTimeout(tm)}
+  let d;try{d=JSON.parse(txt)}catch(e){throw new Error('ชีทตอบกลับไม่ถูกต้อง ตรวจลิงก์ /exec และสิทธิ์ Deploy ต้องเป็น "ทุกคน (Anyone)"')}
+  if(d.ok===false)throw new Error(d.error||'บันทึกไม่สำเร็จ');
+  return d}
+async function ttWrite(action,item,id){
+  if(window._ttLegacy){
+    await ttFetch('action=write&p='+encodeURIComponent(JSON.stringify({kind:'ev',action,id,item:item?ttEnc(item):undefined})));
+    const l=await ttFetch('action=list');tt=ttFromEv(l.ev)
+  }else{
+    const d=await ttFetch('action=ttwrite&p='+encodeURIComponent(JSON.stringify({action,item,id})));
+    if(Array.isArray(d.tt)){tt=d.tt}else{const l=await ttFetch('action=ttlist');if(!Array.isArray(l.tt))throw new Error(ttOldMsg());tt=l.tt}
+  }
+  const has=tt.some(x=>String(x.id)===String(action==='delete'?id:item.id));
+  if(action==='delete'?has:!has)throw new Error('ชีทตอบรับ แต่ยังไม่พบการเปลี่ยนแปลงในแท็บ "ตารางเรียน"');
+  ttAt=Date.now();ttErr='';$('#mode').textContent='🟢';renderTT()}
 function ttClash(it){return tt.find(x=>x.room===it.room&&+x.day===+it.day&&x.id!=it.id&&m2(it.start)<m2(x.end)&&m2(it.end)>m2(x.start))}
 function setRoom(r){ttRoom=r;lsSet('ttRoom',r);$$('#ttRoom button').forEach(b=>b.classList.toggle('on',b.dataset.r===r));renderTT()}
 function renderTT(){
-  $('#ttMsg').innerHTML=ttLoad?'<div class="empty">⏳ กำลังโหลดตารางจากชีท...</div>':ttErr?`<div class="empty" style="border-color:#e11d6a">⚠️ ${esc(ttErr)}<br><button class="chip" onclick="loadTT()" style="margin-top:8px">🔄 ลองใหม่</button></div>`:'';$('#ttAdd').disabled=!!ttErr||ttLoad;
+  $('#ttMsg').innerHTML=(!ttLoad&&!ttErr&&window._ttLegacy)?'<div class="empty" style="border-color:#ff9f1a">⚠️ ตอนนี้ลิงก์ Apps Script ยังเป็นโค้ดเก่า วิชาจึงถูกเก็บในแท็บ “ปฏิทิน” แทนแท็บ ตารางเรียน_DB<br><button class="chip" onclick="ttProbe(true)" style="margin-top:8px">🔎 หาลิงก์เวอร์ชันใหม่</button></div>':ttLoad?'<div class="empty">⏳ กำลังโหลดตารางจากชีท...</div>':ttErr?`<div class="empty" style="border-color:#e11d6a">⚠️ ${esc(ttErr)}<br><button class="chip" onclick="loadTT()" style="margin-top:8px">🔄 ลองใหม่</button></div>`:'';$('#ttAdd').disabled=ttLoad;
   const R=tt.filter(x=>x.room===ttRoom),has=d=>R.some(x=>+x.day===d),days=[1,2,3,4,5].concat(has(6)?[6]:[],has(0)?[0]:[]),now=new Date().getDay(),hrs=[];
-  for(let h=T0;h<T1;h++)hrs.push(h);
+  let lo=8,hi=17;R.forEach(x=>{lo=Math.min(lo,Math.floor(m2(x.start)/60));hi=Math.max(hi,Math.ceil(m2(x.end)/60))});lo=Math.max(5,lo);hi=Math.min(23,hi);for(let h=lo;h<hi;h++)hrs.push(h);
   $('#ttN').textContent=R.length?R.length+' วิชา':'';
-  const CWH=62;
-  $('#ttGrid').innerHTML=`<div class="ttx"><div style="width:${58+hrs.length*CWH}px"><div class="ttr hd"><div class="ttd0">วัน / เวลา</div>${hrs.map((h,i)=>`<div class="tth2" style="width:${CWH}px"><b>คาบ ${i+1}</b>${pad(h)}:00<br>${pad(h+1)}:00</div>`).join('')}</div>`
-   +days.map(d=>`<div class="ttr${d===now?' now':''}"><div class="ttd0">${TDF[d]}</div><div class="ttb2" data-d="${d}" style="width:${hrs.length*CWH}px;background-size:${CWH}px 100%">`
-   +R.filter(x=>+x.day===d).map(x=>`<div class="tti2" data-id="${esc(x.id)}" style="left:${(m2(x.start)-T0*60)*CWH/60}px;width:${(m2(x.end)-m2(x.start))*CWH/60-2}px;background:${TC[(+x.color||0)%6]}"><b>${esc(x.code||x.subject)}</b><small>${esc(x.subject)}</small><small>${esc(x.start)}–${esc(x.end)}</small>${x.teacher?`<small>${esc(x.teacher)}</small>`:''}</div>`).join('')+`</div></div>`).join('')+`</div></div>`;
+  const W=$('#ttGrid').clientWidth||Math.min(innerWidth-20,1170),vert=W<820,n=hrs.length;ttW=W;ttH0=lo;ttN=n;
+  const blk=(x,st)=>`<div class="tgi" data-id="${esc(x.id)}" style="${st};background:${TC[(+x.color||0)%6]}"><b>${esc(x.code||x.subject)}</b><small>${esc(x.subject)}</small><small>${esc(x.start)}–${esc(x.end)}</small>${x.teacher?`<small>${esc(x.teacher)}</small>`:''}</div>`;
+  if(!vert){
+    const DC=70,CW=Math.max(40,Math.floor((W-DC-6)/n)),RH=108;ttCW=CW;
+    $('#ttGrid').innerHTML=`<div class="tgx"><div class="tgr tgh"><div class="tgd">วัน / เวลา</div>${hrs.map((h,i)=>`<div class="tgt" style="width:${CW}px"><b>คาบ ${i+1}</b>${pad(h)}:00–${pad(h+1)}:00</div>`).join('')}</div>`
+     +days.map(d=>`<div class="tgr${d===now?' now':''}" style="height:${RH}px"><div class="tgd">${TDF[d]}</div><div class="tgb" data-d="${d}" style="width:${n*CW}px;background-size:${CW}px 100%">`
+     +R.filter(x=>+x.day===d).map(x=>blk(x,`left:${(m2(x.start)-lo*60)*CW/60+1}px;width:${(m2(x.end)-m2(x.start))*CW/60-3}px;top:4px;bottom:4px`)).join('')+`</div></div>`).join('')+`</div>`;
+  }else{
+    const TCW=38,RH=n>9?50:58,cols=`${TCW}px repeat(${days.length},minmax(0,1fr))`;ttRH=RH;
+    $('#ttGrid').innerHTML=`<div class="tvx"><div class="tvh" style="grid-template-columns:${cols}"><div></div>${days.map(d=>`<div class="tvn${d===now?' now':''}">${W<400?TD[d]:TDF[d]}</div>`).join('')}</div>`
+     +`<div class="tvb" style="grid-template-columns:${cols};height:${n*RH}px"><div class="tvl">${hrs.map(h=>`<div style="height:${RH}px">${pad(h)}:00</div>`).join('')}</div>`
+     +days.map(d=>`<div class="tvc" data-d="${d}" style="background-size:100% ${RH}px">`+R.filter(x=>+x.day===d).map(x=>blk(x,`top:${(m2(x.start)-lo*60)*RH/60+1}px;height:${(m2(x.end)-m2(x.start))*RH/60-3}px`)).join('')+`</div>`).join('')+`</div></div>`;
+  }
   const L=R.slice().sort((a,b)=>((+a.day+6)%7)-((+b.day+6)%7)||m2(a.start)-m2(b.start));
   $('#ttList').innerHTML=L.length?L.map(x=>`<div class="item"><div class="tm" style="background:${TC[(+x.color||0)%6]};color:#fff">${TD[x.day]} ${esc(x.start)}</div><div class="m"><b>${esc(x.subject)}</b><small>${esc(x.code||'')} ${x.teacher?'· '+esc(x.teacher):''} · ถึง ${esc(x.end)}</small></div><button class="x" onclick="ttForm('${esc(x.id)}')">✏️</button><button class="x" onclick="ttDel('${esc(x.id)}')">🗑</button></div>`).join(''):'<div class="empty">ห้อง '+ttRoom+' ยังไม่มีวิชา · กด “เพิ่มวิชาเรียน” ได้เลย 🎓</div>';
 }
-async function ttDel(id){const it=tt.find(x=>x.id==id);if(!it||!confirm('ลบวิชา "'+it.subject+'" ?'))return;closeM();toast('กำลังลบจากชีท...');if(await ttWrite('delete',null,id))toast('✅ ลบจากชีทแล้ว')}
+async function ttDel(id){const it=tt.find(x=>x.id==id);if(!it||!confirm('ลบวิชา "'+it.subject+'" ?'))return;closeM();toast('กำลังลบจากชีท...');try{await ttWrite('delete',null,id);toast('✅ ลบจากชีทแล้ว')}catch(e){alert('ลบไม่สำเร็จ: '+e.message)}}
 function ttForm(id,pre){
-  const it=id?tt.find(x=>x.id==id):{room:ttRoom,day:1,start:'09:00',end:'12:00',color:0,subject:'',code:'',teacher:'',...pre};if(!it)return;let k=+it.color||0;
+  const it=id?tt.find(x=>x.id==id):{room:ttRoom,day:1,start:'09:00',end:'12:00',color:0,subject:'',code:'',teacher:'',...pre};if(!it)return;let k=+it.color||0;const nid=id||String(Date.now());
   const op=(a,v,f)=>a.map((t,i)=>`<option value="${f?f(i):t}" ${String(f?f(i):t)===String(v)?'selected':''}>${t}</option>`).join('');
   $('#mBody').innerHTML=`<h3>${id?'✏️ แก้ไขวิชา':'🎓 เพิ่มวิชาเรียน'}</h3>
    <label>ชื่อวิชา</label><input id="tS" value="${esc(it.subject)}" placeholder="เช่น แคลคูลัส 1">
@@ -770,20 +839,24 @@ function ttForm(id,pre){
    <div class="row"><div><label>ห้อง</label><select id="tR">${op(['704','706','708'],it.room)}</select></div><div><label>วัน</label><select id="tD">${op([1,2,3,4,5,6,0].map(d=>TDF[d]),it.day,i=>[1,2,3,4,5,6,0][i])}</select></div></div>
    <div class="row"><div><label>เริ่ม</label><input type="time" id="tB" value="${esc(it.start)}"></div><div><label>สิ้นสุด</label><input type="time" id="tE" value="${esc(it.end)}"></div></div>
    <label>สี</label><div class="ttcol" id="tK">${TC.map((c,i)=>`<i data-k="${i}" class="${i===k?'on':''}" style="background:${c}"></i>`).join('')}</div>
-   <button class="btn" id="tOk">💾 บันทึก</button>${id?'<button class="btn out" id="tDl">🗑 ลบวิชานี้</button>':''}<button class="btn ghost" id="tNo">ปิด</button>`;
+   <div id="tErr" role="alert" style="display:none;margin-top:12px;padding:10px 12px;border:3px solid #e3000b;border-radius:12px;background:#ffe3ea;color:#8c0014;font-size:13px;line-height:1.5"></div><button class="btn" id="tOk">💾 บันทึก</button>${id?'<button class="btn out" id="tDl">🗑 ลบวิชานี้</button>':''}<button class="btn ghost" id="tNo">ปิด</button>`;
   $('#modal').classList.add('on');$('#tNo').onclick=closeM;if(id)$('#tDl').onclick=()=>ttDel(id);
   $('#tK').onclick=e=>{const i=e.target.closest('i');if(!i)return;k=+i.dataset.k;$$('#tK i').forEach(x=>x.classList.toggle('on',x===i))};
+  const err=m=>{const el=$('#tErr');el.textContent='⚠️ '+m;el.style.display='block';el.scrollIntoView({block:'nearest'})};
   $('#tOk').onclick=async()=>{
-    const n={id:id||String(Date.now()),room:$('#tR').value,day:+$('#tD').value,start:$('#tB').value,end:$('#tE').value,subject:$('#tS').value.trim(),code:$('#tC').value.trim(),teacher:$('#tT').value.trim(),color:k};
-    if(!n.subject)return toast('ใส่ชื่อวิชาก่อนนะ');
-    if(!n.start||!n.end||m2(n.end)<=m2(n.start))return toast('เวลาสิ้นสุดต้องหลังเวลาเริ่ม');
-    const c=ttClash(n);if(c)return toast('ชนกับ "'+c.subject+'" '+c.start+'–'+c.end);
+    $('#tErr').style.display='none';
+    const n={id:nid,room:$('#tR').value,day:+$('#tD').value,start:$('#tB').value,end:$('#tE').value,subject:$('#tS').value.trim(),code:$('#tC').value.trim(),teacher:$('#tT').value.trim(),color:k};
+    if(!n.subject)return err('ใส่ชื่อวิชาก่อนนะ');
+    if(!n.start||!n.end||m2(n.end)<=m2(n.start))return err('เวลาสิ้นสุดต้องหลังเวลาเริ่ม');
+    const c=ttClash(n);if(c)return err('เวลาชนกับ "'+c.subject+'" '+c.start+'–'+c.end+' ให้เปลี่ยนวันหรือเวลา');
     const bt=$('#tOk');bt.disabled=true;bt.textContent='⏳ กำลังบันทึกลงชีท...';
-    if(await ttWrite(id?'update':'add',n,id)){closeM();setRoom(n.room);boom();toast('✅ บันทึกลงชีทแล้ว')}else{bt.disabled=false;bt.textContent='💾 บันทึก'}};
+    try{await ttWrite(id?'update':'add',n,id);closeM();setRoom(n.room);boom();toast('✅ บันทึกลงชีทแล้ว')}
+    catch(e){err(e.message);bt.disabled=false;bt.textContent='💾 บันทึก'}};
 }
 $('#ttRoom').onclick=e=>{const b=e.target.closest('button');if(b)setRoom(b.dataset.r)};
 $('#ttAdd').onclick=()=>ttForm(null);
-$('#ttGrid').onclick=e=>{const i=e.target.closest('.tti2');if(i)return ttForm(i.dataset.id);const b=e.target.closest('.ttb2');if(b){const h=Math.min(T1-1,T0+Math.floor((e.clientX-b.getBoundingClientRect().left)/62));ttForm(null,{day:+b.dataset.d,start:pad(h)+':00',end:pad(h+1)+':00'})}};
+$('#ttGrid').onclick=e=>{const i=e.target.closest('.tgi');if(i)return ttForm(i.dataset.id);const b=e.target.closest('.tgb,.tvc');if(!b)return;const r=b.getBoundingClientRect(),v=b.classList.contains('tvc'),k=Math.floor(v?(e.clientY-r.top)/ttRH:(e.clientX-r.left)/ttCW),h=Math.max(ttH0,Math.min(ttH0+ttN-1,ttH0+k));ttForm(null,{day:+b.dataset.d,start:pad(h)+':00',end:pad(h+1)+':00'})};
+try{new ResizeObserver(()=>{const w=$('#ttGrid').clientWidth;if(w>0&&Math.abs(w-ttW)>6)renderTT()}).observe($('#ttGrid'))}catch(e){}
 $('#nav').addEventListener('click',e=>{const b=e.target.closest('button');if(b&&b.dataset.t==='tt'){if(Date.now()-ttAt>20000)loadTT();else renderTT()}});
 setRoom(ttRoom);
 
@@ -956,14 +1029,17 @@ $('#rpP').onclick=()=>{rpM=new Date(rpM.getFullYear(),rpM.getMonth()-1,1);render
 $('#rpN').onclick=()=>{rpM=new Date(rpM.getFullYear(),rpM.getMonth()+1,1);renderReport()};
 /* ===== LEGO CITY v3: เมืองใหญ่ + จอห์น ===== */
 (function(){
-const cv=$('#px'),g=cv.getContext('2d'),CW=960,CH=780;const MOB=matchMedia('(pointer:coarse)').matches||innerWidth<700,RS=MOB?.6:1;cv.width=CW*RS;cv.height=CH*RS;
+const cv=$('#px'),g=cv.getContext('2d');let CW=960,CH=780,RS=1,VG=null;const MOB=matchMedia('(pointer:coarse)').matches||innerWidth<700;
+/* ขนาดจอเกมตามพื้นที่จริง: ภาพใหญ่ขึ้น แต่จำกัดจำนวนพิกเซลที่วาด */
+function fitCv(){const w=cv.parentElement.clientWidth,h=cv.parentElement.clientHeight;if(!w||!h)return;CW=Math.round(w<700?720:Math.max(900,Math.min(1100,w*.85)));CH=Math.round(CW*h/w);RS=Math.min(1,Math.sqrt((MOB?420000:900000)/(CW*CH)));const a=Math.round(CW*RS),b=Math.round(CH*RS);if(cv.width!==a||cv.height!==b){cv.width=a;cv.height=b}VG=null}
+fitCv();try{new ResizeObserver(fitCv).observe(cv.parentElement)}catch(e){addEventListener('resize',fitCv)}
 const K=MOB?2:3,GW=100*K,GH=80*K,OX=GH*16+60,OY=140,P=(x,y)=>[OX+(x-y)*16,OY+(x+y)*8],up=(p,h)=>[p[0],p[1]-h];
 const R=(x,y,w,h,c)=>{g.fillStyle=c;g.fillRect(Math.round(x),Math.round(y),w,h)};
 const sh=(c,a)=>{const n=parseInt(c.slice(1),16),f=v=>Math.max(0,Math.min(255,Math.round(v*(1+a))));return `rgb(${f(n>>16)},${f((n>>8)&255)},${f(n&255)})`};
 const lerp=(a,b,q)=>[a[0]+(b[0]-a[0])*q,a[1]+(b[1]-a[1])*q];
 function poly(pts,c,cx){cx=cx||g;cx.fillStyle=c;const ys=pts.map(p=>p[1]),y0=Math.round(Math.min(...ys)),y1=Math.round(Math.max(...ys));
  for(let y=y0;y<y1;y++){const yy=y+.5,xs=[];for(let i=0;i<pts.length;i++){const a=pts[i],b=pts[(i+1)%pts.length];if((a[1]<=yy&&b[1]>yy)||(b[1]<=yy&&a[1]>yy))xs.push(a[0]+(yy-a[1])/(b[1]-a[1])*(b[0]-a[0]))}
-  if(xs.length>1){const l=Math.round(Math.min(...xs)),r=Math.round(Math.max(...xs));cx.fillRect(l,y,r-l,1)}}}
+  if(xs.length>1){const l=Math.round(Math.min(...xs)),r=Math.round(Math.max(...xs));cx.fillRect(l,y,r-l,cx===g&&!String(c).startsWith('rgba')?1.6:1)}}}
 const disc=(cx,cy,r,c)=>{g.fillStyle=c;for(let y=-r;y<=r;y++){const w=Math.round(Math.sqrt(r*r-y*y));g.fillRect(Math.round(cx)-w,Math.round(cy)+y,w*2,1)}};
 const qd=(A,B,u1,u2,v1,v2,c,cx)=>poly([up(lerp(A,B,u1),v1),up(lerp(A,B,u2),v1),up(lerp(A,B,u2),v2),up(lerp(A,B,u1),v2)],c,cx);
 const box3=(x,y,w,d,h,c,z)=>{z=z||0;const a=up(P(x,y),z),b=up(P(x+w,y),z),e=up(P(x+w,y+d),z),f=up(P(x,y+d),z);poly([f,e,up(e,h),up(f,h)],sh(c,-.12));poly([e,b,up(b,h),up(e,h)],sh(c,-.3));poly([up(a,h),up(b,h),up(e,h),up(f,h)],c)};
@@ -976,12 +1052,18 @@ const TY=[['hood','cafe','tower','park','school','uni','bank','hood','temple','h
 const BD={cafe:{h:38,c:'#f2d29b',r:'#e3000b',i:'☕'},tower:{h:124,c:'#2a9dff',r:'#9aa3c8',i:'🏢'},gym:{h:46,c:'#e3000b',r:'#14162e',i:'🏋️'},lib:{h:54,c:'#b79bff',r:'#6a4fd6',i:'📚'},rest:{h:42,c:'#ff3d8b',r:'#ffd500',i:'🍜'},cine:{h:58,c:'#2b2f5e',r:'#ff3d8b',i:'🎬'},mall:{h:68,c:'#19d3e8',r:'#ffffff',i:'🛍️'},school:{h:50,c:'#ffd23f',r:'#e3000b',i:'🏫'},hosp:{h:78,c:'#ffffff',r:'#e3000b',i:'🏥'},office:{h:104,c:'#9aa3c8',r:'#14162e',i:'🏬'},police:{h:52,c:'#2a4cff',r:'#ffffff',i:'🚓'},fire:{h:48,c:'#e3000b',r:'#ffd500',i:'🚒'},air:{h:62,c:'#e8f1ff',r:'#0087ff',i:'✈️'},bank:{h:70,c:'#d6b35a',r:'#14162e',i:'🏦'},hotel:{h:92,c:'#ff8a5c',r:'#9b4dff',i:'🏨'},uni:{h:78,c:'#c0392b',r:'#ffd500',i:'🎓'},temple:{h:50,c:'#ffd23f',r:'#e3000b',i:'🛕'},factory:{h:60,c:'#8a8f9c',r:'#e3000b',i:'🏭'},stadium:{h:44,c:'#00a83e',r:'#ffffff',i:'🏟️'}};
 const blockAt=(x,y)=>{const i=Math.min(NX-1,x/10|0),j=Math.min(NY-1,y/10|0);return x>=BX[i]&&x<=BE[i]&&y>=BY[j]&&y<=BYE[j]?[i,j]:null};
 const TYX=Array.from({length:NY},(_,j)=>Array.from({length:NX},(_,i)=>{let t=TY[j%8][i%10];if(i>=10||j>=8){const q=(i*7+j*13)%11;if(t==='hood'&&q===0)t='factory';else if(t==='hood'&&q===5)t='park';else if(t==='air')t='hood';else if(t==='hood'&&q===8)t='play'}return t})),BL=[],BT={},HS=[],HC=[['#ff8a00','#e3000b'],['#ff3d8b','#9b4dff'],['#00c8e8','#0057a8'],['#ffd23f','#00a83e'],['#9be15d','#e3000b'],['#b79bff','#ffd500'],['#ffffff','#0087ff'],['#ff6b6b','#14162e']];
+/* พื้นที่ใหญ่: สนามบิน / โรงพยาบาล / ค่ายทหาร (รวมหลายบล็อก) */
+const CAMP={air:{i0:0,i1:2,j0:4,j1:5},hosp:{i0:4,i1:5,j0:1,j1:1},army:{i0:6,i1:7,j0:2,j1:3}};
+for(const k in CAMP){const c=CAMP[k];c.x0=BX[c.i0];c.x1=BE[c.i1]+1;c.y0=BY[c.j0];c.y1=BYE[c.j1]+1;for(let j=c.j0;j<=c.j1;j++)for(let i=c.i0;i<=c.i1;i++)TYX[j][i]='camp'}
+const campAt=(x,y)=>{for(const k in CAMP){const c=CAMP[k];if(x>=c.x0&&x<c.x1&&y>=c.y0&&y<c.y1)return k}return null};
+[['air',2,1,14,5,76],['hosp',2,1,13,4,132]].forEach(a=>{const c=CAMP[a[0]],x0=c.x0+a[1],y0=c.y0+a[2],w=a[3],d=a[4];const b={t:a[0],...BD[a[0]],h:a[5],ic:BD[a[0]].i,camp:1,x0,y0,w,d,x1:x0+w,y1:y0+d,dx:x0+(w>>1),i:c.i0,j:c.j0};BL.push(b);BT[a[0]]=b});
 TYX.forEach((row,j)=>row.forEach((t,i)=>{
  if(t==='hood'){const x0=BX[i]+1,y0=BY[j]+1;[[0,0],[4,0],[0,3],[4,3]].forEach(a=>{const k=HS.length,col=HC[k%8],hx=x0+a[0],hy=y0+a[1];if(hy+2<=BYE[j]-1){const b={t:'h'+(k%8),hs:1,k,h:38,ex:16,c:col[0],r:col[1],ic:'🏠',x0:hx,y0:hy,w:2,d:2,x1:hx+2,y1:hy+2,dx:hx+1,i,j};HS.push(b);BL.push(b)}})}
  else if(BD[t]){const d=DEP[j%8],x0=BX[i]+1,w=BE[i]-BX[i]-1;const b={t,...BD[t],ic:BD[t].i,x0,y0:BY[j]+1,w,d,x1:x0+w,y1:BY[j]+1+d,dx:x0+(w>>1),i,j};BL.push(b);BT[t]=BT[t]||b}}));
 BT.home=HS[0];
 BL.sort((a,b)=>a.x0+a.y0-b.x0-b.y0);
 const W=[];for(let x=0;x<GW;x++){W[x]=[];for(let y=0;y<GH;y++){const rx=isR(x),ry=isR(y);W[x][y]=blockAt(x,y)?true:(!rx&&ry&&RX.includes(x))||(rx&&!ry&&RY.includes(y))}}
+for(const k in CAMP){const c=CAMP[k];for(let x=c.x0;x<c.x1;x++)for(let y=c.y0;y<c.y1;y++)W[x][y]=true}
 BL.forEach(b=>{for(let x=b.x0;x<b.x1;x++)for(let y=b.y0;y<b.y1;y++)W[x][y]=false});
 /* ของประกอบฉาก */
 const S=[],POND=new Set(),TC=[['#0f9d3d','#16b34a','#2ed160','#5fe38a'],['#13a84a','#22c55e','#4ade80','#86efac'],['#d6336c','#f06595','#faa2c1','#ffd6e5']];
@@ -990,7 +1072,7 @@ const bench=(x,y)=>{W[x][y]=false;S.push({x:x+.5,y:y+.5,d:()=>{box3(x+.1,y+.25,.
 const lamp=(x,y)=>S.push({x:x+.5,y:y+.5,lamp:1,d:()=>{const m=P(x+.5,y+.5);R(m[0]-1,m[1]-24,2,24,'#3b3b52');R(m[0]-4,m[1]-28,8,5,'#ffe08a');R(m[0]-3,m[1]-29,6,1,'#fff')}});
 const stall=(x,y,w,c)=>{for(let i=0;i<w;i++)W[x+i][y]=false;S.push({x:x+w/2,y:y+.5,d:()=>{box3(x,y,w,1,5,'#c98f4c');box3(x,y-.1,w/2,1.2,2,c,9);box3(x+w/2,y-.1,w/2,1.2,2,'#fff',9);const m=P(x+w/2,y+.5);['#e3000b','#ffd500','#00a83e','#ff8a00'].forEach((q,i)=>R(m[0]-12+i*6,m[1]-9,4,4,q))}})};
 const table=(x,y,c)=>{W[x][y]=false;S.push({x:x+.5,y:y+.5,d:()=>{box3(x+.25,y+.25,.5,.5,5,'#ffffff');const m=P(x+.5,y+.5);R(m[0]-1,m[1]-24,2,20,'#ddd');poly([[m[0]-13,m[1]-17],[m[0],m[1]-26],[m[0]+13,m[1]-17],[m[0],m[1]-13]],c);R(m[0]-2,m[1]-9,4,3,'#fff')}})};
-BL.forEach(b=>{if(b.hs)return;const yb=BYE[b.j];[b.x0,b.x1-1].forEach((x,k)=>{const y=b.y1+1;if(y<yb)tree(x,y,k+b.i)})});
+BL.forEach(b=>{if(b.hs||b.camp)return;const yb=BYE[b.j];[b.x0,b.x1-1].forEach((x,k)=>{const y=b.y1+1;if(y<yb)tree(x,y,k+b.i)})});
 for(let x=34;x<=36;x++)for(let y=3;y<=5;y++){W[x][y]=false;POND.add(x+','+y)}
 [[32,1],[37,1],[32,7],[37,7],[33,5],[37,3],[35,7],[35,1]].forEach((a,i)=>tree(a[0],a[1],i));bench(33,2);bench(37,6);
 [[12,12],[17,12],[12,17],[17,17]].forEach((a,i)=>tree(a[0],a[1],2));bench(12,14);bench(17,15);
@@ -1000,32 +1082,57 @@ S.push({x:15,y:15,fo:1,d:t=>{box3(14,14,2,2,3,'#cfd6e6');poly([up(P(14.15,14.15)
 tree(22,22,0);tree(27,22,2);tree(22,27,1);tree(27,27,0);bench(25,27);
 for(let x=23;x<=26;x++)for(let y=33;y<=36;y++){W[x][y]=false;POND.add(x+','+y)}
 [[22,32],[27,32],[22,37],[27,37],[26,38],[22,35]].forEach((a,i)=>tree(a[0],a[1],i));bench(24,38);
-TYX.forEach((row,j)=>row.forEach((t,i)=>{if(!BD[t]&&t!=='hood'&&t!=='zoo'&&(i>4||j>3))for(let k=0;k<7;k++)tree(BX[i]+2+((k*37+i*11+j*7)%(BE[i]-BX[i]-3)),BY[j]+2+((k*53+i*5+j*13)%(BYE[j]-BY[j]-3)),k)}));
+TYX.forEach((row,j)=>row.forEach((t,i)=>{if(!BD[t]&&t!=='hood'&&t!=='zoo'&&t!=='camp'&&(i>4||j>3))for(let k=0;k<7;k++)tree(BX[i]+2+((k*37+i*11+j*7)%(BE[i]-BX[i]-3)),BY[j]+2+((k*53+i*5+j*13)%(BYE[j]-BY[j]-3)),k)}));
 W[23][24]=false;W[24][24]=false;S.push({x:24,y:24.5,d:t=>{const m=P(24,24.5);R(m[0]-13,m[1]-24,2,24,'#e3000b');R(m[0]+11,m[1]-24,2,24,'#e3000b');R(m[0]-13,m[1]-26,26,3,'#14162e');const s=Math.round(Math.sin(t*2)*4);[-6,5].forEach(o=>{R(m[0]+o,m[1]-23,1,13,'#999');R(m[0]+o-3+s,m[1]-10,7,2,'#ffd500')})}});
 W[26][25]=false;S.push({x:26.5,y:25.5,d:()=>{box3(26,25,1,1,10,'#0087ff');const m=P(26.5,26);poly([[m[0]-4,m[1]-12],[m[0]+4,m[1]-12],[m[0]+20,m[1]+2],[m[0]+12,m[1]+2]],'#ffd500')}});
 table(13,6,'#e3000b');table(16,6,'#0087ff');
-BX.forEach((bx,i)=>BY.forEach((by,j)=>{[[bx,by],[BE[i],by],[bx,BYE[j]],[BE[i],BYE[j]]].forEach(a=>lamp(a[0],a[1]))}));
+BX.forEach((bx,i)=>BY.forEach((by,j)=>{[[bx,by],[BE[i],by],[bx,BYE[j]],[BE[i],BYE[j]]].forEach(a=>campAt(a[0],a[1])||lamp(a[0],a[1]))}));
+/* ของในพื้นที่ใหญ่ */
+const blockW=(x,y,w,d)=>{for(let i=Math.floor(x);i<x+w;i++)for(let j=Math.floor(y);j<y+d;j++)if(W[i])W[i][j]=false};
+const prop=(x,y,d,r)=>S.push({x,y,r:r||200,d});
+const plane=(x,y)=>{blockW(x,y,5,1);prop(x+2.5,y+.5,()=>{poly([P(x,y-.2),P(x+5.4,y-.2),P(x+5.4,y+1.2),P(x,y+1.2)],'rgba(0,0,0,.18)');
+ box3(x+2,y-2,1.1,2,3,'#c3ccdf',9);box3(x,y,5,1,13,'#ffffff',6);box3(x+5,y+.2,.7,.6,8,'#dfe6f5',8);box3(x+.25,y-.7,.7,2.4,3,'#e3000b',17);box3(x+.2,y+.35,.8,.3,26,'#e3000b',19);box3(x+2,y+1,1.1,2,3,'#c3ccdf',9);
+ for(let i=0;i<7;i++){const m=P(x+1+i*.52,y+1);R(m[0]-2,m[1]-15,4,4,'#2a9dff')}box3(x+2.3,y+1.7,.8,.4,5,'#5b6280',4);box3(x+2.3,y-1.3,.8,.4,5,'#5b6280',4)})};
+const ambu=(x,y)=>{blockW(x,y,2,1);prop(x+1,y+.5,t=>{box3(x,y,2.1,.9,15,'#ffffff',3);box3(x+1.5,y+.05,.6,.8,6,'#bfe9ff',12);const m=P(x+.8,y+.9);R(m[0]-2,m[1]-18,4,12,'#e3000b');R(m[0]-6,m[1]-14,12,4,'#e3000b');box3(x+.8,y+.3,.4,.3,4,Math.sin(t*8)>0?'#e3000b':'#0087ff',18);[.3,1.7].forEach(o=>{const q=P(x+o,y+.9);R(q[0]-4,q[1]-4,8,6,'#14162e')})})};
+const tank=(x,y)=>{blockW(x,y,3,2);prop(x+1.5,y+1,()=>{box3(x,y,3,.5,8,'#2f3a1f');box3(x+.2,y+.3,2.6,1.1,9,'#66773f',5);box3(x,y+1.2,3,.5,8,'#2f3a1f');box3(x+.9,y+.5,1.2,.8,9,'#7b8d4c',14);box3(x+2.1,y+.8,1.8,.2,3,'#3f4a29',18)})};
+{const c=CAMP.air,{x0,y0}=c;
+ blockW(x0+18,y0+1,2,2);prop(x0+19,y0+2,t=>{box3(x0+18,y0+1,2,2,96,'#cfd6e6');box3(x0+17.5,y0+.5,3,3,22,'#2a9dff',96);box3(x0+17.5,y0+.5,3,3,5,'#14162e',118);const m=P(x0+19,y0+2);R(m[0]-1,m[1]-146,2,22,'#888');R(m[0]-3,m[1]-150,6,5,Math.sin(t*4)>0?'#e3000b':'#ffd500')},260);
+ blockW(x0+22,y0+1,6,4);prop(x0+25,y0+3,()=>{box3(x0+22,y0+1,6,4,46,'#9aa3c8');box3(x0+21.8,y0+.8,6.4,4.4,6,'#0087ff',46);poly([P(x0+23,y0+5),P(x0+27,y0+5),up(P(x0+27,y0+5),34),up(P(x0+23,y0+5),34)],'#3a4162')},260);
+ plane(x0+2,y0+8.8);plane(x0+11,y0+8.8);plane(x0+20,y0+8.8)}
+{const c=CAMP.hosp;ambu(c.x0+10,c.y0+6);ambu(c.x0+14,c.y0+6)}
 const SPOTS=[];for(let x=0;x<GW;x++)for(let y=0;y<GH;y++)if(W[x][y]&&blockAt(x,y))SPOTS.push([x,y]);
 /* พื้น */
 let bx;
-function genSea(X,Y,Wd,Ht){const SD=3,SE=24;poly([P(0,GH),P(GW,GH),P(GW,GH+SD),P(0,GH+SD)],'#f4dfa3',bx);poly([P(0,GH+SD),P(GW,GH+SD),P(GW,GH+SE),P(0,GH+SE)],'#1e9bea',bx);for(let y=GH+SD;y<GH+SE;y+=2)for(let x=(y%4)*3;x<GW;x+=6){const q=P(x,y);if(q[0]<X-20||q[0]>X+Wd+20||q[1]<Y-10||q[1]>Y+Ht+10)continue;bx.fillStyle='rgba(255,255,255,.55)';bx.fillRect(Math.round(q[0]),Math.round(q[1]),10,2)}for(let x=0;x<GW;x+=2){const q=P(x,GH+SD);if(q[0]<X-20||q[0]>X+Wd+20||q[1]<Y-10||q[1]>Y+Ht+10)continue;bx.fillStyle='#fff';bx.fillRect(Math.round(q[0]),Math.round(q[1]),12,2)}}
+function genSea(X,Y,Wd,Ht){const SD=3,SE=34;poly([P(0,GH),P(GW,GH),P(GW,GH+SD),P(0,GH+SD)],'#f4dfa3',bx);poly([P(0,GH+SD),P(GW,GH+SD),P(GW,GH+SE),P(0,GH+SE)],'#1e9bea',bx);for(let y=GH+SD;y<GH+SE;y+=2)for(let x=(y%4)*3;x<GW;x+=6){const q=P(x,y);if(q[0]<X-20||q[0]>X+Wd+20||q[1]<Y-10||q[1]>Y+Ht+10)continue;bx.fillStyle='rgba(255,255,255,.55)';bx.fillRect(Math.round(q[0]),Math.round(q[1]),10,2)}for(let x=0;x<GW;x+=2){const q=P(x,GH+SD);if(q[0]<X-20||q[0]>X+Wd+20||q[1]<Y-10||q[1]>Y+Ht+10)continue;bx.fillStyle='#fff';bx.fillRect(Math.round(q[0]),Math.round(q[1]),12,2)}}
 function genBg(X,Y,Wd,Ht){poly([P(0,GH),P(GW,GH),up(P(GW,GH),-14),up(P(0,GH),-14)],'#1ba24d',bx);poly([P(GW,0),P(GW,GH),up(P(GW,GH),-14),up(P(GW,0),-14)],'#12803c',bx);
  const inFp=(x,y)=>BL.some(b=>!b.hs&&x>=b.x0&&x<b.x1&&y>=b.y0&&y<b.y1);
- for(let x=0;x<GW;x++)for(let y=0;y<GH;y++){const _q=P(x,y);if(_q[0]<X-40||_q[0]>X+Wd+40||_q[1]<Y-30||_q[1]>Y+Ht+40)continue;const c=(x+y)%2,b=blockAt(x,y);let col,road=false,grass=false;
-  if(!b){road=true;col=W[x][y]?(c?'#f4f6fb':'#4a4f63'):'#4a4f63'}
+ const _u=[(X-60-OX)/16,(X+Wd+60-OX)/16],_v=[(Y-50-OY)/8,(Y+Ht+50-OY)/8],x0=Math.max(0,Math.floor((_u[0]+_v[0])/2)),x9=Math.min(GW,Math.ceil((_u[1]+_v[1])/2)+1),y0=Math.max(0,Math.floor((_v[0]-_u[1])/2)),y9=Math.min(GH,Math.ceil((_v[1]-_u[0])/2)+1);
+ for(let x=x0;x<x9;x++)for(let y=y0;y<y9;y++){const _q=P(x,y);if(_q[0]<X-40||_q[0]>X+Wd+40||_q[1]<Y-30||_q[1]>Y+Ht+40)continue;const c=(x+y)%2,b=blockAt(x,y),cp=campAt(x,y);let col,road=false,grass=false;
+  if(cp){const k=CAMP[cp],u=x-k.x0,v=y-k.y0,edge=u===0||v===0||x===k.x1-1||y===k.y1-1;
+   if(cp==='air')col=v>=12&&v<=16?((v===12||v===16)?'#f4f6fb':v===14&&u%3<2?'#ffffff':(u<3||u>k.x1-k.x0-4)&&v%2?'#ffffff':'#3b3f50'):v>=7&&v<=11?(v===11&&u%2?'#ffd500':c?'#aeb4c6':'#a5abbe'):c?'#d6dbe8':'#ccd2e0';
+   else if(cp==='hosp'){const pad=u>=2&&u<=4&&v>=5&&v<=7;col=pad?((u===3||v===6&&u>=2)?'#ffffff':'#e3000b'):edge?'#7fd6a0':c?'#eef6ff':'#e2eefb'}
+   else{const pad=u>=12&&u<=15&&v>=12&&v<=15;col=pad?((u===12||u===15||v===12||v===15)?'#ffd500':'#555d4a'):edge?'#6d7a48':c?'#a9b476':'#9fab6c'}}
+  else if(!b){road=true;col=W[x][y]?(c?'#f4f6fb':'#4a4f63'):'#4a4f63'}
   else{const t=TYX[b[1]][b[0]],i=b[0],j=b[1],ring=x===BX[i]||x===BE[i]||y===BY[j]||y===BYE[j];
    col=ring?(c?'#dfe4ef':'#d2d8e6'):POND.has(x+','+y)?(c?'#38b6ff':'#2aa3f5'):inFp(x,y)?'#9aa1b8':t==='park'?(c?'#34c961':'#2fbf5b'):t==='plaza'?(c?'#ffd9ea':'#ffc4de'):t==='market'?(c?'#ffeeb5':'#ffe28a'):t==='play'?(c?'#ffb27a':'#ff9f5a'):(c?'#35c45f':'#2fb957');grass=!ring&&!inFp(x,y)&&(t==='park'||t==='hood'||t==='pool'||BD[t])}
   poly([P(x,y),P(x+1,y),P(x+1,y+1),P(x,y+1)],col,bx);const p=P(x+.5,y+.5);
-  if(!road){bx.fillStyle=sh(col,.2);bx.fillRect(Math.round(p[0])-4,Math.round(p[1])-2,8,3);bx.fillStyle=sh(col,-.2);bx.fillRect(Math.round(p[0])-4,Math.round(p[1])+1,8,1);
+  if(cp){}else if(!road){bx.fillStyle=sh(col,.2);bx.fillRect(Math.round(p[0])-4,Math.round(p[1])-2,8,3);bx.fillStyle=sh(col,-.2);bx.fillRect(Math.round(p[0])-4,Math.round(p[1])+1,8,1);
    if(grass&&(x*7+y*13)%9===0){bx.fillStyle=['#ff3d8b','#ffd500','#fff','#9b4dff'][(x+y)%4];bx.fillRect(Math.round(p[0])+(x*3)%5-2,Math.round(p[1])+(y*2)%3-1,2,2)}}
   else if(!W[x][y]){const rx=isR(x),ry=isR(y);bx.fillStyle='#ffd500';
    if(rx&&!ry&&x%10===9&&y%2===0){const q=P(x+1,y+.5);bx.fillRect(Math.round(q[0])-1,Math.round(q[1])-1,3,2)}
    if(ry&&!rx&&y%10===9&&x%2===0){const q=P(x+.5,y+1);bx.fillRect(Math.round(q[0])-1,Math.round(q[1])-1,3,2)}}}}
-const BGT=[],TS=1024,WW=(GW+GH)*16+80,HH=(GW+GH)*8+480;
-for(let Y=0;Y<HH;Y+=TS)for(let X=0;X<WW;X+=TS){let ok=false;for(let a=0;a<=8&&!ok;a++)for(let b2=0;b2<=8&&!ok;b2++){const u=(X+TS*a/8-OX)/16,v=(Y+TS*b2/8-OY)/8,x=(u+v)/2,y=(v-u)/2;if(x>-3&&x<GW+3&&y>-3&&y<GH+26)ok=true}if(!ok)continue;const c=document.createElement('canvas');c.width=c.height=TS+2;bx=c.getContext('2d');bx.translate(-X,-Y);genBg(X,Y,TS+2,TS+2);genSea(X,Y,TS+2,TS+2);BGT.push({c,x:X,y:Y})}
+/* พื้นหลังแบบสร้างเฉพาะส่วนที่มองเห็น (ประหยัดแรม) */
+const TS=512,WW=(GW+GH)*16+80,HH=(GW+GH)*8+480,BGC=new Map();let OV=null;
+const bgHas=(X,Y)=>{for(let a=0;a<=8;a++)for(let b=0;b<=8;b++){const u=(X+TS*a/8-OX)/16,v=(Y+TS*b/8-OY)/8,x=(u+v)/2,y=(v-u)/2;if(x>-3&&x<GW+3&&y>-3&&y<GH+36)return true}return false};
+function bgMake(X,Y){const c=document.createElement('canvas');c.width=c.height=TS+2;bx=c.getContext('2d');bx.translate(-X,-Y);genBg(X,Y,TS+2,TS+2);genSea(X,Y,TS+2,TS+2);return c}
+function bgDraw(vx,vy,vw,vh,z){
+ if(z<.3){if(!OV){OV=document.createElement('canvas');OV.width=Math.ceil(WW/4);OV.height=Math.ceil(HH/4);const o=OV.getContext('2d');for(let Y=0;Y<HH;Y+=TS)for(let X=0;X<WW;X+=TS)if(bgHas(X,Y)){const c=bgMake(X,Y);o.drawImage(c,X/4,Y/4,c.width/4,c.height/4);c.width=c.height=0}}
+  g.drawImage(OV,0,0,OV.width*4,OV.height*4);return}
+ let used=0;for(let Y=Math.max(0,Math.floor(vy/TS)*TS);Y<Math.min(HH,vy+vh);Y+=TS)for(let X=Math.max(0,Math.floor(vx/TS)*TS);X<Math.min(WW,vx+vw);X+=TS){const k=X+','+Y;let c=BGC.get(k);if(c===undefined)c=bgHas(X,Y)?bgMake(X,Y):null;else BGC.delete(k);BGC.set(k,c);used++;if(c)g.drawImage(c,X,Y)}
+ const max=Math.max(used+6,24);for(const [k,c] of BGC){if(BGC.size<=max)break;if(c)c.width=c.height=0;BGC.delete(k)}}
 /* อาคาร (สร้างภาพล่วงหน้า กลางวัน/กลางคืน) */
 const BC={};
-function bSpr(b,night){const kk=b.t+night;if(BC[kk])return BC[kk];const H=b.h,w=b.w,d=b.d,c=document.createElement('canvas');c.width=(w+d)*16+8;const EX=b.ex||0;c.height=(w+d)*8+H+34+EX;const x=c.getContext('2d');
+function bSpr(b,night){const kk=b.t+','+b.w+','+b.d+','+b.h+night;if(BC[kk])return BC[kk];const H=b.h,w=b.w,d=b.d,c=document.createElement('canvas');c.width=(w+d)*16+8;const EX=b.ex||0;c.height=(w+d)*8+H+34+EX;const x=c.getContext('2d');
  const pt=(u,v,h)=>[4+d*16+(u-v)*16,22+EX+H+(u+v)*8-(h||0)],A=pt(0,d,0),B=pt(w,d,0),B2=pt(w,0,0);
  poly([A,B,up(B,H),up(A,H)],b.c,x);poly([B,B2,up(B2,H),up(B,H)],sh(b.c,-.25),x);
  for(let v=6;v<H;v+=6){qd(A,B,0,1,v,v+1,sh(b.c,-.08),x);qd(B,B2,0,1,v,v+1,sh(b.c,-.3),x)}
@@ -1073,9 +1180,10 @@ const cpos=c=>c.ln.ax==='x'?[c.p+.85,c.ln.c+.3]:[c.ln.c+.3,c.p+.85];
 function car(c){const hz=c.ln.ax==='x',x=hz?c.p:c.ln.c,y=hz?c.ln.c:c.p;box3(x,y,hz?1.7:.6,hz?.6:1.7,4,c.col,1);box3(hz?x+.45:x+.05,hz?y+.05:y+.45,hz?.8:.5,hz?.5:.8,3,'#bfe9ff',5);const m=P(x+(hz?.85:.3),y+(hz?.3:.85));R(m[0]-10,m[1]-1,4,3,'#111');R(m[0]+6,m[1]-1,4,3,'#111')}
 /* A* ง่ายๆ */
 const D4=[[1,0],[-1,0],[0,1],[0,-1]];
-function bfs(a,b){if(!W[b[0]]||!W[b[0]][b[1]])return [];const k=(x,y)=>x*GH+y,pv=new Int16Array(GW*GH).fill(-2),q=[a];pv[k(a[0],a[1])]=-1;let h=0;
- while(h<q.length){const c=q[h++];if(c[0]===b[0]&&c[1]===b[1])break;for(const d of D4){const x=c[0]+d[0],y=c[1]+d[1];if(x<0||y<0||x>=GW||y>=GH||!W[x][y]||pv[k(x,y)]!==-2)continue;pv[k(x,y)]=k(c[0],c[1]);q.push([x,y])}}
- if(pv[k(b[0],b[1])]===-2)return [];const o=[],sk=k(a[0],a[1]);let c=k(b[0],b[1]);while(c!==sk){o.unshift([Math.floor(c/GH),c%GH]);c=pv[c]}return o}
+const PV=new Int32Array(GW*GH),SEEN=new Uint32Array(GW*GH),QU=new Int32Array(GW*GH+1);let STAMP=0;
+function bfs(a,b){if(!W[b[0]]||!W[b[0]][b[1]]||!W[a[0]]||a[1]<0||a[1]>=GH)return [];const sk=a[0]*GH+a[1],tk=b[0]*GH+b[1],st=++STAMP;SEEN[sk]=st;QU[0]=sk;let h=0,n=1;
+ while(h<n){const c=QU[h++];if(c===tk)break;const cx=c/GH|0,cy=c%GH;for(let i=0;i<4;i++){const x=cx+D4[i][0],y=cy+D4[i][1];if(x<0||y<0||x>=GW||y>=GH||!W[x][y])continue;const k=x*GH+y;if(SEEN[k]===st)continue;SEEN[k]=st;PV[k]=c;QU[n++]=k}}
+ if(SEEN[tk]!==st)return [];const o=[];for(let c=tk;c!==sk;c=PV[c])o.push([c/GH|0,c%GH]);return o.reverse()}
 function mv(p,dt,sp){if(!p.path.length)return false;const n=p.path[0],dx=n[0]+.5-p.x,dy=n[1]+.5-p.y,d=Math.hypot(dx,dy),st=sp*dt;p.f=(dx-dy)>=0?1:-1;if(d<=st){p.x=n[0]+.5;p.y=n[1]+.5;p.path.shift()}else{p.x+=dx/d*st;p.y+=dy/d*st}return true}
 /* จอห์น: ฟรีแลนซ์ช่างภาพ ใช้ชีวิตทั้งวัน (นาทีนับจากเที่ยงคืน) */
 const SP={home:[BT.home.dx,BT.home.y1],jog:[31,0],cafe:[14,6],photo:[13,16],market:[24,15],rest:[BT.rest.dx,BT.rest.y1],lib:[BT.lib.dx,BT.lib.y1],play:[25,26],gym:[BT.gym.dx,BT.gym.y1],mall:[BT.mall.dx,BT.mall.y1],cine:[BT.cine.dx,BT.cine.y1]};
@@ -1164,7 +1272,7 @@ function jUpd(dt,ini){
  J.pose=!J.walk&&J.arr?({sit:'sit',photo:'photo',kite:'kite'}[J.cur.mode]||''):'';
  fx(J.cur,dSM)}
 function drawPlane(dt){if(!PL.on||!BT.air)return;PL.t+=dt/9;if(PL.t>=1){PL.on=false;return}
- const a=BT.air,f=PL.dir>0?PL.t:1-PL.t,p0=P(a.dx+.5,a.y1+.5),p1=P(a.dx+70,a.y1-70),x=p0[0]+(p1[0]-p0[0])*f,y=p0[1]+(p1[1]-p0[1])*f,al=f*f*220+4,s=toS(x,y-al),q=toS(x,y),k=cam.z*2;
+ const a=CAMP.air,f=PL.dir>0?PL.t:1-PL.t,p0=P(a.x0+4,a.y0+14.5),p1=P(a.x0+74,a.y0-55),x=p0[0]+(p1[0]-p0[0])*f,y=p0[1]+(p1[1]-p0[1])*f,al=f*f*220+4,s=toS(x,y-al),q=toS(x,y),k=cam.z*4.5;
  g.globalAlpha=.25;g.fillStyle='#000';g.fillRect(q[0]-8*k,q[1]-k,16*k,2*k);g.globalAlpha=1;g.fillStyle='#fff';g.fillRect(s[0]-9*k,s[1]-2*k,18*k,4*k);g.fillStyle='#0087ff';g.fillRect(s[0]-3*k,s[1]-6*k,6*k,12*k);g.fillStyle='#e3000b';g.fillRect(s[0]+7*k,s[1]-5*k,3*k,3*k)}
 /* ----- หน้าสถานะ ----- */
 const stage=a=>a<20?'วัยรุ่น':a<30?'วัยหนุ่ม':a<45?'วัยทำงาน':a<60?'วัยกลางคน':'ผู้สูงอายุ';
@@ -1215,31 +1323,35 @@ function bub(x,y,m){const w=34,h=28;x=Math.round(x);y=Math.round(y);g.fillStyle=
  g.font='18px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillStyle='#000';g.fillText(m,x,y-h/2-8)}
 function tag(x,y,t){g.font='700 13px "Fredoka","Prompt",sans-serif';const w=g.measureText(t).width+14;x=Math.round(x);y=Math.round(y);g.fillStyle='#ffd500';g.strokeStyle='#14162e';g.lineWidth=3;g.beginPath();rr(x-w/2,y-9,w,20,7);g.fill();g.stroke();g.fillStyle='#14162e';g.textAlign='center';g.textBaseline='middle';g.fillText(t,x,y+1)}
 cv.style.touchAction='none';
-const vis=(x,y)=>{const q=P(x,y),sx=(q[0]-cam.x)*cam.z+CW/2,sy=(q[1]-cam.y)*cam.z+CH/2;return sx>-100&&sx<CW+100&&sy>-170&&sy<CH+170};
+const vis=(x,y,m)=>{const q=P(x,y),sx=(q[0]-cam.x)*cam.z+CW/2,sy=(q[1]-cam.y)*cam.z+CH/2,e=m?m*cam.z:0;return sx>-100-e&&sx<CW+100+e&&sy>-170-e&&sy<CH+170+e};
+const bvis=b=>{const o=P(b.x0,b.y0),ex=b.ex||0,l=(o[0]-4-b.d*16-cam.x)*cam.z+CW/2,t=(o[1]-22-ex-b.h-cam.y)*cam.z+CH/2;return l<CW+40&&t<CH+40&&l+((b.w+b.d)*16+8)*cam.z>-40&&t+((b.w+b.d)*8+b.h+34+ex)*cam.z>-40};
+let GLOW=null;const glowImg=()=>{if(GLOW)return GLOW;GLOW=document.createElement('canvas');GLOW.width=GLOW.height=96;const c=GLOW.getContext('2d'),r=c.createRadialGradient(48,48,0,48,48,48);r.addColorStop(0,'rgba(255,200,110,1)');r.addColorStop(1,'rgba(255,200,110,0)');c.fillStyle=r;c.fillRect(0,0,96,96);return GLOW};
 const pxw=$('.pxw');let lastF=0,PXV=true;const MODALEL=$('#modal');try{new IntersectionObserver(es=>{PXV=es[es.length-1].isIntersecting},{threshold:0}).observe(pxw)}catch(e){}
 const wsc=(p,fn)=>{if(!p.sc||p.sc===1)return fn();const q=P(p.x,p.y);g.save();g.translate(q[0],q[1]);g.scale(p.sc,p.sc);g.translate(-q[0],-q[1]);fn();g.restore()};
+function drawPlaneSkip(dt){if(AIRP.length>8)AIRP.splice(0,AIRP.length-8)}
 function frame(now){if(document.hidden||pxw.style.display==='none'){last=now;requestAnimationFrame(frame);return}
  if(now-lastF<(!PXV||MODALEL.classList.contains('on')?95:30)){requestAnimationFrame(frame);return}lastF=now;
  {const _ta=(!fol&&!fh)?'none':'auto';if(cv._ta!==_ta){cv._ta=_ta;cv.style.touchAction=_ta}}const dt=Math.min((now-(last||now))/1000,.1);last=now;const t=now/1000;
  sim=SPD[si]===1?realMin():sim+dt*SPD[si]/60;{const dd=(sim-lastSim+1440)%1440;dSM=dd>720?0:dd;SM+=dSM;lastSim=sim}lifeTick(dt);jUpd(dt,init);NP.forEach(p=>nUpd(p,dt));dogU(dt);
  CARS.forEach(c=>{c.p+=c.ln.dir*c.sp*dt;const L=c.ln.ax==='x'?GW:GH;if(c.p>L+3)c.p=-3;if(c.p<-3)c.p=L+3});
  if(init){init=false;Object.assign(cam,target())}
+ if(!PXV){drawPlaneSkip(dt);requestAnimationFrame(frame);return}
  const T=target(),k=1-Math.pow(.004,dt);cam.x+=(T.x-cam.x)*k;cam.y+=(T.y-cam.y)*k;cam.z+=(T.z-cam.z)*k;
  const hr=sim/60%24,na=nA(hr),night=na>.25,tx0=CW/2-cam.x*cam.z,ty0=CH/2-cam.y*cam.z;
  g.setTransform(RS,0,0,RS,0,0);const sg=g.createLinearGradient(0,0,0,CH);sg.addColorStop(0,'#2fa8ff');sg.addColorStop(1,'#c8f0ff');g.fillStyle=sg;g.fillRect(0,0,CW,CH);g.imageSmoothingEnabled=false;
- [0,1,2,3].forEach(i=>{const cx=((t*(5+i*3)+i*290)%1200)-160,cy=20+i*50+(i%2)*20;R(cx,cy+10,110,14,'#fff');R(cx+14,cy,40,12,'#fff');R(cx+56,cy+4,34,10,'#fff');R(cx,cy+22,110,3,'#d9f3ff')});
- g.setTransform(cam.z*RS,0,0,cam.z*RS,tx0*RS,ty0*RS);BGT.forEach(q=>{const sx=(q.x-cam.x)*cam.z+CW/2,sy=(q.y-cam.y)*cam.z+CH/2;if(sx<CW&&sy<CH&&sx+q.c.width*cam.z>0&&sy+q.c.height*cam.z>0)g.drawImage(q.c,q.x,q.y)});
- const sp=S.filter(o=>vis(o.x,o.y)).map(o=>({x:o.x,y:o.y,d:()=>o.d(t)}));
+ [0,1,2,3].forEach(i=>{const cx=((t*(5+i*3)+i*290)%(CW+240))-160,cy=20+i*50+(i%2)*20;R(cx,cy+10,110,14,'#fff');R(cx+14,cy,40,12,'#fff');R(cx+56,cy+4,34,10,'#fff');R(cx,cy+22,110,3,'#d9f3ff')});
+ g.setTransform(cam.z*RS,0,0,cam.z*RS,tx0*RS,ty0*RS);bgDraw(cam.x-CW/2/cam.z,cam.y-CH/2/cam.z,CW/cam.z,CH/cam.z,cam.z);
+ const sp=[];for(const o of S)if(vis(o.x,o.y,o.r))sp.push({x:o.x,y:o.y,d:()=>o.d(t)});
  NP.forEach(p=>p.in||!vis(p.x,p.y)||sp.push({x:p.x,y:p.y,d:()=>wsc(p,()=>person(p,t))}));if(!J.in)sp.push({x:J.x,y:J.y+.01,d:()=>wsc(J,()=>person(J,t))});sp.push({x:DG.x,y:DG.y,d:()=>dog(DG,t)});
- CARS.forEach(c=>{const q=cpos(c);vis(q[0],q[1])&&sp.push({x:q[0],y:q[1],d:()=>car(c)})});
- const bk=BL.map(()=>[]);bk.push([]);
- sp.forEach(o=>{let i=BL.length;for(let q=0;q<BL.length;q++){const b=BL[q];if(o.x>=b.x1||o.y>=b.y1)continue;if(o.x<=b.x0||o.y<=b.y0){i=q;break}}bk[i].push(o)});
- for(let q=0;q<=BL.length;q++){bk[q].sort((a,b)=>a.x+a.y-b.x-b.y).forEach(o=>o.d());if(q<BL.length&&(vis(BL[q].x0,BL[q].y0)||vis(BL[q].x1,BL[q].y0)||vis(BL[q].x0,BL[q].y1)||vis(BL[q].x1,BL[q].y1))){const b=BL[q],o=P(b.x0,b.y0);drawB(b,night,o)}}
+ CARS.forEach(c=>{const q=cpos(c);vis(q[0],q[1])&&!campAt(q[0],q[1])&&sp.push({x:q[0],y:q[1],d:()=>car(c)})});
+ const VB=BL.filter(bvis),n=VB.length,bk=Array.from({length:n+1},()=>[]);
+ for(const o of sp){let i=n;for(let q=0;q<n;q++){const b=VB[q];if(o.x>=b.x1||o.y>=b.y1)continue;if(o.x<=b.x0||o.y<=b.y0){i=q;break}}bk[i].push(o)}
+ for(let q=0;q<=n;q++){bk[q].sort((a,b)=>a.x+a.y-b.x-b.y);for(const o of bk[q])o.d();if(q<n){const b=VB[q];drawB(b,night,P(b.x0,b.y0))}}
  g.setTransform(RS,0,0,RS,0,0);if(na>0){g.fillStyle=`rgba(14,18,70,${na*.85})`;g.fillRect(0,0,CW,CH)}else if((hr>=6&&hr<8)||(hr>=17&&hr<19)){g.fillStyle='rgba(255,140,60,.12)';g.fillRect(0,0,CW,CH)}
- if(na>.05){g.setTransform(cam.z*RS,0,0,cam.z*RS,tx0*RS,ty0*RS);g.globalCompositeOperation='lighter';const gl=(x,y,r,a)=>{const gr=g.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,`rgba(255,200,110,${a})`);gr.addColorStop(1,'rgba(255,200,110,0)');g.fillStyle=gr;g.fillRect(x-r,y-r,r*2,r*2)};
+ if(na>.05){g.setTransform(cam.z*RS,0,0,cam.z*RS,tx0*RS,ty0*RS);g.globalCompositeOperation='lighter';const gi=glowImg(),gl=(x,y,r,a)=>{g.globalAlpha=Math.min(1,a);g.drawImage(gi,x-r,y-r,r*2,r*2)};
   S.forEach(o=>{if(o.lamp&&vis(o.x,o.y)){const q=P(o.x,o.y);gl(q[0],q[1]-24,34,.8*na/.55)}});BL.forEach(b=>{if(!vis(b.dx,b.y1))return;const q=P(b.dx+.5,b.y1);gl(q[0],q[1]-10,44,.7*na/.55)});
-  CARS.forEach(c=>{const q=cpos(c);if(!vis(q[0],q[1]))return;const m=P(q[0]+(c.ln.ax==='x'?c.ln.dir*.7:0),q[1]+(c.ln.ax==='y'?c.ln.dir*.7:0));gl(m[0],m[1]-4,22,.7*na/.55)});g.globalCompositeOperation='source-over'}
- g.setTransform(RS,0,0,RS,0,0);const vg=g.createRadialGradient(CW/2,CH/2,CH*.4,CW/2,CH/2,CH*.9);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(5,5,25,.22)');g.fillStyle=vg;g.fillRect(0,0,CW,CH);
+  CARS.forEach(c=>{const q=cpos(c);if(!vis(q[0],q[1]))return;const m=P(q[0]+(c.ln.ax==='x'?c.ln.dir*.7:0),q[1]+(c.ln.ax==='y'?c.ln.dir*.7:0));gl(m[0],m[1]-4,22,.7*na/.55)});g.globalAlpha=1;g.globalCompositeOperation='source-over'}
+ g.setTransform(RS,0,0,RS,0,0);if(!VG){VG=g.createRadialGradient(CW/2,CH/2,CH*.4,CW/2,CH/2,Math.max(CW,CH)*.9);VG.addColorStop(0,'rgba(0,0,0,0)');VG.addColorStop(1,'rgba(5,5,25,.22)')}g.fillStyle=VG;g.fillRect(0,0,CW,CH);
  const toS=(wx,wy)=>[(wx-cam.x)*cam.z+CW/2,(wy-cam.y)*cam.z+CH/2];
  const js=J.sayT>now?J.say:J.in||!J.walk?J.act[2]:(J.run?'🏃':'🚶');let jp;if(J.in){const b=BT[J.act[1]],q=P(b.x0+b.w/2,b.y0+b.d/2);jp=[q[0],q[1]-b.h-6]}else{const q=P(J.x,J.y);jp=[q[0],q[1]-38]}
  drawPlane(dt);const js2=toS(jp[0],jp[1]);bub(js2[0],js2[1],js);
@@ -1299,7 +1411,7 @@ const _lt=lifeTick;lifeTick=function(dt){_lt(dt);const dy=dt/L.rate;
  C.pop=Math.round(C.pop*(1+dy*.02*C.econ*(C.war?-.5:1)));
  if(!C.war&&Math.random()<dy*.12){C.war={n:pk(WARN),end:L.age+rnd(.7,2)};C.econ=.8;const l=Math.round(Math.max(0,L.money)*.12*(C.pres.p==='def'?.4:1));L.money-=l;log('⚔️ สงครามกับ '+C.war.n+' เมืองเสียหาย'+(l?' เสียเงิน ฿'+l:''));toast('⚔️ เกิดสงคราม!');sv()}
  else if(C.war&&L.age>=C.war.end){log('☮️ สงครามกับ '+C.war.n+' สิ้นสุด');C.war=null;C.econ=1;sv()}
- if(L.age>=C.next){if(!C.pend){C.pend=1;sv()}if(L.age>C.next+1)win(pk(C.cands||mkCand()),'ระบบเลือก');else if(Date.now()-(window._sh||0)>60000)elect()}
+ if(L.age>=C.next){if(!C.pend){C.pend=1;sv()}if(L.age>C.next+1){if(!modalOpen())(window._winRaw||win)(pk(C.cands||mkCand()),'ระบบเลือก')}else if(Date.now()-(window._sh||0)>60000)elect()}
  if((_cu+=dt)>2){_cu=0;cityUI()}};
 cityUI();
 /* ===== v5: สร้างเมือง/ภัยพิบัติ/สวนสัตว์/ทะเล/เครื่องบิน/มินิเกม/ข่าว ===== */
@@ -1334,9 +1446,9 @@ const _sp0=special;special=function(p,dt){const s=p.sp2;if(s.r==='f'||s.r==='a')
 function xCrowd(n,nm,col){const a=BT.air||BT.home;for(let i=0;i<n;i++)NP.push(xMk('a',a.dx+.5,a.y1+.5,pk(col),nm,rnd(2,3.2)))}
 /* เครื่องบิน */
 const AIRP=[];
-function xPlane(land,cb){const a=Math.random()<.5,A=a?[-12,rnd(0,GH)]:[rnd(0,GW),-12],B=land&&BT.air?[BT.air.dx,BT.air.y1]:(a?[GW+12,rnd(0,GH)]:[rnd(0,GW),GH+12]);AIRP.push({A,B,t:0,d:rnd(22,34),land:!!(land&&BT.air),cb})}
-function xAmb(dt){const k=cam.z*2;for(let i=AIRP.length-1;i>=0;i--){const p=AIRP[i];p.t+=dt/p.d;if(p.t>=1){AIRP.splice(i,1);p.cb&&p.cb();continue}const f=p.t,X=p.A[0]+(p.B[0]-p.A[0])*f,Y=p.A[1]+(p.B[1]-p.A[1])*f,al=(p.land?(1-f)*(1-f):1)*230+6,q=P(X,Y),q2=P(X+(p.B[0]-p.A[0])*.02,Y+(p.B[1]-p.A[1])*.02),sx=(q[0]-cam.x)*cam.z+CW/2,sy=(q[1]-cam.y)*cam.z+CH/2,ang=Math.atan2(q2[1]-q[1],q2[0]-q[0]);
- g.globalAlpha=.22;g.fillStyle='#000';g.fillRect(sx-9*k,sy-k,18*k,2*k);g.globalAlpha=1;g.save();g.translate(sx,sy-al*cam.z);g.rotate(ang);g.fillStyle='#fff';g.fillRect(-12*k,-2*k,24*k,4*k);g.fillStyle='#9aa3c8';g.fillRect(-2*k,-9*k,6*k,18*k);g.fillStyle='#e3000b';g.fillRect(-12*k,-4*k,4*k,8*k);g.restore()}}
+function xPlane(land,cb){const a=Math.random()<.5,A=a?[-12,rnd(0,GH)]:[rnd(0,GW),-12],B=land&&BT.air?[CAMP.air.x0+14,CAMP.air.y0+14.5]:(a?[GW+12,rnd(0,GH)]:[rnd(0,GW),GH+12]);AIRP.push({A,B,t:0,d:rnd(22,34),land:!!(land&&BT.air),cb})}
+function xAmb(dt){const k=cam.z*4.5;for(let i=AIRP.length-1;i>=0;i--){const p=AIRP[i];p.t+=dt/p.d;if(p.t>=1){AIRP.splice(i,1);p.cb&&p.cb();continue}const f=p.t,X=p.A[0]+(p.B[0]-p.A[0])*f,Y=p.A[1]+(p.B[1]-p.A[1])*f,al=(p.land?(1-f)*(1-f):1)*230+6,q=P(X,Y),q2=P(X+(p.B[0]-p.A[0])*.02,Y+(p.B[1]-p.A[1])*.02),sx=(q[0]-cam.x)*cam.z+CW/2,sy=(q[1]-cam.y)*cam.z+CH/2,ang=Math.atan2(q2[1]-q[1],q2[0]-q[0]);
+ g.globalAlpha=.22;g.fillStyle='#000';g.fillRect(sx-9*k,sy-k,18*k,2*k);g.globalAlpha=1;g.save();g.translate(sx,sy-al*cam.z);g.rotate(ang);g.fillStyle='#fff';g.fillRect(-12*k,-2*k,24*k,4*k);g.fillStyle='#9aa3c8';g.fillRect(-2*k,-9*k,6*k,18*k);g.fillStyle='#e3000b';g.fillRect(-12*k,-6*k,4*k,12*k);g.fillStyle='#2a9dff';for(let w=-6;w<11;w+=3)g.fillRect(w*k,-k,1.5*k,k);g.fillStyle='#dfe6f5';g.fillRect(12*k,-k,2*k,2*k);g.restore()}}
 const _dp0=drawPlane;drawPlane=function(dt){_dp0(dt);xAmb(dt)};
 /* เหตุการณ์เมือง */
 function xOly(){C.oly=L.age+4;xLog('🏅 โอลิมปิกเปิดฉากที่ '+C.name+' นักกีฬาทั่วโลกกำลังบินมา','🏅 โอลิมปิก!');for(let i=0;i<6;i++)setTimeout(()=>xPlane(1),i*2500);setTimeout(()=>xCrowd(24,'🏃 นักกีฬา',['#e3000b','#0087ff','#ffd500','#00a83e','#ff8a00']),16000);
@@ -1410,19 +1522,19 @@ const _cUI=cityUI;cityUI=function(){_cUI();xUI()};cityUI();
 const RAIN={on:0,st:0,until:0,real:0,rs:0};
 {const rc=document.createElement('canvas');rc.style.cssText='position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none';cv.insertAdjacentElement('afterend',rc);
  const rg=rc.getContext('2d');let ds=[],al=0,fl=0,lf=0;
- const loop=()=>{requestAnimationFrame(loop);const on=RAIN.on||RAIN.real;if(!on&&!ds.length&&al<.005&&!rc._d)return;const st=RAIN.on?RAIN.st:RAIN.rs,W0=cv.clientWidth,H0=cv.clientHeight;if(!W0||document.hidden)return;
+ let rl=0;const loop=now=>{requestAnimationFrame(loop);if(now-rl<31)return;rl=now;const on=RAIN.on||RAIN.real;if(!on&&!ds.length&&al<.005&&!rc._d)return;const st=RAIN.on?RAIN.st:RAIN.rs,W0=cv.clientWidth,H0=cv.clientHeight;if(!W0||document.hidden)return;
   if(rc.width!==W0||rc.height!==H0){rc.width=W0;rc.height=H0}
   const want=on?Math.min(MOB?150:340,Math.round(W0*H0/(st?450:900))):0;
   while(ds.length<want)ds.push({x:Math.random()*W0,y:Math.random()*H0,v:11+Math.random()*9,l:9+Math.random()*10});
   if(ds.length>want)ds.length=Math.max(want,ds.length-6);
-  al+=((on?(st?.3:.17):0)-al)*.04;
+  al+=((on?(st?.3:.17):0)-al)*.08;
   if(!ds.length&&al<.005){if(rc._d){rg.clearRect(0,0,W0,H0);rc._d=0}return}
   rc._d=1;rg.clearRect(0,0,W0,H0);rg.fillStyle='rgba(25,40,80,'+al+')';rg.fillRect(0,0,W0,H0);
   rg.strokeStyle='rgba(205,228,255,.7)';rg.lineWidth=1.3;rg.beginPath();
-  ds.forEach(d=>{rg.moveTo(d.x,d.y);rg.lineTo(d.x-d.l*.25,d.y+d.l);d.y+=d.v;d.x-=d.v*.25;if(d.y>H0){d.y=-20;d.x=Math.random()*(W0+60)}if(d.x<-20)d.x=W0+10});rg.stroke();
+  ds.forEach(d=>{rg.moveTo(d.x,d.y);rg.lineTo(d.x-d.l*.25,d.y+d.l);d.y+=d.v*2;d.x-=d.v*.5;if(d.y>H0){d.y=-20;d.x=Math.random()*(W0+60)}if(d.x<-20)d.x=W0+10});rg.stroke();
   if(on&&st&&fl<=0&&Math.random()<.004)fl=1;
-  if(fl>0){rg.fillStyle='rgba(255,255,255,'+fl*.55+')';rg.fillRect(0,0,W0,H0);fl-=.07}};
- loop()}
+  if(fl>0){rg.fillStyle='rgba(255,255,255,'+fl*.55+')';rg.fillRect(0,0,W0,H0);fl-=.14}};
+ requestAnimationFrame(loop)}
 function xRainStart(storm){if(RAIN.on)return;RAIN.on=1;RAIN.st=!!storm;RAIN.until=Date.now()+rnd(50,110)*1000;xLog(storm?'⛈️ พายุฝนฟ้าคะนองเข้าเมือง ฟ้าผ่าและลมแรง':'🌧️ ฝนตกในเมือง ฟ้ามืดครึ้ม ถนนเปียก',storm?'⛈️ พายุเข้า!':'🌧️ ฝนตก!')}
 setInterval(()=>{if(RAIN.on&&Date.now()>RAIN.until){RAIN.on=0;xLog('🌤️ ฝนหยุดแล้ว ท้องฟ้าเริ่มสว่าง')}
  const c=window.WXC;RAIN.real=[51,53,55,61,63,65,80,81,82,95,96,99].includes(c)?1:0;RAIN.rs=c>=95||c===82?1:0},4000);
@@ -1609,14 +1721,294 @@ function lqRun(title,qs,lvl,job,mode){let i=0,ok=0,iv=null;const T=Math.max(10,3
   $$('#mgBox [data-n]').forEach(b=>b.onclick=()=>{clearInterval(iv);res(+b.dataset.n===x[2])})};
  q()}
 /* ผลโหวตเลือกตั้ง: เลือกใครกี่คะแนน */
-const _win=win;
-win=function(c,w){const cs=C.cands;if(!cs||cs.length<2)return _win(c,w);
+const _win=win;window._winRaw=_win;
+win=function(c,w){if(modalOpen()&&$('#vOk'))return;const cs=C.cands;if(!cs||cs.length<2)return _win(c,w);
  const pop=Math.round(rnd(18000,52000)),turn=rnd(.62,.84),wt=cs.map(x=>rnd(.7,1.3)*(x===c?1.28:1)),S=wt.reduce((a,b)=>a+b,0),V=wt.map(x=>Math.round(pop*turn*x/S));
  let wi=0;V.forEach((v,i)=>{if(v>V[wi])wi=i});const tot=V.reduce((a,b)=>a+b,0),cols=['#e3000b','#0087ff','#00a83e'],th=n=>n.toLocaleString('th-TH');
  $('#mBody').innerHTML='<h3>🗳️ ผลการลงคะแนน</h3><small>ผู้มีสิทธิ '+th(pop)+' คน · มาใช้สิทธิ '+th(tot)+' คน</small>'+cs.map((x,i)=>'<div style="margin:8px 0"><b>'+esc(x.n)+(i===wi?' 🏆':'')+'</b> — '+th(V[i])+' คะแนน ('+Math.round(V[i]/tot*100)+'%)<div style="height:10px;background:#eee;border-radius:5px"><div style="height:100%;width:'+(V[i]/tot*100)+'%;background:'+cols[i%3]+';border-radius:5px"></div></div></div>').join('')+'<button class="btn" id="vOk">ประกาศผล</button>';
  $('#modal').classList.add('on');
  $('#vOk').onclick=()=>{const wc=cs[wi],sm=cs.map((x,i)=>x.n+' '+th(V[i])).join(' / ');_win(wc,'ประชาชนเลือก');xLog('🗳️ ผลเลือกตั้ง: '+sm,'🗳️ '+wc.n+' ชนะเลือกตั้ง!')}};
 window.__mailAdd=mailAdd;
+}
+
+/* ===== v9: ความตาย/เกิดใหม่ · การเงิน · นักฆ่า/ไร้บ้าน · ภัยพิบัติ · ป่า/ทะเล/สัตว์ร้าย · ฤดูกาล ===== */
+{
+const DAY=864e5,YR=365.25*DAY,th9=n=>Math.round(n).toLocaleString('th-TH');
+const wp=a=>{let r=Math.random()*a.reduce((s,x)=>s+x[1],0);for(const x of a)if((r-=x[1])<0)return x[0];return a[0][0]};
+const bornD=()=>{L.born=L.born||Date.now()-L.age*YR;return L.born};
+const wDate=a=>new Date(bornD()+a*YR),fD=d=>d.toLocaleDateString('th-TH',{day:'numeric',month:'long',year:'numeric'});
+const stg=a=>a<1?'ทารก':a<3?'เด็กอ่อน':a<6?'เด็กเล็ก':a<13?'เด็ก':a<20?'วัยรุ่น':a<30?'วัยหนุ่ม':a<45?'วัยทำงาน':a<60?'วัยกลางคน':'ผู้สูงอายุ';
+const hh=a=>a<1?50+25*a:a<17?75+(a-1)*95/16:a<21?170+(a-17)*1.5:a<60?176:176-(a-60)*.15;
+const hair=a=>a<3?'#6b4a2b':a>68?'#f4f4f4':a>56?'#c9c9c9':a>44?'#7a6a5c':'#3b2a20';
+const st=document.createElement('style');st.textContent='#dzT{position:absolute;right:8px;top:34px;z-index:7;border:0;border-radius:12px;padding:6px 10px;font:600 12px Prompt,sans-serif;background:#e3000b;color:#fff;box-shadow:0 3px 0 #7a0006}#dzP{position:absolute;right:8px;top:68px;z-index:7;display:none;grid-template-columns:1fr 1fr;gap:5px;background:rgba(20,22,46,.94);padding:8px;border-radius:14px;width:236px;max-height:260px;overflow:auto}#dzP.on{display:grid}#dzP button,#dzS button,#dzD button{border:0;border-radius:9px;padding:6px 4px;font:600 11px Prompt,sans-serif;background:#ffd500;color:#14162e;cursor:pointer}#dzP .e{grid-column:1/3;background:#00a83e;color:#fff}#dzP .r{grid-column:1/3;background:#9b4dff;color:#fff}#dzS,#dzD,#v9s{position:absolute;z-index:6;left:8px;font:600 11px/1.4 Prompt,sans-serif;color:#fff;border-radius:10px;padding:4px 8px;display:none;max-width:calc(100% - 120px)}#dzS{top:58px;background:rgba(160,0,10,.88)}#dzD{top:100px;background:rgba(20,20,30,.92)}#v9s{top:30px;display:block;background:rgba(20,22,46,.7);font-weight:500}#v9c .bt{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}';document.head.appendChild(st);
+$('.pxs').insertAdjacentHTML('beforeend','<button id="dzT" type="button">🌪️ ภัยพิบัติ</button><div id="dzP"></div><div id="dzS"></div><div id="dzD"></div><div id="v9s"></div>');
+$('.jc').insertAdjacentHTML('afterend','<div class="card" id="v9c"></div><div class="card" id="v9p"></div>');
+/* ---------- อาชีพใหม่ + ชื่อตามวัย ---------- */
+JOBS.killer={n:'นักฆ่ารับจ้าง',pl:'home',sal:0,sh:'#1a1a1a'};JOBS.homeless={n:'คนไร้บ้าน',pl:'play',sal:0,sh:'#7a6a55'};
+Object.defineProperty(JOBS.student,'n',{get:()=>L.age<3?'ทารก':L.age<6?'เด็กอนุบาล':L.age<12?'นักเรียนประถม':L.age<18?'นักเรียนมัธยม':'นักศึกษา'});
+/* ---------- ฤดูกาล / อากาศ / หิมะ ---------- */
+const SN={hot:['🌞','ฤดูร้อน',34],rain:['🌧️','ฤดูฝน',29],cold:['🧣','ฤดูหนาว',23],snow:['❄️','ฤดูหิมะ',2]};
+const wD=()=>wDate(L.dead?L.dead.age:L.age),seas=()=>{const m=wD().getMonth();return m>=2&&m<=4?'hot':m>=5&&m<=9?'rain':(m===11||m===0)?'snow':'cold'};
+const temp=()=>Math.round(SN[seas()][2]+5*Math.sin((sim/60%24-9)/24*6.283)+(RAIN.on?-3:0)+({heat:4,fog:-2,storm:-3,hail:-6}[wx]||0)+(D.on&&D.ice?-30:0));
+let snowOn=0;const SNW=[];
+
+/* ---------- ป่าใหญ่มุมตะวันออกเฉียงใต้ ---------- */
+const FI=Math.ceil(NX*.66),FJ=Math.ceil(NY*.62),FR={x0:BX[FI],y0:BY[FJ],x1:GW,y1:GH},inF=(x,y,m)=>{m=m||0;return x>=FR.x0-m&&y>=FR.y0-m&&x<FR.x1+m&&y<FR.y1+m};
+const fw=FR.x1-FR.x0,fh2=FR.y1-FR.y0,SWP={x0:FR.x0+fw*.55|0,x1:FR.x0+fw*.85|0,y0:FR.y0+fh2*.35|0,y1:FR.y0+fh2*.62|0},inSw=(x,y)=>x>=SWP.x0&&x<SWP.x1&&y>=SWP.y0&&y<SWP.y1;
+const MI1=Math.min(FI-2,18),MJ1=Math.min(FJ-1,13),MB={x0:BX[10],y0:BY[8],x1:BE[MI1]+1,y1:BYE[MJ1]+1},inM=(x,y)=>x>=MB.x0&&y>=MB.y0&&x<MB.x1&&y<MB.y1,GATE=[MB.x0-1,MB.y0-1];
+const clr=f=>{for(let i=BL.length-1;i>=0;i--)if(f(BL[i].x0,BL[i].y0)){const v=ALLV.findIndex(q=>q.b===BL[i]);if(v>=0)ALLV.splice(v,1);BL.splice(i,1)}
+for(let i=HS.length-1;i>=0;i--)if(f(HS[i].x0,HS[i].y0))HS.splice(i,1);
+for(let i=S.length-1;i>=0;i--)if(f(S[i].x,S[i].y))S.splice(i,1);
+for(let i=SPOTS.length-1;i>=0;i--)if(f(SPOTS[i][0],SPOTS[i][1]))SPOTS.splice(i,1)};
+clr(inF);clr(inM);
+for(const k in BT)if(!BL.includes(BT[k])&&k!=='home'){BT[k]=BL.find(b=>b.t===k);if(BT[k]&&SP[k])SP[k]=[BT[k].dx,BT[k].y1]}
+for(const k in nvC)delete nvC[k];
+NP.forEach(p=>{if(!HS.includes(p.home)){p.home=pk(HS);p.x=p.home.dx+.5;p.y=p.home.y1+.5;p.path=[];p.tg=null;p.in=false}p.fav=(p.fav||[]).filter(v=>!v.b||BL.includes(v.b));if(!p.fav.length)p.fav=[ALLV[0]]});
+for(let x=FR.x0;x<FR.x1;x++)for(let y=FR.y0;y<FR.y1;y++)if(blockAt(x,y)&&!inSw(x,y)&&(x*7+y*13)%5!==0)tree(x,y,(x+y)%3);
+const _gb=genBg;genBg=function(X,Y,Wd,Ht){_gb(X,Y,Wd,Ht);const G=['#1f7a3a','#23853f','#1a6d34','#2a8f47'];for(let x=FR.x0;x<FR.x1;x++)for(let y=FR.y0;y<FR.y1;y++){const q=P(x,y);if(q[0]<X-40||q[0]>X+Wd+40||q[1]<Y-30||q[1]>Y+Ht+40)continue;poly([P(x,y),P(x+1,y),P(x+1,y+1),P(x,y+1)],inSw(x,y)?((x+y)%2?'#2a6f7c':'#2f7b88'):!blockAt(x,y)?'#9b8456':G[(x*3+y*5)%4],bx)}};
+const _car=car;car=function(c){const q=cpos(c);if(inF(q[0],q[1])||inM(q[0],q[1]))return;_car(c)};
+/* ---------- สถานะหลัก ---------- */
+let D={on:0,ks:[],dead:{},rt:{}};const T={d:{},b:0,n:0};const GRAVE=[],FX9=[],AN=[],SW=[],RBL=[],ANS={eat:{},hunt:0,rescue:0};let FLAG=0,flagT=0;
+const SCL=()=>Math.max(50,Math.round(C.pop/Math.max(60,NPN))),units=()=>{const n=Math.max(2,Math.round(C.pop/55000)),u={fire:n,med:n,army:Math.round(n*.8),build:n,rescue:Math.round(n*.6)};u.tot=u.fire+u.med+u.army+u.build+u.rescue;return u},resp=()=>Math.min(.55,units().tot/45);
+const okV=p=>!p.fam&&!p.sp2&&!p.in,repick=()=>{if(J.in){const dr=SP[J.act[1]]||SP.home;J.x=dr[0]+.5;J.y=dr[1]+.5;J.in=false}J.cur=null;J.path=[]};
+const mvf=(p,tx,ty,sp,dt)=>{const dx=tx-p.x,dy=ty-p.y,d=Math.hypot(dx,dy);if(d<.3){p.walk=false;return true}const s=Math.min(d,sp*dt);p.x+=dx/d*s;p.y+=dy/d*s;p.f=(dx-dy)>=0?1:-1;p.walk=true;return false};
+const emo=(x,y,c,z,dy)=>{const m=P(x,y);g.font=z+'px serif';g.textAlign='center';g.fillText(c,m[0],m[1]+(dy||0));g.textAlign='left'};
+const drop=p=>{if(p.isSw){const i=S.indexOf(p);if(i>=0)S.splice(i,1);const k=SW.indexOf(p);if(k>=0)SW.splice(k,1)}else rm(p)};
+/* ---------- ความตายของจอห์น ---------- */
+const NAT=a=>a<1?[['ไข้สูงและติดเชื้อในทารก',1]]:a<15?[['ไข้เลือดออก',2],['จมน้ำ',1],['อุบัติเหตุบนท้องถนน',2]]:a<40?[['อุบัติเหตุรถชน',4],['ไข้เลือดออก',1],['ไส้ติ่งแตกรักษาไม่ทัน',1],['หัวใจวายเฉียบพลัน',1]]:a<65?[['โรคหัวใจ',4],['มะเร็ง',4],['เส้นเลือดในสมองแตก',3],['ตับแข็ง',1]]:[['ชราภาพ (หลับไปอย่างสงบ)',5],['ปอดอักเสบ',3],['หัวใจล้มเหลว',3],['มะเร็ง',2]];
+function haz(){const a=L.age;let h=a<1?.02:a<15?.0006:a<40?.0015:a<60?.006:a<75?.03:a<85?.09:a<95?.22:.6;h*=1+(L.fit<.25?.8:0)+(L.w>105?.6:0)+(L.w<45&&a>17?.5:0)+(L.job==='homeless'?3:0)+(L.job==='killer'?2:0)+(L.money<0&&a>17?.3:0)+((seas()==='snow'||seas()==='hot')&&(a>65||L.job==='homeless')?1.2:0);return h}
+function natDie(){const s=seas();let c;if(L.job==='homeless'&&s==='snow'&&Math.random()<.6)c=['ตายเพราะอากาศหนาวจัด (hypothermia)','🥶'];else if((L.job==='homeless'||L.age>65)&&s==='hot'&&Math.random()<.4)c=['ฮีทสโตรก','🥵'];else if(L.job==='homeless'&&Math.random()<.4)c=['ขาดสารอาหารและโรคแทรกซ้อน','🍞'];else c=[wp(NAT(L.age)),'🩺'];die(c[0],c[1])}
+function die(cause,ic){if(L.dead)return;L.dead={age:L.age,cause,ic:ic||'💀',money:L.money,job:JOBS[L.job].n,kills:L.kills||0,t:Date.now()};log('💀 เสียชีวิต: '+cause);xTkr('💀 '+L.name+' เสียชีวิต: '+cause);lsSet('life',L);deadVis();showDeath()}
+function deadVis(){J.in=true;J.act=[0,'home','🪦','in'];J.walk=false;J.path=[]}
+function showDeath(){const d=L.dead,a=d.age;$('#mBody').innerHTML=`<h3>🪦 ${esc(L.name)} เสียชีวิตแล้ว</h3><div style="line-height:1.9"><div>📅 วันที่เสียชีวิต: <b>${fD(wDate(a))}</b></div><div>🎂 วันเกิด: ${fD(new Date(bornD()))}</div><div>⏳ อายุ: <b>${Math.floor(a)} ปี ${Math.floor(a%1*12)} เดือน</b></div><div>${d.ic} สาเหตุ: <b>${esc(d.cause)}</b></div><div>💼 อาชีพสุดท้าย: ${esc(d.job)}</div><div>💰 เงินเก็บตอนเสียชีวิต: ฿${th9(d.money)}</div>${d.kills?`<div>🔪 สังหารไปทั้งหมด ${d.kills} คน</div>`:''}</div><button class="btn out" id="dBorn">👶 เกิดใหม่ (เริ่มจากทารก)</button><button class="btn ghost" id="dNo">ปิด</button>`;$('#modal').classList.add('on');$('#dBorn').onclick=reborn;$('#dNo').onclick=closeM}
+function reborn(){closeM();newLife({name:L.name,age:0,rate:L.rate,job:'student',marry:L.marry,marryAge:L.marryAge,spName:L.spName,kids:L.kidsN,field:L.field});jUI()}
+const _nl=newLife;newLife=function(c){const baby=+c.age===0;_nl(baby?{...c,age:.01}:c);L.born=Date.now()+rnd(0,365)*DAY-L.age*YR;Object.assign(L,{kills:0,wanted:0,warrant:false,hide:false,jail:0,totIn:0,totOut:0,dead:null,t9:Date.now()});if(baby){L.money=0;L.w=3.3;L.h=50;L.hist=[{a:0,t:'👶 '+L.name+' ถือกำเนิดเมื่อ '+fD(new Date(L.born))}]}J.sc=.4};
+const _ju=jUpd;jUpd=function(dt,ini){if(L.dead){deadVis();return}_ju(dt,ini)};
+const _le=lifeEv;lifeEv=function(){if(L.dead||L.jail)return;if(L.age>=12&&Math.random()<.1)return adv();_le()};
+const _jp=jPick;jPick=function(){const tod=SM%1440;if(L.jail)return{key:'police',ic:'⛓️',mode:'in',dur:600};if(L.age<3)return{key:'home',ic:'🍼',mode:'in',dur:90};if(D.on&&Math.random()<.8)return{key:'home',ic:'🛡️',mode:'in',dur:180};if(L.job==='killer'&&L.hide)return{key:'home',ic:'🕵️',mode:'in',dur:240};if(L.job==='homeless')return tod>=1260||tod<360?{key:'play',ic:'🛌',mode:'sit',dur:240}:{key:pk(['play','market','cafe']),ic:pk(['🥫','🤲','🍞']),mode:'sit',dur:rnd(60,150)};return _jp()};
+const _in9=incomeNow;incomeNow=function(){if(L.jail)return 0;const b=BT[(JOBS[L.job]||{}).pl],v=_in9();return b&&!isOk(b)&&L.job!=='retired'?0:(D.on&&D.ks.includes('solar')?Math.round(v*.3):v)};
+const _fx=fx;fx=function(c,m){_fx(c,m);if(!m||!c)return;if(L.job==='student')L.money-=m*.4;if(c.ic==='💼'&&L.job!=='student')L.money-=incomeNow()/22/540*m};
+function adv(){const k=pk(['เสือในป่า','จระเข้ในหนองน้ำ','ฉลามตอนดำน้ำ']),n=AN.filter(a=>a.z===(k[0]==='เ'?'f':k[0]==='จ'?'c':'s')).length,p=.1*Math.min(1.5,n/4)*(1-Math.min(.6,ANS.rescue/30+(k[0]==='ฉ'?.2:0)));if(Math.random()<p)die('ถูก'+k.replace(/ใน.*|ตอน.*/,'')+'กินระหว่างผจญภัย','🦷');else lv('📸 ไปผจญภัย เจอ'+k+' หวุดหวิดรอดมาได้ ตื่นเต้นสุดๆ')}
+/* ---------- การเงิน (ผูกกับอายุจริงของจอห์น) ---------- */
+function incM(){const j=L.job,a=L.age;if(L.jail)return 0;if(j==='student')return a>=15?2500:0;if(j==='retired')return 12000;if(j==='homeless')return 4200;if(j==='killer')return Math.round((L.kills||0)?(L.kTot||0)/Math.max(.2,(L.age-(L.kStart||L.age)))/12:0);return incomeNow()}
+function costM(){const a=L.age,j=L.job;if(a<15||L.jail)return 0;if(j==='homeless')return 3200;if(j==='retired')return 12000+(L.kids.length?3000:0);if(j==='student')return a<18?1500:5000;const i=incomeNow()||(j==='killer'?60000:0);return Math.round(Math.max(9000,i*.62)+(L.sp?5000:0)+L.kids.length*4500)}
+/* ---------- นักฆ่า / หมายจับ ---------- */
+function contract(){const v=pk(NP.filter(p=>!p.fam&&!p.sp2));if(!v)return;const pay=Math.round(rnd(60,300)*1e3*(1+(L.kills||0)*.03));NP.splice(NP.indexOf(v),1);v.in=false;GRAVE.push(v);FX9.push({x:v.x,y:v.y,t:0,k:'s'});C.pop=Math.max(2000,C.pop-1);L.kills=(L.kills||0)+1;T.d['ถูกฆาตกรรม']=(T.d['ถูกฆาตกรรม']||0)+1;L.money+=pay;L.totIn=(L.totIn||0)+pay;L.kTot=(L.kTot||0)+pay;log('🔪 รับงานสังหาร เหยื่อรายที่ '+L.kills+' ค่าจ้าง ฿'+th9(pay));if(Math.random()<.4){L.wanted=Math.min(5,(L.wanted||0)+1);if(!L.warrant&&L.wanted>=2){L.warrant=true;L.hide=true;log('📜 ศาลออกหมายจับ '+L.name+' ข้อหาฆ่าคนตาย หลบซ่อนตัว');xTkr('🚨 ตำรวจออกหมายจับ '+L.name);repick()}}}
+function arrest(){if(L.kills>=10){log('⚖️ ศาลพิพากษาประหารชีวิต');return die('ถูกประหารชีวิตข้อหาฆ่าคนหลายราย','⚖️')}const yy=Math.min(40,Math.round(4+L.kills*2.5));L.jail=1;L.jailEnd=L.age+yy;L.money*=.4;L.hide=false;L.warrant=false;log('⛓️ ถูกจับกุม ศาลพิพากษาจำคุก '+yy+' ปี');xTkr('⛓️ '+L.name+' ถูกจับ จำคุก '+yy+' ปี');repick()}
+function setJob(k){if(L.dead||L.jail)return;if(k==='killer'&&L.age<18)return toast('ต้องอายุ 18 ปีขึ้นไป');if(k==='homeless'&&L.age<15)return toast('ยังเป็นเด็กอยู่');if(k==='normal')L.job=L.age>=60?'retired':(L.want&&L.want!=='student'?L.want:'office');else{L.job=k;if(k==='killer'){L.kStart=L.age;L.kTot=0}}log(k==='killer'?'🔪 เริ่มรับงานนักฆ่ารับจ้าง':k==='homeless'?'🏚️ กลายเป็นคนไร้บ้าน':'🧑‍💼 กลับมาใช้ชีวิตปกติ');repick()}
+/* ---------- ภัยพิบัติ ---------- */
+const DS={quake:['🌍','แผ่นดินไหว',.004,.5,.28,2,[['ตึกถล่มทับ',6],['ไฟไหม้ตามมา',2],['ถูกวัตถุหล่นใส่',2]]],tsunami:['🌊','สึนามิ',.012,.45,0,1,[['จมน้ำ',8],['ถูกเศษซากกระแทก',2]]],meteor:['☄️','อุกกาบาตตก',.004,.35,.5,1,[['ถูกอุกกาบาตกระแทกโดยตรง',4],['คลื่นระเบิดและเศษหิน',3],['ไฟไหม้',3]]],war:['⚔️','สงคราม',.001,.1,.3,0,[['ถูกโจมตีทางอากาศ',4],['การสู้รบ',3],['ขาดแคลนอาหาร/ยา',3]]],zombie:['🧟','ซอมบี้บุก',0,.05,.1,0,[['ถูกซอมบี้กัด/ติดเชื้อ',1]]],plane:['✈️','เครื่องบินตก',.0004,.1,.6,1,[['ถูกเครื่องบินตกทับ',5],['ไฟไหม้',5]]],volcano:['🌋','ภูเขาไฟระเบิด',.003,.3,.5,3,[['ลาวาและเถ้าร้อน',5],['สำลักเถ้าถ่าน',3],['ไฟไหม้',2]]],typhoon:['🌀','ไต้ฝุ่น',.001,.25,.05,2,[['น้ำท่วมฉับพลัน',5],['ต้นไม้/ป้ายล้มทับ',3],['ไฟฟ้าช็อต',2]]],plague:['🦠','โรคระบาด',.003,0,0,0,[['ติดเชื้อรุนแรง',8],['ระบบสาธารณสุขล้น',2]]]};
+const CONST=['war','plague','ufo','kaiju','dino'];
+DS.ufo=['👽','เอเลี่ยนบุก',.002,.3,.4,0,[['ถูกลำแสงเอเลี่ยนสลายร่าง',5],['ถูกจับไปทดลอง',3],['ไฟไหม้',2]]];DS.kaiju=['🦖','สัตว์ประหลาดยักษ์',.001,.35,.5,0,[['ถูกเหยียบ',4],['ลมหายใจไฟ',4],['อาคารถล่มทับ',2]]];DS.tornado=['🌪️','ทอร์นาโดยักษ์',.002,.4,.05,2,[['ถูกลมพัดกระแทก',5],['เศษซากปลิวใส่',5]]];DS.nuke=['☢️','ระเบิดนิวเคลียร์',.015,.8,.7,3,[['คลื่นระเบิดและความร้อน',6],['รังสีเฉียบพลัน',4]]];DS.iceage=['🥶','ยุคน้ำแข็งฉับพลัน',.002,.05,0,4,[['หนาวตาย (hypothermia)',7],['ขาดแคลนอาหาร',3]]];DS.wildfire=['🔥','ไฟป่าลามเมือง',.0015,.2,.9,2,[['ไฟคลอก',5],['สำลักควัน',5]]];DS.flood=['🌧️','น้ำท่วมใหญ่',.0015,.3,0,3,[['จมน้ำ',6],['ไฟฟ้าช็อต',2],['โรคระบาดหลังน้ำท่วม',2]]];DS.sinkhole=['🕳️','หลุมยุบยักษ์',.002,.9,.2,1,[['ตกลงไปในหลุม',7],['ตึกถล่ม',3]]];DS.solar=['⚡','พายุสุริยะไฟดับ',.0004,.05,.5,2,[['เครื่องช่วยชีวิตดับ',5],['หม้อแปลงระเบิดไฟไหม้',5]]];DS.dino=['🦕','ไดโนเสาร์หลุดสวนสัตว์',.0008,.1,.1,0,[['ถูกไดโนเสาร์กิน',6],['ถูกเหยียบ',4]]];
+const IMG=[['ufo','kaiju'],['nuke','iceage'],['tornado','flood'],['solar','zombie'],['wildfire','volcano'],['sinkhole','quake'],['dino','zombie'],['quake','tsunami'],['volcano','quake'],['typhoon','tsunami'],['meteor','war'],['plague','zombie'],['war','plague'],['quake','plane'],['volcano','typhoon'],['meteor'],['zombie','war']];
+const repDays=b=>b.hs?rnd(40,110):b.t==='tower'?rnd(300,520):b.t==='hosp'?rnd(240,360):b.t==='air'?rnd(150,260):(b.t==='school'||b.t==='uni')?rnd(120,220):rnd(70,170);
+function ruin(b){if(b.rub)return;b.cons=.1;b.rub=1;b.fixAt=0;b.bf=0;D.ruin=(D.ruin||0)+1;const n=VN[b.t]||(b.hs?'บ้านเรือน':b.t);D.rt[n]=(D.rt[n]||0)+1;RBL.push(b)}
+function ignite(b){if(b.bf>SM||b.rub)return;b.bf=SM+rnd(400,1500)*(1-resp()*.6);D.burn=(D.burn||0)+1}
+function addDead(c,n,vis){T.d[c]=(T.d[c]||0)+n;D.dead[c]=(D.dead[c]||0)+n;D.inj=(D.inj||0)+n*3;C.pop=Math.max(2000,C.pop-n);if(!vis){D.vis=(D.vis||0)+n;while(D.vis>=SCL()){D.vis-=SCL();const v=pk(NP.filter(okV));if(!v)break;NP.splice(NP.indexOf(v),1);GRAVE.push(v);FX9.push({x:v.x,y:v.y,t:0,k:'s'})}}}
+const cause=()=>{const k=pk(D.ks);return wp(DS[k][6])};
+function area(x,y,R,pr,pf,why){BL.forEach(b=>{const d=Math.hypot(b.x0-x,b.y0-y);if(d>R)return;const k=1-d/R;if(!b.rub&&Math.random()<pr*(.5+k))ruin(b);else if(Math.random()<pf*(.4+k))ignite(b)});if(L.dead)return;const h=HS[0];if(J.in&&J.act[1]==='home'?Math.hypot(h.x0-x,h.y0-y)<R*.6:Math.hypot(J.x-x,J.y-y)<R*.4){if(Math.random()<.3*(1-resp()))die(why||'ตึกถล่มทับ',D.ic||'🏚️')}}
+function strike(x,y,k,cb){FX9.push({x,y,t:0,k,cb})}
+function dFx(k){const d=DS[k];D.ks.push(k);D.ic=d[0];addDead(cause(),Math.round(C.pop*d[2]*.6));const e=pk(BL),R=GW*.22;
+ if(k==='quake'){area(e.x0,e.y0,R,d[3],d[4],'ตึกถล่มทับจากแผ่นดินไหว');[0,1200,2600,4200].forEach(t=>setTimeout(xShake,t))}
+ else if(k==='tsunami'||k==='typhoon'){D.wave={f:GH,dir:-1,max:GH*(k==='tsunami'?rnd(.2,.3):.07),hold:0};if(k==='typhoon'){RAIN.on=1;RAIN.st=1;RAIN.until=Date.now()+1e9}}
+ else if(k==='meteor'||k==='volcano'){const n=k==='meteor'?5+Math.random()*4|0:4;for(let i=0;i<n;i++)setTimeout(()=>{if(!D.on)return;const b=pk(BL);strike(b.x0,b.y0,'m',()=>{area(b.x0,b.y0,GW*(k==='meteor'?.05:.03),d[3],d[4],k==='meteor'?'ถูกอุกกาบาตกระแทก':'ถูกหินลาวาตก');addDead(cause(),Math.round(C.pop*d[2]*rnd(.3,.7)));xShake()})},i*2200);if(k==='volcano')D.ash=1}
+ else if(k==='war'){C.war={n:pk(WARN),end:L.age+60};C.econ=.8}
+ else if(k==='plane'){const b=pk(BL);strike(b.x0,b.y0,'p',()=>{area(b.x0,b.y0,GW*.04,d[3],d[4],'ถูกเครื่องบินตกทับ');addDead('ผู้โดยสารและลูกเรือบนเครื่อง',Math.round(rnd(120,300)),1);xShake()})}
+ else if(k==='zombie'){for(let i=0;i<6;i++){const q=pk(SPOTS),p=pk(NP.filter(okV));if(p){p.x=q[0]+.5;p.y=q[1]+.5;zConv(p)}}}
+ else if(k==='plague'){NP.forEach(p=>{if(Math.random()<.25)p.sym='🤒'})}
+ else if(k==='ufo'){for(let i=0;i<5;i++)setTimeout(()=>D.on&&ufoHit(),i*1500)}
+ else if(k==='kaiju'||k==='dino'||k==='tornado')giant(k);
+ else if(k==='nuke'){const b=pk(BL);D.flash=1;D.mush={x:b.x0,y:b.y0};strike(b.x0,b.y0,'m',()=>{D.flash=1.4;area(b.x0,b.y0,GW*.12,d[3],d[4],'คลื่นระเบิดนิวเคลียร์');[0,500,1000].forEach(t=>setTimeout(xShake,t))})}
+ else if(k==='iceage')D.ice=1;
+ else if(k==='wildfire'){BL.filter(b=>Math.hypot(b.x0-FR.x0,b.y0-FR.y0)<GW*.3).sort(()=>Math.random()-.5).slice(0,18).forEach(ignite);D.ember=1}
+ else if(k==='flood'){D.wave={f:GH,dir:-1,max:GH*.14,hold:0,hm:40};RAIN.on=1;RAIN.st=1;RAIN.until=Date.now()+1e9}
+ else if(k==='sinkhole'){for(let i=0;i<3;i++){const b=pk(BL);FX9.push({k:'h',x:b.x0,y:b.y0,t:0,keep:1});area(b.x0,b.y0,GW*.035,d[3],d[4],'ตกลงไปในหลุมยุบ')}xShake()}
+ else if(k==='solar'){D.dark=1;for(let i=0;i<8;i++)ignite(pk(BL))}
+ xTkr(d[0]+' '+d[1]+'!')}
+function dStart(ks){if(D.on)return toast('มีภัยพิบัติอยู่แล้ว กด ⏹ จบภัยพิบัติก่อน');D={on:1,ks:[],plan:ks,t0:SM,day:0,dead:{},rt:{},ruin:0,burn:0,out:0,inj:0,vis:0,acc:0,zk:0,zi:0,ic:DS[ks[0]][0],ex:0,ob:0};ks.forEach((k,i)=>i?setTimeout(()=>D.on&&dFx(k),i*14000):dFx(k));$('#dzP').classList.remove('on')}
+function dEnd(){if(!D.on)return;D.on=0;const days=Math.max(.01,(SM-D.t0)/1440),u=units(),eff=1+u.build/8;RBL.forEach(b=>{if(!b.fixAt){b.rs=SM;b.fixAt=SM+repDays(b)/eff*1440}});if(C.war&&D.ks.includes('war')){C.war=null;C.econ=1}if(D.ks.includes('typhoon')||D.ks.includes('flood'))RAIN.until=Date.now()+4000;D.ash=0;D.wave&&(D.wave.dir=1);GI.splice(0).forEach(o=>{const i=S.indexOf(o);if(i>=0)S.splice(i,1)});for(let i=FX9.length-1;i>=0;i--)if(FX9[i].keep)FX9.splice(i,1);D.ice=D.dark=D.ember=0;D.mush=null;cv.style.transform='';
+ const tot=Object.values(D.dead).reduce((a,b)=>a+b,0),left=RBL.length?Math.max(...RBL.map(b=>b.fixAt-SM))/1440:0,loss=RBL.reduce((s,b)=>s+(b.hs?3e6:b.h*2e6),0);
+ $('#mBody').innerHTML=`<h3>📋 สรุป: ${D.plan.map(k=>DS[k][0]+' '+DS[k][1]).join(' + ')}</h3><div style="line-height:1.8;font-size:13px"><div>🗓️ เกิดเหตุนาน <b>${days.toFixed(1)} วัน</b></div><div>☠️ เสียชีวิตรวม <b>${th9(tot)} คน</b> · 🤕 บาดเจ็บ ~${th9(D.inj||0)} คน</div>${Object.entries(D.dead).map(([k,v])=>`<div style="margin-left:14px">• ${esc(k)} ${th9(v)} คน</div>`).join('')}<div>🏚️ อาคารพังทลาย <b>${D.ruin} หลัง</b> · 🔥 ไฟไหม้ ${D.burn} จุด${D.out?` (ดับได้ ${D.out})`:''}</div>${Object.entries(D.rt).map(([k,v])=>`<div style="margin-left:14px">• ${esc(k)} ${v} หลัง</div>`).join('')}${D.zi?`<div>🧟 ติดเชื้อ ${D.zi} ราย · ทหารกำจัดซอมบี้ ${D.zk} ตัว</div>`:''}<div>💸 ความเสียหายโดยประมาณ ฿${th9(loss)}</div><div>🏗️ ฟื้นฟูทั้งเมืองใช้เวลาประมาณ <b>${Math.ceil(left)} วัน</b> (~${(left/30).toFixed(1)} เดือน) · ซ่อมเรียงตามขนาดความเสียหาย</div><div>🚨 หน่วยรับมือ ${u.tot} ทีม (🚒${u.fire} 🚑${u.med} 🪖${u.army} 🏗️${u.build} 🦺${u.rescue}) ช่วยลดผู้เสียชีวิตและเร่งซ่อม</div>${pie('สัดส่วนสาเหตุการเสียชีวิตในภัยพิบัตินี้',Object.entries(D.dead))}<small style="color:var(--mu)">เร่งเวลาเป็น ×600 เพื่อดูเมืองฟื้นตัว (1 วัน = 2.4 นาทีจริง)</small></div><button class="btn" id="rOk">ตกลง</button>`;$('#modal').classList.add('on');$('#rOk').onclick=closeM;xLog('📋 จบภัยพิบัติ: เสียชีวิต '+th9(tot)+' คน อาคารพัง '+D.ruin+' หลัง ซ่อม ~'+Math.ceil(left)+' วัน')}
+/* ซอมบี้ / ทหาร / หน่วยกู้ภัย */
+function zConv(p){p.sp2={r:'z',ttl:1e9,cd:0};p.skin='#7fb069';p.shirt='#6b2a2a';p.pants='#3a3a3a';p.sp=1.5;p.sym='🧟';p.in=false;p.path=[];p.tg=null;p.walk=false;D.zi++}
+const zN=()=>NP.reduce((a,p)=>a+(p.sp2&&p.sp2.r==='z'?1:0),0);
+const _sp9=special;special=function(p,dt){const s=p.sp2,r=s.r;
+ if(r==='z'){if(!(D.on&&D.ks.includes('zombie'))){NP.splice(NP.indexOf(p),1);p.sp2=null;p.sym='';GRAVE.push(p);return}
+  if((s.cd-=dt)<=0){s.cd=.8;let b=null,bd=1e9;for(const q of NP){if(!okV(q)&&!(q.sp2&&q.sp2.r==='zd'))continue;const d=Math.abs(q.x-p.x)+Math.abs(q.y-p.y);if(d<bd){bd=d;b=q}}if(!J.in&&!L.dead){const d=Math.abs(J.x-p.x)+Math.abs(J.y-p.y);if(d<bd){bd=d;b=J}}
+   if(b){if(bd<2.4){if(b===J)die('ถูกซอมบี้กัดแล้วติดเชื้อ','🧟');else if(b.sp2&&b.sp2.r==='zd'){if(Math.random()<.4)rm(b)}else{addDead('ถูกซอมบี้กัด/ติดเชื้อ',SCL(),1);zConv(b)}}else if(bd<70)go(p,[b.x|0,b.y|0],0)}else if(!p.path.length)go(p,pk(SPOTS),0)}
+  p.walk=mv(p,dt,p.sp);return}
+ if(r==='zd'){if(!(D.on&&D.ks.includes('zombie'))||(s.ttl-=dt)<=0){rm(p);return}
+  if((s.cd=(s.cd||0)-dt)<=0){s.cd=.7;let b=null,bd=1e9;for(const q of NP){if(!q.sp2||q.sp2.r!=='z')continue;const d=Math.abs(q.x-p.x)+Math.abs(q.y-p.y);if(d<bd){bd=d;b=q}}
+   if(b){if(bd<5){if(Math.random()<.8){NP.splice(NP.indexOf(b),1);b.sp2=null;b.sym='';GRAVE.push(b);D.zk++;p.sym='🔫'}}else go(p,[b.x|0,b.y|0],0)}else if(!p.path.length)go(p,pk(SPOTS),0)}
+  p.walk=mv(p,dt,p.sp);return}
+ if(r==='u'){if((s.ttl-=dt)<=0){rm(p);return}if(!s.d){s.d=1;go(p,s.t,0)}p.walk=mv(p,dt,p.sp);if(!p.walk&&Math.random()<dt)p.sym=pk(['🧯','🚑','🦺','🔧']);return}
+ if(r==='h'){if(p.safe>0)p.safe-=dt;if(s.ph===0){if(mvf(p,s.tx,s.ty,1.8,dt)){s.ph=1;s.w=rnd(4,10)}}else if(s.ph===1){p.walk=false;if((s.w-=dt)<=0)s.ph=2}else if(mvf(p,FR.x0-4,p.y,2,dt)){rm(p);return}if((s.ttl-=dt)<=0&&s.ph<2)s.ph=2;return}
+ if(r==='m'){if(!p.path.length&&SPOTS.length)go(p,pk(SPOTS),0);p.walk=mv(p,dt,p.sp);return}
+ if(r==='r'){if(!s.tx||mvf(p,s.tx,s.ty,2.2,dt)){s.tx=FR.x0+rnd(-4,26);s.ty=rnd(FR.y0+4,FR.y1-4)}return}
+ _sp9(p,dt)};
+function dispatch(){const bs=BL.filter(b=>b.bf>SM||b.rub);if(!bs.length)return;const b=pk(bs),sr=pk([BT.fire,BT.hosp,BT.police].filter(Boolean)),u=xMk('u',sr.dx+.5,sr.y1+.5,pk(['#e3000b','#ffffff','#2d7a3a']),pk(['🚒 ดับเพลิง','🚑 กู้ชีพ','🦺 กู้ภัย','🪖 ทหารช่วยเหลือ']),3.2);u.sp2.ttl=60;u.sp2.t=[b.dx,b.y1];NP.push(u)}
+function sold(){const p=xMk('zd',GATE[0]+.5,GATE[1]+.5,'#4f5e32','🪖 ทหาร',3);p.sp2.ttl=120;NP.push(p)}
+/* ---------- สัตว์ร้าย ป่า/ทะเล ---------- */
+const CAP={f:4,c:5,s:5},NM9={f:'เสือ',c:'จระเข้',s:'ฉลาม'},zone=z=>z==='s'?{x0:5,x1:GW-5,y0:GH+6,y1:GH+30}:z==='c'?SWP:{x0:FR.x0+4,x1:FR.x1-4,y0:FR.y0+4,y1:FR.y1-4};
+function mkA(z){const q=zone(z),a={z,k:{f:'🐅',c:'🐊',s:'🦈'}[z],x:rnd(q.x0,q.x1),y:rnd(q.y0,q.y1),cd:0,sated:0,r:80,d:t=>{const m=P(a.x,a.y);if(z==='s'){poly([[m[0],m[1]-15],[m[0]-6,m[1]],[m[0]+6,m[1]]],'#5c6b7a');R(m[0]-10,m[1]+1,20,2,'rgba(255,255,255,.55)')}else{g.globalAlpha=.3;R(m[0]-9,m[1]-2,18,4,'#000');g.globalAlpha=1;emo(a.x,a.y,a.k,z==='c'?24:28,2)}if(a.sated>0)emo(a.x,a.y,'🍖',16,-26)}};a.tx=a.x;a.ty=a.y;AN.push(a);S.push(a)}
+['f','f','f','c','c','c','s','s','s'].forEach(mkA);
+const kindN=z=>AN.filter(a=>a.z===z).length,eatTot=()=>Object.values(ANS.eat).reduce((a,b)=>a+b,0);
+function eat(a,p){const nm=NM9[a.z];a.sated=rnd(40,80);ANS.eat[nm]=(ANS.eat[nm]||0)+1;FX9.push({x:p.x,y:p.y,t:0,k:'r'});C.pop=Math.max(2000,C.pop-1);T.d['ถูก'+nm+'กิน']=(T.d['ถูก'+nm+'กิน']||0)+1;if(p===J)die('ถูก'+nm+'กินระหว่างเข้าไปในพื้นที่อันตราย',a.k);else drop(p);xTkr(a.k+' '+nm+'โจมตีและกินคน! (สะสม '+eatTot()+' ราย)')}
+function mkH(hunt){const x=FR.x0-rnd(2,10),y=rnd(FR.y0+3,FR.y1-3),p=mkP('t',x,y);p.sp2={r:'h',ttl:rnd(50,90),ph:0,tx:rnd(FR.x0+8,FR.x1-8),ty:rnd(FR.y0+8,FR.y1-8),hunt};p.shirt=hunt?'#5a3b22':pk(['#e3000b','#ff8a00','#00c8e8']);p.sp=1.8;p.safe=0;p.sym=hunt?'🏹':'🥾';NP.push(p)}
+function aTick(dt){const rg=NP.filter(p=>p.sp2&&p.sp2.r==='r'),hk=NP.filter(p=>p.sp2&&p.sp2.r==='h');hk.forEach(h=>{if(rg.some(r=>Math.hypot(r.x-h.x,r.y-h.y)<8))h.safe=3});
+ const prey=[...hk,...SW];if(!J.in&&!L.dead&&inF(J.x,J.y,8))prey.push(J);
+ for(let i=AN.length-1;i>=0;i--){const a=AN[i];a.sated>0&&(a.sated-=dt);a.cd-=dt;let tg=null,bd=a.z==='s'?7:11;
+  if(a.sated<=0)for(const p of prey){if(p.safe>0)continue;const d=Math.hypot(p.x-a.x,p.y-a.y),zi=a.z==='s'?p.isSw:a.z==='c'?(p.x>=SWP.x0-5&&p.x<=SWP.x1+5&&p.y>=SWP.y0-5&&p.y<=SWP.y1+5):inF(p.x,p.y);if(d<bd&&zi){bd=d;tg=p}}
+  if(tg){if(bd<1.3)eat(a,tg);else mvf(a,tg.x,tg.y,a.z==='s'?3.6:a.z==='c'?2.4:3.4,dt)}
+  else if(a.cd<=0||mvf(a,a.tx,a.ty,a.z==='s'?1.2:.9,dt)){const q=zone(a.z);a.tx=rnd(q.x0,q.x1);a.ty=rnd(q.y0,q.y1);a.cd=rnd(6,14)}
+  if(a.z!=='s'){for(const r of rg)if(Math.hypot(r.x-a.x,r.y-a.y)<7&&Math.random()<dt*.05){a.sated=30;a.tx=rnd(FR.x0+10,FR.x1-10);a.ty=rnd(FR.y0+10,FR.y1-10);ANS.rescue++;xTkr('🦺 เรนเจอร์ยิงยาสลบ'+NM9[a.z]+' ช่วยนักเดินป่า')}
+   for(const h of hk)if(h.sp2.hunt&&Math.hypot(h.x-a.x,h.y-a.y)<7&&Math.random()<dt*.25){AN.splice(i,1);const k=S.indexOf(a);if(k>=0)S.splice(k,1);ANS.hunt++;xTkr('🏹 นักล่าจัดการ'+NM9[a.z]+'ที่คุกคามคน');break}}}
+ if(hk.length<5&&Math.random()<dt/12)mkH(Math.random()<.25);
+ if(rg.length<4){const p=mkP('t',FR.x0-3,rnd(FR.y0+6,FR.y1-6));p.sp2={r:'r',ttl:1e9};p.shirt='#2d7a3a';p.sp=2.2;p.sym='🦺';NP.push(p)}
+ /* ทะเล: นักว่ายน้ำ / การ์ดเฝ้าฉลาม */
+ const hr=sim/60%24;flagT-=dt;if(flagT<=0){flagT=2;const sh=AN.some(a=>a.z==='s'&&a.y<GH+18&&SW.length);if(sh&&Math.random()<.7){FLAG=1;flagT=12}else FLAG=0}
+ if(hr>=8&&hr<18&&!FLAG&&SW.length<6&&Math.random()<dt/8){const w={x:rnd(10,GW-10),y:GH+rnd(3,8),isSw:1,ttl:rnd(40,90),safe:0,r:60,d:()=>emo(w.x,w.y,'🏊',20,Math.sin(performance.now()/300)*2)};SW.push(w);S.push(w)}
+ for(let i=SW.length-1;i>=0;i--){const w=SW[i];w.ttl-=dt;if(FLAG||w.ttl<=0){if(mvf(w,w.x,GH+1.2,2.6,dt)||w.y<=GH+1.3)drop(w)}else{w.x+=Math.sin(performance.now()/900+i)*dt*.4;w.y=Math.max(GH+2,Math.min(GH+9,w.y+Math.cos(performance.now()/800+i)*dt*.3))}}
+ /* สมดุลระบบนิเวศ */
+ if(Math.random()<dt/25)for(const z of['f','c','s']){const n=kindN(z);if(n<CAP[z]&&Math.random()<.45)mkA(z);else if(n>CAP[z]){const a=AN.find(q=>q.z===z);if(a){AN.splice(AN.indexOf(a),1);S.splice(S.indexOf(a),1);ANS.hunt++;xTkr(z==='s'?'🎣 นักล่าฉลามจับฉลามได้ 1 ตัว รักษาสมดุลทะเล':'🎯 เรนเจอร์ย้าย'+NM9[z]+'ไปเขตอนุรักษ์')}}}}
+/* ---------- จังหวะหลัก ---------- */
+let _tD=0,_tZ=0,_tU=0,_tS=0,_tB=0;
+const _lt9=lifeTick;lifeTick=function(dt){_lt9(dt);
+ {const now=Date.now(),e=Math.min(Math.max((now-(L.t9||now))/1000,0),3e8);L.t9=now;const y=e/L.rate;T.b+=C.pop*.012*y;T.n+=C.pop*.0075*y;
+ if(L.dead){L.age=L.dead.age}else{
+  const a=L.age;if(a<17){L.h=hh(a);L.w=a<1?3.3+6*a:9.3+(a-1)*3.3;J.sc=.4+.5*a/17}J.hair=hair(a);
+  if(y>0){let inc=0;const j=L.job;if(!L.jail)inc=j==='student'?(a>=15?2500:0):j==='retired'?12000:j==='homeless'?4200*(.7+Math.random()*.6):j==='killer'?0:incomeNow();const co=costM(),itr=L.money>0?L.money*.015:L.money*.12;L.money+=(inc-co)*12*y+itr*y;L.totIn=(L.totIn||0)+inc*12*y;L.totOut=(L.totOut||0)+co*12*y;
+   if(Math.random()<1-Math.exp(-haz()*y))natDie();
+   if(!L.dead&&L.job==='killer'&&!L.jail&&Math.random()<1-Math.exp(-6*(L.hide?.25:1)*y))contract();
+   if(L.warrant&&!L.jail&&!L.dead){if(Math.random()<1-Math.exp(-(L.hide?.15:.9)*y))arrest();else if(L.hide){L.wanted=Math.max(0,L.wanted-.7*y);if(L.wanted<=0){L.warrant=false;L.hide=false;log('📜 คดีหมดอายุความ หมายจับถูกยกเลิก');repick()}}}
+   if(L.jail&&L.age>=L.jailEnd){L.jail=0;L.wanted=0;L.job='homeless';log('🔓 พ้นโทษ ไม่มีงานไม่มีบ้าน กลายเป็นคนไร้บ้าน');repick()}
+   if(L.money<-30000&&L.age>=18&&!L.jail&&!['homeless','killer','student'].includes(L.job)){L.job='homeless';L.money=0;log('🏚️ ล้มละลาย ถูกยึดบ้าน กลายเป็นคนไร้บ้าน');repick()}
+   else if(L.job==='homeless'&&L.money>60000){L.job=L.age>=60?'retired':'office';log('💼 สะสมเงินได้พอ หางานใหม่และกลับมามีบ้าน');repick()}}}}
+ /* ภัยพิบัติ */
+ if(D.on){D.day=(SM-D.t0)/1440;const dm=dSM/1440;let m=0;D.ks.forEach(k=>{const d=DS[k];m+=d[2]*(CONST.includes(k)?(k==='plague'?Math.min(3,1+D.day/10):1):Math.exp(-D.day/Math.max(.5,d[5]/2.5)))});
+  D.acc+=C.pop*m*dm*(1-resp());while(D.acc>=SCL()){D.acc-=SCL();addDead(cause(),SCL())}
+  if(!L.dead&&Math.random()<m*dm*4*(1-resp())*(J.in?.3:1))die(cause(),D.ic);
+  if((_tD-=dt)<=0){_tD=rnd(5,9);if(D.ks.includes('ufo'))ufoHit();if(D.ks.includes('war')){const b=pk(BL);strike(b.x0,b.y0,'m',()=>{area(b.x0,b.y0,GW*.025,DS.war[3],DS.war[4],'ถูกโจมตีทางอากาศ');xShake()})}if(D.ks.includes('volcano')){const b=pk(BL);strike(b.x0,b.y0,'m',()=>area(b.x0,b.y0,GW*.02,.3,.6,'ถูกหินลาวาตก'))}if(D.ks.includes('typhoon'))area(rnd(0,GW),rnd(0,GH),GW*.04,.15,.02,'ต้นไม้/ป้ายล้มทับ');if(D.ks.includes('quake')&&D.day<3&&Math.random()<.4)xShake()}
+  if(D.ks.includes('zombie')){if((_tZ-=dt)<=0){_tZ=3;const zc=zN();NP.forEach(p=>{if(p.in&&!p.fam&&!p.sp2&&Math.random()<zc/NPN*.05){p.x=p.door?p.door[0]+.5:p.x;p.y=p.door?p.door[1]+.5:p.y;addDead('ถูกซอมบี้กัด/ติดเชื้อ',SCL(),1);zConv(p)}});if(NP.filter(p=>p.sp2&&p.sp2.r==='zd').length<Math.min(40,units().army*3)){sold();sold()}if(D.day>=.5&&zN()===0){xTkr('🪖 กวาดล้างซอมบี้หมดแล้ว');dEnd()}}}
+  if(D.on&&D.plan.every(k=>DS[k][5]>0&&D.ks.includes(k))&&D.day>=Math.max(...D.plan.map(k=>DS[k][5])))dEnd()}
+ if(D.wave){const w=D.wave;if(w.dir<0){w.f-=dt*3.5;BL.forEach(b=>{if(!b.hit&&b.y0>=w.f&&!b.rub){b.hit=1;Math.random()<DS.tsunami[3]*(D.ks.includes('tsunami')?1:.2)&&ruin(b)}});if(w.f<=GH-w.max){w.f=GH-w.max;w.hold+=dt;if(w.hold>(w.hm||8))w.dir=1}}else{w.f+=dt*1.2;if(w.f>=GH+1){D.wave=null;BL.forEach(b=>b.hit=0)}}}
+ if(D.on&&(_tU-=dt)<=0){_tU=2.5;if(NP.filter(p=>p.sp2&&p.sp2.r==='u').length<14)dispatch()}
+ /* ไฟ + ซ่อมสร้าง */
+ const dm2=dSM/1440;BL.forEach(b=>{if(b.bf>0){if(SM>=b.bf){b.bf=0;if(Math.random()<.5*(1-resp()*.7))ruin(b);else D.out++}else if(Math.random()<dm2*.5*(1-resp())){const n=pk(BL);Math.hypot(n.x0-b.x0,n.y0-b.y0)<14&&ignite(n)}}});
+ if(!D.on&&RBL.length){let done=0;for(let i=RBL.length-1;i>=0;i--){const b=RBL[i];if(!b.fixAt)continue;const p=Math.min(1,(SM-b.rs)/(b.fixAt-b.rs));if(p>=1){b.cons=null;b.rub=0;b.bf=0;b.fixAt=0;RBL.splice(i,1);done++}else{b.cons=.1+.9*p;b.rub=p<.5?1:0}}if(done)xTkr('🏗️ ซ่อมสร้างเสร็จ '+done+' หลัง เหลือ '+RBL.length);if(!RBL.length&&!C.war)C.econ=1}
+ if(RBL.length&&!C.war)C.econ=Math.max(.45,1-.9*RBL.length/BL.length*3);
+ if(!D.on&&GRAVE.length&&Math.random()<dt*.5){const p=GRAVE.pop();p.x=p.home.dx+.5;p.y=p.home.y1+.5;p.path=[];p.tg=null;p.sp2=null;p.in=false;p.skin=pk(SKN);p.shirt=pk(SHC);p.sym='';NP.push(p)}
+ aTick(dt);xTick(dt)};
+/* ---------- วาด: น้ำ ไฟ เอฟเฟกต์ ฤดู ---------- */
+let w9=0;const FL=[['#ff3b00',1],['#ff9500',.7],['#ffe14a',.4]];
+const _fr9=frame;frame=function(now){_fr9(now);if(lastF!==now||!PXV||document.hidden||pxw.style.display==='none')return;
+ const dt=Math.min((now-(w9||now))/1000,.1);w9=now;const t=now/1000,tx0=CW/2-cam.x*cam.z,ty0=CH/2-cam.y*cam.z;g.setTransform(cam.z*RS,0,0,cam.z*RS,tx0*RS,ty0*RS);
+ if(D.wave){const f=D.wave.f;poly([P(0,f),P(GW,f),P(GW,GH+40),P(0,GH+40)],'rgba(40,150,235,.5)');poly([P(0,f),P(GW,f),P(GW,f+1.2),P(0,f+1.2)],'rgba(255,255,255,.7)')}
+ BL.forEach(b=>{if(!(b.bf>SM)||!bvis(b))return;const q=P(b.x0+b.w/2,b.y0+b.d/2),by=q[1]-b.h*.3;for(let i=0;i<3;i++){const x=q[0]+(i-1)*b.w*5,s=.8+b.h/90;FL.forEach(([c,k],j)=>{g.fillStyle=c;g.beginPath();g.moveTo(x-8*s*k,by);g.quadraticCurveTo(x-6*s*k,by-14*s*k-Math.sin(t*9+j+i)*4*s,x,by-26*s*k-Math.sin(t*7+x)*5*s);g.quadraticCurveTo(x+6*s*k,by-12*s*k,x+8*s*k,by);g.fill()});g.fillStyle='rgba(60,60,60,.35)';g.beginPath();g.arc(x+Math.sin(t+i)*6,by-40*s-(t*20+i*15)%40,9*s,0,6.3);g.fill()}});
+ for(let i=FX9.length-1;i>=0;i--){const e=FX9[i];e.t+=dt;const q=P(e.x,e.y);
+  if(e.k==='s'){g.globalAlpha=Math.max(0,1-e.t/1.6);emo(e.x,e.y,'💀',18,-20-e.t*20);g.globalAlpha=1;if(e.t>1.6)FX9.splice(i,1)}
+  else if(e.k==='r'){g.globalAlpha=Math.max(0,1-e.t/2);emo(e.x,e.y,'🩸',22,-6);g.globalAlpha=1;if(e.t>2)FX9.splice(i,1)}
+  else if(e.k==='m'||e.k==='p'){const T=e.k==='m'?1.2:2.2,u=Math.min(1,e.t/T),x=q[0]-260*(1-u),y=q[1]-520*(1-u);if(e.k==='m'){g.fillStyle='#ff6a00';g.beginPath();g.arc(x,y,10,0,6.3);g.fill();g.strokeStyle='rgba(255,180,60,.7)';g.lineWidth=6;g.beginPath();g.moveTo(x,y);g.lineTo(x-90*(1-u)-10,y-180*(1-u)-10);g.stroke()}else{g.font='34px serif';g.textAlign='center';g.fillText('✈️',x,y);g.textAlign='left';g.fillStyle='rgba(80,80,80,.5)';g.beginPath();g.arc(x-12,y-14,8,0,6.3);g.fill()}
+   if(u>=1){e.k='b';e.t=0;e.cb&&e.cb()}}
+  else if(e.k==='u'){const u=Math.min(1,e.t/1.4),a=.35+.4*Math.sin(e.t*12);g.fillStyle='rgba(170,255,200,'+a*.7+')';g.beginPath();g.moveTo(q[0]-6,q[1]-600);g.lineTo(q[0]+6,q[1]-600);g.lineTo(q[0]+40*u+6,q[1]);g.lineTo(q[0]-40*u-6,q[1]);g.fill();emo(e.x,e.y,'🛸',40,-560);if(e.t>=1.4){e.k='b';e.t=0;e.cb&&e.cb()}}
+  else if(e.k==='h'){const u=Math.min(1,e.t/2);g.fillStyle='#5a3b22';g.beginPath();g.ellipse(q[0],q[1],80*u+8,40*u+4,0,0,6.3);g.fill();g.fillStyle='#120a05';g.beginPath();g.ellipse(q[0],q[1],68*u,34*u,0,0,6.3);g.fill()}
+  else if(e.k==='b'){const a=Math.max(0,1-e.t/1.8);g.strokeStyle='rgba(255,200,80,'+a+')';g.lineWidth=8;g.beginPath();g.ellipse(q[0],q[1],e.t*140,e.t*70,0,0,6.3);g.stroke();g.fillStyle='rgba(255,120,0,'+a*.6+')';g.beginPath();g.ellipse(q[0],q[1],e.t*60,e.t*30,0,0,6.3);g.fill();emo(e.x,e.y,'💥',40,0);if(e.t>1.8)FX9.splice(i,1)}}
+ if(D.on&&D.mush)emo(D.mush.x,D.mush.y,'🍄',140,-30);
+ g.setTransform(RS,0,0,RS,0,0);const hr=sim/60%24,s=seas();
+ if(s==='snow'){g.fillStyle='rgba(235,245,255,.14)';g.fillRect(0,0,CW,CH)}else if(s==='cold'){g.fillStyle='rgba(90,140,255,.06)';g.fillRect(0,0,CW,CH)}else if(s==='hot'&&hr>=10&&hr<16){g.fillStyle='rgba(255,150,30,.08)';g.fillRect(0,0,CW,CH)}
+ if(D.ash){g.fillStyle='rgba(110,40,10,.2)';g.fillRect(0,0,CW,CH)}
+ if((snowOn&&s==='snow')||(D.on&&D.ice)){while(SNW.length<(MOB?90:200))SNW.push({x:Math.random()*CW,y:Math.random()*CH,v:20+Math.random()*30,r:1+Math.random()*2});g.fillStyle='#fff';SNW.forEach(f=>{f.y+=f.v*dt;f.x+=Math.sin(f.y/30)*.6;if(f.y>CH){f.y=-5;f.x=Math.random()*CW}g.fillRect(f.x,f.y,f.r,f.r)})}else SNW.length=0;wxd(t,dt,hr);scr(t,dt)};
+/* ---------- UI ---------- */
+$('#dzP').innerHTML=Object.entries(DS).map(([k,d])=>`<button data-k="${k}">${d[0]} ${d[1]}</button>`).join('')+'<button class="r" data-i="1">🎲 ภัยพิบัติช่วยจินตนาการ</button><button class="e" data-e="1">⏹ จบภัยพิบัติ</button>';
+$('#dzT').onclick=()=>$('#dzP').classList.toggle('on');
+$('#dzP').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.k)dStart([b.dataset.k]);else if(b.dataset.i){const c=pk(IMG);dStart(c);toast('🎲 '+c.map(k=>DS[k][1]).join(' แล้วตามด้วย '))}else if(b.dataset.e)dEnd()};
+$('#dzS').onclick=e=>{if(e.target.closest('button'))dEnd()};$('#dzD').onclick=e=>{if(e.target.closest('button'))L.dead?showDeath():0};
+function ui(){const al=!L.dead;$('#v9s').textContent=SN[seas()][0]+' '+SN[seas()][1]+' · '+WXN[wx][0]+' '+WXN[wx][1]+' '+temp()+'°C · '+fD(wD());
+ const S1=$('#dzS');if(D.on){const tot=Object.values(D.dead).reduce((a,b)=>a+b,0);S1.style.display='block';S1.innerHTML=`${D.plan.map(k=>DS[k][0]+DS[k][1]).join('+')} · วันที่ ${Math.floor(D.day)+1} · ☠️ ${th9(tot)} · 🏚️ ${D.ruin} · 🔥 ${BL.filter(b=>b.bf>SM).length}${D.ks.includes('zombie')?' · 🧟 '+zN()+' · 🪖 '+D.zk+' กำจัด':''} · 🚨 ${units().tot} ทีม <button>⏹ จบภัยพิบัติ</button>`}else if(RBL.length){S1.style.display='block';const l=Math.max(0,...RBL.filter(b=>b.fixAt).map(b=>b.fixAt-SM))/1440;S1.style.background='rgba(20,90,40,.9)';S1.textContent=`🏗️ กำลังซ่อมเมือง · เหลือ ${RBL.length} หลัง · อีกประมาณ ${Math.ceil(l)} วัน (เร่ง ×600 ได้)`}else{S1.style.display='none';S1.style.background=''}
+ const D1=$('#dzD');if(!al){D1.style.display='block';D1.innerHTML=`🪦 ${esc(L.name)} เสียชีวิต · อายุ ${Math.floor(L.dead.age)} ปี · ${L.dead.ic} ${esc(L.dead.cause)} <button>ดูรายละเอียด</button>`}else D1.style.display='none';
+ if(!$('#t-home').classList.contains('on'))return;const a=L.age,u=units(),inc=incM(),co=costM(),net=inc-co;
+ let h='<h3>🧬 ชีวิต · การเงิน · โลก</h3>';
+ h+=al?`<div class="item"><div class="m"><b>🎂 ${Math.floor(a)} ปี ${Math.floor(a%1*12)} เดือน · ${stg(a)}</b><small>📅 ${fD(wDate(a))} · ${SN[seas()][0]} ${SN[seas()][1]} ${temp()}°C</small></div></div>`:`<div class="item"><div class="m"><b style="color:var(--r)">🪦 เสียชีวิต ${fD(wDate(L.dead.age))}</b><small>${L.dead.ic} ${esc(L.dead.cause)} · อายุ ${Math.floor(L.dead.age)} ปี ${Math.floor(L.dead.age%1*12)} เดือน</small></div></div>`;
+ h+=`<div class="item"><div class="m"><b>💰 เงินเก็บ ฿${th9(L.money)}</b><small>รายรับ ฿${th9(inc)}/เดือน · รายจ่าย ฿${th9(co)}/เดือน · สุทธิ ${net>=0?'+':'−'}฿${th9(Math.abs(net))}/เดือน${net<0&&L.money>0?' · อยู่ได้ ~'+Math.floor(L.money/-net)+' เดือน':''}</small><small>รับสะสม ฿${th9(L.totIn||0)} · จ่ายสะสม ฿${th9(L.totOut||0)}</small></div></div>`;
+ if(L.job==='killer'||L.kills)h+=`<div class="item"><div class="m"><b>🔪 สังหารแล้ว ${L.kills||0} คน · ${'⭐'.repeat(L.wanted||0)||'ไม่มีดาว'}</b><small>${L.jail?'⛓️ ติดคุกถึงอายุ '+Math.ceil(L.jailEnd)+' ปี':L.warrant?'📜 มีหมายจับ'+(L.hide?' · 🕵️ กำลังหลบซ่อน':' · ⚠️ ออกมาเดินเสี่ยงโดนจับ'):'ยังไม่มีหมายจับ'}</small></div></div>`;
+ if(L.job==='homeless')h+=`<div class="item"><div class="m"><b>🏚️ ไร้บ้าน นอนสวนสาธารณะ</b><small>ขอทาน/เก็บของเก่า ฿~4,200/เดือน · เสี่ยงตายจากหนาว ร้อน และโรค</small></div></div>`;
+ h+=`<div class="item"><div class="m"><b>🌲 สัตว์ร้ายและสมดุลธรรมชาติ</b><small>🐅 ${kindN('f')} · 🐊 ${kindN('c')} · 🦈 ${kindN('s')} · ${FLAG?'🚩 ธงแดง ห้ามลงน้ำ':'🏳️ ทะเลปลอดภัย'} · ถูกกินแล้ว ${eatTot()} ราย${Object.entries(ANS.eat).map(([k,v])=>' ('+k+' '+v+')').join('')}</small><small>🏹 ควบคุมประชากรสัตว์ ${ANS.hunt} ครั้ง · 🦺 เรนเจอร์ช่วยชีวิต ${ANS.rescue} ครั้ง</small></div></div>`;
+ h+=`<div class="item"><div class="m"><b>🚨 หน่วยรับมือภัยพิบัติ ${u.tot} ทีม</b><small>🚒 ดับเพลิง ${u.fire} · 🚑 กู้ชีพ ${u.med} · 🪖 ทหาร ${u.army} · 🏗️ ซ่อมสร้าง ${u.build} · 🦺 กู้ภัย ${u.rescue}</small></div></div>`;
+ h+=`<div class="bt">${al?`<button class="chip" data-a="killer">🔪 เป็นนักฆ่า</button><button class="chip" data-a="homeless">🏚️ ไร้บ้าน</button><button class="chip" data-a="normal">🧑‍💼 กลับมาปกติ</button>${L.warrant&&!L.jail?`<button class="chip" data-a="hide">${L.hide?'🏃 ออกจากที่ซ่อน':'🕵️ หลบซ่อน'}</button><button class="chip" data-a="surr">🏳️ มอบตัว</button>`:''}`:'<button class="chip" data-a="born">👶 เกิดใหม่</button>'}</div>`;
+ _hs($('#v9c'),h);_hs($('#v9p'),pies())}
+$('#v9c').onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;const k=b.dataset.a;if(k==='born')reborn();else if(k==='hide'){L.hide=!L.hide;repick()}else if(k==='surr')arrest();else setJob(k);ui()};
+const _je=$('#jEdit').onclick;$('#jEdit').onclick=()=>{_je();const s=$('#lA');if(s){s.insertAdjacentHTML('afterbegin','<option value="0">👶 เกิดใหม่ (ทารก เติบโตจริง)</option>');s.value='0'}};
+setInterval(ui,700);setTimeout(()=>{ui();setInterval(()=>{if(L.dead)$('#jSub').textContent='🪦 เสียชีวิตแล้ว · '+L.dead.cause;else $('#jSub').textContent=($('#jSub').textContent||'').replace(/·[^·]*$/,'· '+stg(L.age))},650)},300);
+if(L.dead)deadVis();
+S.push({x:BT.home.dx+.5,y:BT.home.y1+.5,d:()=>{if(L.dead)emo(BT.home.dx+.5,BT.home.y1+.5,'🪦',28,0)}});
+
+/* ===== v9b: แผนภูมิ · ค่ายทหาร · เรือ · สภาพอากาศ · เอฟเฟกต์ภัยพิบัติ · เอฟเฟกต์เมาส์ ===== */
+const PC=['#e3000b','#0087ff','#ffd500','#00a83e','#ff8a00','#9b4dff','#00c8e8','#ff3d8b','#8a8f9c'];
+function pie(t,items){items=items.filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]);if(items.length>8){const o=items.slice(7).reduce((s,x)=>s+x[1],0);items=items.slice(0,7).concat([['อื่นๆ',o]])}const tot=items.reduce((s,x)=>s+x[1],0)||1;let a=0;const cg=items.map((x,i)=>{const p=x[1]/tot*100,c=PC[i]+' '+a+'% '+(a+p)+'%';a+=p;return c}).join(',');return `<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:8px 0"><div style="width:96px;height:96px;border-radius:50%;background:conic-gradient(${cg||'#ccc 0 100%'});border:3px solid var(--tx);flex:none"></div><div style="font-size:11.5px;line-height:1.6;flex:1;min-width:150px"><b>${t}</b>${items.map((x,i)=>`<div><i style="display:inline-block;width:9px;height:9px;background:${PC[i]};margin-right:5px"></i>${esc(x[0])} <b>${(x[1]/tot*100).toFixed(1)}%</b> <small>(${th9(x[1])})</small></div>`).join('')}</div></div>`}
+const NS=[['โรคหัวใจ',.28],['มะเร็ง',.24],['ชราภาพ',.18],['อุบัติเหตุ',.12],['ติดเชื้อ/ปอดอักเสบ',.1],['อื่นๆ',.08]];
+function pies(){const dt=Object.values(T.d).reduce((a,b)=>a+b,0),dall=[...NS.map(([k,v])=>[k,T.n*v]),...Object.entries(T.d)],tot=T.n+dt,jc={};NP.forEach(p=>{if(p.job&&JOBS[p.job]){const n=JOBS[p.job].n;jc[n]=(jc[n]||0)+1}});
+ return `<h3>📊 สถิติเมือง ${esc(C.name)}</h3>`+pie('สาเหตุการเสียชีวิตทั้งเมือง (สะสม)',dall)+pie('เกิด เทียบ เสียชีวิต',[['เกิดใหม่',T.b],['เสียชีวิต',tot]])+pie('อาชีพของคนในเมือง',Object.entries(jc))+`<div class="item"><div class="m"><b>👥 ค่าเฉลี่ยคนในเมือง</b><small>ประชากร ${th9(C.pop)} คน · รายได้เฉลี่ย ฿${th9(cityBase().avg)}/เดือน · อัตราเกิด ~1.2%/ปี · อัตราตายธรรมชาติ ~0.75%/ปี · ตายจากเหตุร้ายรวม ${th9(dt)} คน (${(dt/(tot||1)*100).toFixed(1)}% ของผู้เสียชีวิตทั้งหมด)</small></div></div>`}
+/* ค่ายทหารใหญ่ */
+const MW=MB.x1-MB.x0,MH=MB.y1-MB.y0,HP={x:MB.x0+(MW*.7|0),y:MB.y0+(MH*.5|0)};
+const _gb2=genBg;genBg=function(X,Y,Wd,Ht){_gb2(X,Y,Wd,Ht);for(let x=MB.x0;x<MB.x1;x++)for(let y=MB.y0;y<MB.y1;y++){const q=P(x,y);if(q[0]<X-40||q[0]>X+Wd+40||q[1]<Y-30||q[1]>Y+Ht+40)continue;const e=x===MB.x0||y===MB.y0||x===MB.x1-1||y===MB.y1-1,hp=x>=HP.x&&x<HP.x+8&&y>=HP.y&&y<HP.y+8,hb=hp&&(x===HP.x||x===HP.x+7||y===HP.y||y===HP.y+7);poly([P(x,y),P(x+1,y),P(x+1,y+1),P(x,y+1)],hp?(hb?'#ffd500':'#555d4a'):e?'#6d7a48':((x>>2)+(y>>2))%2?'#a9b476':'#9fab6c',bx)}};
+{const post=(x,y)=>S.push({x:x+.5,y:y+.5,d:()=>box3(x+.35,y+.35,.3,.3,13,'#4f5e32')});
+for(let x=MB.x0;x<MB.x1;x+=2){if(x>MB.x0+4)post(x,MB.y0);post(x,MB.y1-1)}for(let y=MB.y0;y<MB.y1;y+=2){if(y>MB.y0+4)post(MB.x0,y);post(MB.x1-1,y)}
+for(let r=0;r<2;r++)for(let c=0;c<7;c++){const px=MB.x0+4+c*13,py=MB.y0+5+r*10;if(px+10<MB.x1-3&&py+4<MB.y0+MH*.45){blockW(px,py,10,4);prop(px+5,py+2,()=>{box3(px,py,10,4,18,'#6b7b45');box3(px-.2,py-.2,10.4,4.4,3,'#4f5e32',18)})}}
+for(let k=0;MB.x0+4+k*5+3<HP.x-2;k++)tank(MB.x0+4+k*5,MB.y0+(MH*.5|0));
+{const hx=MB.x0+4,hy=MB.y1-9;blockW(hx,hy,14,5);prop(hx+7,hy+2.5,()=>{box3(hx,hy,14,5,26,'#8a8f9c');box3(hx-.2,hy-.2,14.4,5.4,3,'#5b6280',26)})}
+{const qx=MB.x0+(MW*.45|0),qy=MB.y1-9;blockW(qx,qy,7,4);prop(qx+3.5,qy+2,t=>{box3(qx,qy,7,4,58,'#6b7b45');box3(qx-.2,qy-.2,7.4,4.4,4,'#4f5e32',58);const m=P(qx+3.5,qy+2);R(m[0],m[1]-120,3,60,'#ddd');R(m[0]+3,m[1]-120,26,16+Math.round(Math.sin(t*3)*2),'#e3000b')})}
+prop(MB.x1-6,MB.y0+4,t=>emo(MB.x1-6,MB.y0+4,'📡',46,Math.sin(t*2)*2));
+prop(HP.x+4,HP.y+4,t=>emo(HP.x+4+Math.sin(t*.6)*2.5,HP.y+4+Math.cos(t*.6)*2.5,'🚁',64,-20));
+prop(MB.x0+MW/2,MB.y0,()=>{const m=P(MB.x0+MW/2,MB.y0);g.font='700 20px Prompt';g.textAlign='center';g.strokeStyle='#14162e';g.lineWidth=5;g.strokeText('🪖 ฐานทัพหลวง',m[0],m[1]-34);g.fillStyle='#fff';g.fillText('🪖 ฐานทัพหลวง',m[0],m[1]-34);g.textAlign='left'},300);
+const sol9=(x,y,t,k)=>{const m=P(x,y),X=Math.round(m[0]),Y=Math.round(m[1]),w=Math.sin(t*6+k)>0;g.globalAlpha=.25;R(X-5,Y-1,10,3,'#000');g.globalAlpha=1;R(X-3,Y-8+(w?1:0),3,8,'#3a4a20');R(X,Y-8,3,8,'#3a4a20');R(X-4,Y-17,8,9,'#556b2f');R(X-3,Y-23,6,6,'#f1c27d');R(X-4,Y-25,8,3,'#4f5e32')};
+for(let r=0;r<3;r++)for(let c=0;c<6;c++){const x=MB.x0+MW*.2+c*1.6,y=MB.y0+MH*.72+r*1.6;S.push({x,y,d:t=>sol9(x,y,t,c+r)})}}
+/* เรือใหญ่เข้าจอดท่า + กองเรือรบ */
+const PX=Math.round(GW*.55),SHP=[{kind:'cruise',L:16,off:0,B:[PX-18,GH+9]},{kind:'cargo',L:15,off:100,B:[PX+26,GH+9],s:2},{kind:'navy',L:11,off:0,nv:1},{kind:'navy',L:11,off:70,nv:1},{kind:'navy',L:11,off:140,nv:1}];
+function shipDraw(o){const L=o.L,hx=o.x-L/2,hy=o.y-2,k=o.kind;g.globalAlpha=.25;poly([P(hx-1,hy+4.5),P(hx+L+1,hy+4.5),P(hx+L+1,hy+5.5),P(hx-1,hy+5.5)],'#001a33');g.globalAlpha=1;
+ if(k==='navy'){box3(hx,hy,L,3.4,7,'#6b7280');box3(hx+L*.3,hy+.6,L*.35,2.2,16,'#8b93a1',7);box3(hx+L*.62,hy+.9,2,1.6,26,'#9aa3b2',7);box3(hx+2,hy+1,2,1.4,10,'#4b5563',7);box3(hx+L-4,hy+1,2,1.4,10,'#4b5563',7);box3(hx+L*.45,hy+1.4,.4,.4,40,'#ddd',23)}
+ else if(k==='cruise'){box3(hx,hy,L,4,9,'#f5f5f5');box3(hx,hy,L,4,2,'#1d4ed8');for(let i=0;i<3;i++)box3(hx+2+i*.4,hy+.4+i*.2,L-4-i*.8,3.2-i*.4,7,'#fff',9+i*7);box3(hx+L*.5,hy+1.2,1.6,1.6,10,'#e3000b',30)}
+ else{box3(hx,hy,L,4,8,'#243b53');box3(hx,hy,L,4,2,'#b91c1c',8);const cs=['#e3000b','#ffd500','#0087ff','#00a83e','#ff8a00'];for(let i=0;i<5;i++)box3(hx+1+i*2.2,hy+.3,2,3.4,8,cs[(i+o.s)%5],10);box3(hx+L-3.2,hy+.6,2.8,2.8,18,'#f1f5f9',10)}
+ if(o.fire)emo(hx+L*.5,hy,'💥',34,-30)}
+SHP.forEach(o=>{o.x=-999;o.y=GH+20;o.r=400;o.fire=0;o.d=()=>{if(o.x>-500)shipDraw(o)};S.push(o)});
+/* สัตว์ยักษ์ / ทอร์นาโด */
+const GI=[];
+function giant(k){const n=k==='dino'?4:1,z=ZB?{x:(ZB.x0+ZB.x1)/2,y:(ZB.y0+ZB.y1)/2}:{x:rnd(10,GW-10),y:rnd(10,GH-10)};for(let i=0;i<n;i++){const o={k:{kaiju:'🦖',dino:'🦕',tornado:'🌪️'}[k],kd:k,x:k==='kaiju'?-10:z.x+i,y:k==='kaiju'?rnd(10,GH-10):z.y,tx:0,ty:0,cd:0,sz:k==='dino'?46:k==='kaiju'?120:110,sp:k==='dino'?3:k==='kaiju'?2.4:4,r:200,d:t=>{const m=P(o.x,o.y);g.globalAlpha=.3;R(m[0]-20,m[1]-3,40,8,'#000');g.globalAlpha=1;g.font=o.sz+'px serif';g.textAlign='center';g.fillText(o.k,m[0],m[1]+4+Math.sin(t*5)*2);g.textAlign='left'}};GI.push(o);S.push(o)}}
+function ufoHit(){const b=pk(BL);FX9.push({k:'u',x:b.x0,y:b.y0,t:0,cb:()=>{area(b.x0,b.y0,GW*.03,.35,.4,'ถูกลำแสงเอเลี่ยนสลายร่าง');addDead(cause(),Math.round(C.pop*DS.ufo[2]*.5))}})}
+/* สภาพอากาศ */
+let wx='clear',wxT=0,rbT=0;const WXN={clear:['☀️','แจ่มใส'],cloud:['☁️','เมฆมาก'],fog:['🌫️','หมอกหนา'],rain:['🌧️','ฝนตก'],storm:['⛈️','พายุฟ้าคะนอง'],wind:['💨','ลมแรง'],hail:['🧊','ลูกเห็บ'],heat:['🥵','ร้อนจัด'],snow:['❄️','หิมะตก']};
+const WW={hot:[['clear',3],['cloud',2],['heat',3],['storm',2],['wind',1]],rain:[['cloud',2],['rain',4],['storm',3],['fog',1],['clear',1],['hail',.5]],cold:[['clear',3],['fog',3],['cloud',2],['wind',2]],snow:[['snow',5],['fog',2],['cloud',2],['wind',1]]};
+function wxPick(){const prev=wx;wx=wp(WW[seas()]);wxT=rnd(40,90);if(wx==='rain'||wx==='storm'||wx==='hail'){RAIN.on=1;RAIN.st=wx!=='rain';RAIN.until=Date.now()+wxT*1e3}else if(RAIN.on&&!(D.on&&(D.ks.includes('typhoon')||D.ks.includes('flood'))))RAIN.until=Date.now();if((prev==='rain'||prev==='storm')&&wx==='clear')rbT=25;snowOn=wx==='snow'}
+const HL=[];
+function wxd(t,dt,hr){const w=wx;
+ if(w==='cloud'||w==='storm'){g.fillStyle=w==='storm'?'rgba(20,30,60,.22)':'rgba(70,80,100,.1)';g.fillRect(0,0,CW,CH);g.fillStyle='rgba(0,0,0,.07)';for(let i=0;i<3;i++){g.beginPath();g.ellipse(((t*12+i*400)%(CW+500))-250,CH*(.3+i*.25),230,70,0,0,6.3);g.fill()}if(w==='storm'&&Math.random()<.012){g.fillStyle='rgba(255,255,255,.6)';g.fillRect(0,0,CW,CH)}}
+ else if(w==='fog'){g.fillStyle='rgba(235,240,245,'+(.36+.08*Math.sin(t*.5))+')';g.fillRect(0,0,CW,CH)}
+ else if(w==='wind'){g.strokeStyle='rgba(255,255,255,.35)';g.lineWidth=1.5;g.beginPath();for(let i=0;i<26;i++){const x=((t*500+i*97)%(CW+200))-100,y=(i*53)%CH;g.moveTo(x,y);g.lineTo(x+60,y-3)}g.stroke()}
+ else if(w==='hail'){g.fillStyle='rgba(190,210,235,.12)';g.fillRect(0,0,CW,CH);while(HL.length<90)HL.push({x:Math.random()*CW,y:Math.random()*CH,v:300+Math.random()*200});g.fillStyle='#e8f4ff';HL.forEach(h=>{h.y+=h.v*dt;h.x-=h.v*.2*dt;if(h.y>CH){h.y=-6;h.x=Math.random()*CW}g.fillRect(h.x,h.y,4,4)})}
+ else if(w==='heat'){g.fillStyle='rgba(255,140,20,.1)';g.fillRect(0,0,CW,CH);g.strokeStyle='rgba(255,255,255,.18)';g.lineWidth=2;for(let i=0;i<7;i++){g.beginPath();for(let x=0;x<=CW;x+=20){const y=CH*(.55+i*.06)+Math.sin(x/40+t*3+i)*5;x?g.lineTo(x,y):g.moveTo(x,y)}g.stroke()}}
+ if(w!=='hail')HL.length=0;
+ if(rbT>0&&w==='clear'&&hr>=6&&hr<18){g.globalAlpha=Math.min(1,rbT/5)*.4;['#ff3b3b','#ff9a2a','#ffe14a','#4ade80','#38bdf8','#6366f1','#a855f7'].forEach((c,i)=>{g.strokeStyle=c;g.lineWidth=9;g.beginPath();g.arc(CW*.5,CH*1.05,CH*(.85-i*.02),Math.PI*1.1,Math.PI*1.9);g.stroke()});g.globalAlpha=1}}
+/* เอฟเฟกต์หน้าจอของภัยพิบัติ */
+const KE={zombie:'rgba(30,110,30,.13)',war:'rgba(80,60,50,.15)',plague:'rgba(130,170,40,.14)',volcano:'rgba(120,30,0,.2)',typhoon:'rgba(60,70,90,.22)',tsunami:'rgba(20,80,160,.12)',meteor:'rgba(255,90,0,.1)',ufo:'rgba(150,60,255,.14)',nuke:'rgba(255,200,120,.1)',iceage:'rgba(150,200,255,.2)',wildfire:'rgba(255,100,20,.2)',flood:'rgba(110,90,50,.18)',sinkhole:'rgba(120,100,70,.12)',solar:'rgba(0,10,40,.45)',tornado:'rgba(80,80,80,.2)',kaiju:'rgba(90,40,40,.12)',dino:'rgba(40,90,40,.08)',quake:'rgba(120,100,80,.08)'};
+const PT=[];
+function scr(t,dt){let sh=0;if(D.on){const h=k=>D.ks.includes(k);D.ks.forEach(k=>{const c=KE[k];if(c){g.fillStyle=c;g.fillRect(0,0,CW,CH)}});
+ if(D.flash>0){g.fillStyle='rgba(255,255,255,'+Math.min(1,D.flash)+')';g.fillRect(0,0,CW,CH);D.flash-=dt*.5}
+ if((h('quake')&&D.day<2)||(h('nuke')&&D.day<.5)||h('kaiju'))sh=h('quake')?3:2;
+ if(h('zombie')||h('plague')){const v=g.createRadialGradient(CW/2,CH/2,CH*.3,CW/2,CH/2,CH*.85);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,h('zombie')?'rgba(120,0,0,'+(.35+.15*Math.sin(t*3))+')':'rgba(60,100,0,.4)');g.fillStyle=v;g.fillRect(0,0,CW,CH)}
+ if(h('war')&&Math.random()<.04){g.fillStyle='rgba(255,170,60,.25)';g.fillRect(0,0,CW,CH)}
+ if((h('typhoon')||h('tornado')||h('flood'))&&Math.random()<.015){g.fillStyle='rgba(255,255,255,.55)';g.fillRect(0,0,CW,CH)}
+ if(h('solar'))for(let i=0;i<3;i++){const y=60+i*40+Math.sin(t*.6+i)*25,gr=g.createLinearGradient(0,y-30,0,y+30);gr.addColorStop(0,'rgba(0,255,150,0)');gr.addColorStop(.5,i%2?'rgba(160,80,255,.5)':'rgba(0,255,150,.5)');gr.addColorStop(1,'rgba(0,255,150,0)');g.fillStyle=gr;g.fillRect(0,y-30,CW,60)}
+ const wd=h('typhoon')||h('tornado'),em=h('wildfire')||h('nuke');
+ if(h('volcano')||em||D.ice||wd){while(PT.length<80)PT.push({x:Math.random()*CW,y:Math.random()*CH,v:20+Math.random()*60,r:1+Math.random()*2});PT.forEach(p=>{p.y+=(em?-1:1)*p.v*dt;p.x+=(wd?p.v*3:Math.sin(p.y/25))*dt;if(p.y>CH)p.y=-5;if(p.y<-5)p.y=CH;if(p.x>CW)p.x=0;g.fillStyle=em?'#ff9a2a':wd?'rgba(220,230,255,.7)':D.ice?'#fff':'#9a9a9a';g.fillRect(p.x,p.y,wd?10:p.r,p.r)})}else PT.length=0}else PT.length=0;
+ cv.style.transform=sh?`translate(${(Math.random()-.5)*sh*3}px,${(Math.random()-.5)*sh*3}px)`:''}
+let _tB2=0;
+function xTick(dt){const t=performance.now()/1000;wxT-=dt;if(wxT<=0)wxPick();if(rbT>0)rbT-=dt;
+ SHP.forEach((o,i)=>{if(o.nv){o.x=((t*1.6+o.off)%(GW+80))-40;o.y=GH+20+(i%2)*5;o.fire=D.on&&D.ks.includes('war')&&Math.sin(t*4+i)>.85?1:0}else{const u=(t+o.off)%200,e=k=>k*k*(3-2*k);let q;if(u<50)q=lerp([-25,GH+25],o.B,e(u/50));else if(u<130)q=o.B;else if(u<175)q=lerp(o.B,[GW+30,GH+26],e((u-130)/45));else q=[-999,0];o.x=q[0];o.y=q[1]}});
+ GI.forEach(o=>{o.cd-=dt;if(!o.tx||mvf(o,o.tx,o.ty,o.sp,dt)){const b=pk(BL);o.tx=b.x0;o.ty=b.y0}if(o.cd<=0){o.cd=1.3;const k=o.kd;area(o.x,o.y,GW*(k==='tornado'?.04:k==='kaiju'?.035:.012),k==='dino'?.15:.5,k==='kaiju'?.5:.05,{tornado:'ถูกลมทอร์นาโดพัดกระแทก',kaiju:'ถูกสัตว์ประหลาดเหยียบ',dino:'ถูกไดโนเสาร์กิน'}[k]);addDead({tornado:'ถูกลมพัดกระแทก',kaiju:'ถูกเหยียบ',dino:'ถูกไดโนเสาร์กิน'}[k],Math.round(rnd(10,60)*(k==='dino'?1:k==='kaiju'?3:2)))}});
+ if((_tB2-=dt)<=0){_tB2=3;if(SPOTS.length&&NP.filter(p=>p.sp2&&p.sp2.r==='m').length<(D.on&&D.ks.includes('war')?24:12)){const p=xMk('m',GATE[0]+.5,GATE[1]+.5,'#4f5e32','🪖 ทหาร',2.6);p.sp2.ttl=1e9;NP.push(p)}}}
+/* เอฟเฟกต์ตามเมาส์ */
+{let t0=0;document.addEventListener('pointermove',e=>{const n=performance.now();if(n-t0<45)return;t0=n;const s=seas(),c=D.on?D.ic:wx==='rain'||wx==='storm'?'💧':wx==='hail'?'🧊':s==='snow'||wx==='snow'?'❄️':wx==='heat'||s==='hot'?'🔥':wx==='fog'?'☁️':s==='cold'?'🍂':'✨',p=document.createElement('i');p.textContent=c;p.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;z-index:31;pointer-events:none;font-size:${14+Math.random()*12}px;font-style:normal`;document.body.appendChild(p);const dx=(Math.random()-.5)*50,dy=(c==='🔥'||c==='✨'?-1:1)*(20+Math.random()*40);p.animate([{transform:'translate(-50%,-50%) scale(1)',opacity:1},{transform:`translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px)) scale(.3) rotate(${Math.random()*360}deg)`,opacity:0}],{duration:800}).onfinish=()=>p.remove()})}
+wxPick();
+window.__v9={dStart,dEnd,die,get D(){return D},AN,units};
 }
 
 /* ===== v8: ป้ายสถานที่ / ปุ่มเมือง / ค่ายทหาร / ท่าเรือ ทะเล / ชีวิตชาวเมือง ===== */
@@ -1629,36 +2021,35 @@ new MutationObserver(mobs).observe(md,{childList:true,characterData:true,subtree
 const hudOn=v=>$$('.hud [data-v]').forEach(x=>x.classList.toggle('on',x.dataset.v===v));
 /* ปุ่มเมือง กลับมาที่กลางเมืองจริง */
 hv.forEach(b=>{const o=b.onclick;b.onclick=e=>{o&&o(e);if(b.dataset.v==='city'){pcx=OX;pcy=OY+(GW+GH)*4;zC=.6}}});
-/* ค่ายทหาร: ใช้บล็อกสวนสาธารณะไกลๆ เป็นพื้นที่ */
-let AB=null;{let f=null;for(let j=NY-1;j>=0&&!f;j--)for(let i=NX-1;i>=0;i--)if(TYX[j][i]==='park'&&(i>=10||j>=8)){f=[i,j];break}if(!f&&TYX[0][3]==='park')f=[3,0];if(f)AB={x0:BX[f[0]]+1,x1:BE[f[0]]-1,y0:BY[f[1]]+1,y1:BYE[f[1]]-1}}
+/* ค่ายทหาร */
+const AB={x0:CAMP.army.x0+1,x1:CAMP.army.x1-2,y0:CAMP.army.y0+1,y1:CAMP.army.y1-2};
 const LB=[],LN={school:'🏫 โรงเรียน',uni:'🎓 มหาวิทยาลัย',hosp:'🏥 โรงพยาบาล',police:'🚓 โรงพัก',fire:'🚒 ดับเพลิง',air:'✈️ สนามบิน',bank:'🏦 ธนาคาร',stadium:'🏟️ สนามกีฬา',temple:'🛕 วัด',mall:'🛍️ ห้าง',factory:'🏭 โรงงาน',hotel:'🏨 โรงแรม'},BIGL=['school','uni','hosp','police','air'];
-BL.forEach(b=>{if(b.hs||!LN[b.t])return;const q=P((b.x0+b.x1)/2,(b.y0+b.y1)/2);LB.push({t:LN[b.t],x:q[0],y:P(b.x0,b.y0)[1]-22-(b.ex||0)-b.h-6,big:BIGL.includes(b.t)})});
-if(ZB){const q=P((ZB.x0+ZB.x1)/2+.5,(ZB.y0+ZB.y1)/2+.5);LB.push({t:'🦖 สวนสัตว์',x:q[0],y:q[1]-40,big:1})}
+BL.forEach(b=>{if(b.hs||!LN[b.t]||b.t==='police'||b.t==='air')return;const q=P((b.x0+b.x1)/2,(b.y0+b.y1)/2);LB.push({t:LN[b.t],x:q[0],y:P(b.x0,b.y0)[1]-22-(b.ex||0)-b.h-6,big:BIGL.includes(b.t)})});
 const sol=(x,y,t,ph,mvg)=>{const m=P(x,y),w=mvg&&Math.sin(t*6+ph)>0,X=Math.round(m[0]),Y=Math.round(m[1]);g.globalAlpha=.25;g.fillStyle='#000';g.fillRect(X-5,Y-1,10,3);g.globalAlpha=1;g.fillStyle='#3d4a2a';g.fillRect(X-3,Y-5-(w?1:0),2,5);g.fillRect(X+1,Y-5+(w?1:0),2,5);g.fillStyle='#6b7b45';g.fillRect(X-4,Y-13,8,8);g.fillStyle='#e8b98a';g.fillRect(X-2,Y-17,4,4);g.fillStyle='#4a5a2a';g.fillRect(X-3,Y-19,6,3);g.fillStyle='#222';g.fillRect(X+4,Y-14,1,9)};
-if(AB){const{x0,x1,y0,y1}=AB,cx=(x0+x1)/2+.5,cy=(y0+y1)/2+.5,pt=(x,y)=>S.push({x:x+.5,y:y+.5,d:()=>box3(x+.4,y+.4,.2,.2,8,'#4f5e32')});
- S.push({x:x0-.3,y:y0-.3,d:()=>{poly([P(x0,y0),P(x1+1,y0),P(x1+1,y1+1),P(x0,y1+1)],'#7d8a55');poly([P(x0+1,y0+1),P(x1,y0+1),P(x1,y1),P(x0+1,y1)],'#9aa66e')}});
- for(let x=x0;x<=x1;x++){pt(x,y0);if(x<cx-.6||x>cx+.6)pt(x,y1)}for(let y=y0+1;y<y1;y++){pt(x0,y);pt(x1,y)}
- S.push({x:x0+1.6,y:y0+1.2,d:()=>box3(x0+.5,y0+.5,2.6,1.3,17,'#6b7b45')});S.push({x:x1-1,y:y0+1.2,d:()=>box3(x1-2,y0+.5,2,1.3,17,'#5d6c3b')});
- S.push({x:cx,y:y0+2.4,d:t=>{const m=P(cx,y0+2.4);g.fillStyle='#ddd';g.fillRect(Math.round(m[0]),m[1]-46,2,46);g.fillStyle='#e3000b';g.fillRect(Math.round(m[0])+2,m[1]-46,14,8+Math.round(Math.sin(t*3)*1.5))}});
- S.push({x:x0+.8,y:y1-.8,d:()=>{const m=P(x0+.8,y1-.8);g.font='24px serif';g.textAlign='center';g.fillText('⛺',m[0],m[1]);g.fillText('🚙',m[0]+26,m[1]+6);g.textAlign='left'}});
- S.push({x:cx,y:cy,d:t=>{const m=P(cx+Math.sin(t*.4)*1.5,cy+Math.cos(t*.3)*1.2);g.font='28px serif';g.textAlign='center';g.fillText('🚁',m[0],m[1]-52+Math.sin(t*3)*2);g.textAlign='left'}});
- for(let k=0;k<6;k++){const bx=cx-1.1+(k%3)*1.1,by=cy-.5+(k/3|0)*1.1;S.push({x:bx,y:by,d:t=>{const o=Math.sin(t*.5)*.7;sol(bx+o,by,t,k,Math.cos(t*.5)>-.9)}})}
- [[cx-.8,y1+.4],[cx+.8,y1+.4]].forEach((q,k)=>S.push({x:q[0],y:q[1],d:t=>sol(q[0],q[1],t,k,0)}));
- S.push({x:cx,y:y0,d:t=>{const u=(t*.12)%1,W=x1-x0,H=y1-y0,per=2*(W+H),s=u*per;let px,py;if(s<W){px=x0+s;py=y0}else if(s<W+H){px=x1;py=y0+s-W}else if(s<2*W+H){px=x1-(s-W-H);py=y1}else{px=x0;py=y1-(s-2*W-H)}sol(px+.5,py+.5,t,9,1)}});
- LB.push({t:'🪖 ค่ายทหาร',x:P(cx,cy)[0],y:P(cx,cy)[1]-70,big:1})}
+{const{x0,x1,y0,y1}=AB,cx=(x0+x1)/2+.5,cy=(y0+y1)/2+.5,pt=(x,y)=>S.push({x:x+.5,y:y+.5,d:()=>box3(x+.35,y+.35,.3,.3,13,'#4f5e32')});
+ for(let x=x0;x<=x1;x++){pt(x,y0);if(Math.abs(x+.5-cx)>1.6)pt(x,y1)}for(let y=y0+1;y<y1;y++){pt(x0,y);pt(x1,y)}
+ [[x0+1,y0+1],[x0+7,y0+1]].forEach(q=>{blockW(q[0],q[1],5,3);prop(q[0]+2.5,q[1]+1.5,()=>{box3(q[0],q[1],5,3,34,'#6b7b45');box3(q[0]-.1,q[1]-.1,5.2,3.2,7,'#3f4a29',34);for(let i=0;i<4;i++){const m=P(q[0]+.7+i*1.2,q[1]+3);R(m[0]-4,m[1]-24,9,9,'#ffe58a')}},260)});
+ blockW(x0+13,y0+1,2,2);prop(x0+14,y0+2,()=>{box3(x0+13.3,y0+1.3,1.4,1.4,60,'#8a6a3a');box3(x0+13,y0+1,2,2,18,'#6b7b45',60);box3(x0+12.9,y0+.9,2.2,2.2,5,'#3f4a29',78)},220);
+ tank(x0+1,y0+6);tank(x0+1,y0+9);tank(x0+1,y0+12);
+ prop(cx+1,y0+5.5,t=>{const m=P(cx+1,y0+5.5);R(m[0],m[1]-88,4,88,'#ddd');R(m[0]+4,m[1]-88,30,18+Math.round(Math.sin(t*3)*2),'#e3000b')});
+ prop(x0+12.5,y0+12.5,t=>{const m=P(x0+12.5+Math.sin(t*.4)*1.5,y0+12.5+Math.cos(t*.3)*1.2);g.font='78px serif';g.textAlign='center';g.fillText('🚁',m[0],m[1]-70+Math.sin(t*3)*3);g.textAlign='left'},260);
+ for(let k=0;k<12;k++){const bx=x0+6+(k%4)*1.3,by=y0+7+(k/4|0)*1.5;S.push({x:bx,y:by,d:t=>{const o=Math.sin(t*.5)*.7;sol(bx+o,by,t,k,Math.cos(t*.5)>-.9)}})}
+ [[cx-2,y1+.4],[cx+2,y1+.4]].forEach((q,k)=>S.push({x:q[0],y:q[1],d:t=>sol(q[0],q[1],t,k,0)}));
+ S.push({x:cx,y:y0,d:t=>{const u=(t*.05)%1,W=x1-x0,H=y1-y0,per=2*(W+H),s=u*per;let px,py;if(s<W){px=x0+s;py=y0}else if(s<W+H){px=x1;py=y0+s-W}else if(s<2*W+H){px=x1-(s-W-H);py=y1}else{px=x0;py=y1-(s-2*W-H)}sol(px+.5,py+.5,t,9,1)}});
+}
 /* ท่าเรือ เรือเฟอร์รี่ มาจอดแล้วไป คนเล่นน้ำ ตกปลา */
 const px=Math.round(GW*.55),BS=SPOTS.filter(q=>q[1]>=GH-4),near=BS.slice().sort((a,b)=>Math.abs(a[0]-px)-Math.abs(b[0]-px))[0];
-for(let y=GH;y<=GH+8;y++)S.push({x:px+1,y:y+.5,d:()=>box3(px,y,2,1,5,'#a9763f')});
-S.push({x:px+3,y:GH+7.5,d:t=>{const T=80,k=t%T,A=[px+26,GH+17],D=[px+3.4,GH+7.6],B=[px-28,GH+15];let q;if(k<24)q=lerp(A,D,k/24);else if(k<48)q=D;else q=lerp(D,B,(k-48)/32);const m=P(q[0],q[1]+Math.sin(t*2)*.12);if(k<24||k>=48){g.strokeStyle='rgba(255,255,255,.75)';g.lineWidth=2;g.beginPath();g.moveTo(m[0]-16,m[1]+8);g.lineTo(m[0]-40,m[1]+12);g.moveTo(m[0]+6,m[1]+8);g.lineTo(m[0]+30,m[1]+14);g.stroke()}g.font='38px serif';g.textAlign='center';g.fillText('⛴️',m[0],m[1]-2+Math.sin(t*2)*1.5);g.textAlign='left'}});
-S.push({x:px+1.6,y:GH+8.8,d:t=>{const m=P(px+1.6,GH+8.8),bx=m[0]+22,by=m[1]+16+Math.sin(t*1.6)*2;g.font='22px serif';g.textAlign='center';g.fillText('🧑',m[0],m[1]-2);g.font='18px serif';g.fillText('🎣',m[0]+9,m[1]-8);g.strokeStyle='#fff';g.lineWidth=1;g.beginPath();g.moveTo(m[0]+16,m[1]-18);g.lineTo(bx,by);g.stroke();g.fillStyle='#e3000b';g.fillRect(bx-2,by-2,4,4);if(t%14<1.2){g.font='16px serif';g.fillText('🐟',bx+8,by-14-Math.sin((t%14)/1.2*Math.PI)*16)}g.textAlign='left'}});
-[['🏊',.3,5],['🏄',.5,9],['🤽',.72,6],['🏊',.15,12],['🧒',.62,4.6],['🛟',.4,7.5],['🚤',.85,16],['🛥️',.2,19]].forEach((w,k)=>{const wx=GW*w[1];S.push({x:wx,y:GH+w[2],d:t=>{const fast=k>=6,m=P(wx+Math.sin(t*(fast?.12:.4)+k)*(fast?GW*.14:1.4),GH+w[2]+Math.cos(t*.5+k)*.5);g.font=(fast?30:24)+'px serif';g.textAlign='center';g.fillText(w[0],m[0],m[1]-3+Math.sin(t*2+k)*2);if(!fast){g.font='12px serif';g.fillText('💦',m[0]+10,m[1]-14+Math.sin(t*3+k)*2)}g.textAlign='left'}})});
+for(let y=GH;y<=GH+14;y++)S.push({x:px+1.5,y:y+.5,d:()=>box3(px,y,3,1,6,'#a9763f')});
+S.push({x:px+8,y:GH+11,r:500,d:t=>{const T=80,k=t%T,A=[px+46,GH+27],D=[px+8,GH+11],B=[px-48,GH+25];let q;if(k<24)q=lerp(A,D,k/24);else if(k<48)q=D;else q=lerp(D,B,(k-48)/32);const m=P(q[0],q[1]+Math.sin(t*2)*.12);if(k<24||k>=48){g.strokeStyle='rgba(255,255,255,.75)';g.lineWidth=2;g.beginPath();g.moveTo(m[0]-45,m[1]+20);g.lineTo(m[0]-115,m[1]+32);g.moveTo(m[0]+20,m[1]+20);g.lineTo(m[0]+90,m[1]+38);g.stroke()}g.font='120px serif';g.textAlign='center';g.fillText('⛴️',m[0],m[1]-2+Math.sin(t*2)*1.5);g.textAlign='left'}});
+S.push({x:px+1.6,y:GH+14.8,d:t=>{const m=P(px+1.6,GH+14.8),bx=m[0]+22,by=m[1]+16+Math.sin(t*1.6)*2;g.font='22px serif';g.textAlign='center';g.fillText('🧑',m[0],m[1]-2);g.font='18px serif';g.fillText('🎣',m[0]+9,m[1]-8);g.strokeStyle='#fff';g.lineWidth=1;g.beginPath();g.moveTo(m[0]+16,m[1]-18);g.lineTo(bx,by);g.stroke();g.fillStyle='#e3000b';g.fillRect(bx-2,by-2,4,4);if(t%14<1.2){g.font='16px serif';g.fillText('🐟',bx+8,by-14-Math.sin((t%14)/1.2*Math.PI)*16)}g.textAlign='left'}});
+[['🏊',.3,5],['🏄',.5,9],['🤽',.72,6],['🏊',.15,12],['🧒',.62,4.6],['🛟',.4,7.5],['🚤',.85,22],['🛥️',.2,26],['🚢',.38,28],['🚢',.72,30]].forEach((w,k)=>{const wx=GW*w[1];S.push({x:wx,y:GH+w[2],r:k>=6?GW*3:0,d:t=>{const fast=k>=6,m=P(wx+Math.sin(t*(fast?.12:.4)+k)*(fast?GW*.14:1.4),GH+w[2]+Math.cos(t*.5+k)*.5);g.font=(w[0]==='🚢'?110:fast?72:24)+'px serif';g.textAlign='center';g.fillText(w[0],m[0],m[1]-3+Math.sin(t*2+k)*2);if(!fast){g.font='12px serif';g.fillText('💦',m[0]+10,m[1]-14+Math.sin(t*3+k)*2)}g.textAlign='left'}})});
 for(let x=GW*.12;x<GW;x+=GW*.26)S.push({x,y:GH+1,d:()=>{const m=P(x,GH+1);g.font='22px serif';g.textAlign='center';g.fillText('🏰',m[0],m[1]);g.fillText('🧒',m[0]+16,m[1]+3);g.textAlign='left'}});
-LB.push({t:'⚓ ท่าเรือ',x:P(px+1,GH+4)[0],y:P(px+1,GH+4)[1]-30,big:1},{t:'🏖️ ชายหาด',x:P(GW*.2,GH+2)[0],y:P(GW*.2,GH+2)[1]-28,big:0});
+LB.push({t:'🏖️ ชายหาด',x:P(GW*.2,GH+2)[0],y:P(GW*.2,GH+2)[1]-28,big:0});
 LB.sort((a,b)=>b.big-a.big);
 /* นักท่องเที่ยว */
 function spawnT(n,at,nm){const cols=['#ff8a00','#e3000b','#00c8e8','#ff3d8b','#ffd500'];for(let i=0;i<n;i++){const s=at||pk(SPOTS),p=xMk('w',s[0]+.5,s[1]+.5,pk(cols),nm||'🧳 นักท่องเที่ยว',rnd(1.6,2.6));p.sp2.ttl=rnd(150,260);NP.push(p)}}
 const _sp1=special;special=function(p,dt){const s=p.sp2;if(s.r==='w'){s.ttl-=dt;if(!p.path.length)go(p,pk(SPOTS),0);p.walk=mv(p,dt,p.sp);if(s.ttl<=0)rm(p);return}_sp1(p,dt)};
-let bdk=0;setInterval(()=>{const k=(performance.now()/1000)%80;if(k>=24&&k<48){if(!bdk){bdk=1;if(near){spawnT(5,near,'🧳 นักท่องเที่ยว');xTkr('⛴️ เรือเฟอร์รี่มาจอดที่ท่าเรือ')}}}else bdk=0},1000);
+let bdk=0;setInterval(()=>{if(document.hidden)return;const k=(performance.now()/1000)%80;if(k>=24&&k<48){if(!bdk){bdk=1;if(near){spawnT(5,near,'🧳 นักท่องเที่ยว');xTkr('⛴️ เรือเฟอร์รี่มาจอดที่ท่าเรือ')}}}else bdk=0},1000);
 setInterval(()=>{if(document.hidden||Math.random()>.12||!BT.air)return;const a=BT.air;xPlane(true);setTimeout(()=>{spawnT(6,[a.dx,a.y1],'🧳 นักท่องเที่ยว');xTkr('✈️ เครื่องบินลงจอด นักท่องเที่ยวเดินทางมาถึง')},26000)},20000);
 /* ชาวเมืองไม่ติดรูทีน: ไปหาด ท่องเมือง ดูเครื่องบิน */
 const _pl3=plan;plan=function(p){const tod=SM%1440,hr=tod/60,d=dow();if(!slp(p,tod)&&!p.fam&&!p.sp2&&!(p.job&&d>0&&d<6&&tod>=480&&tod<960)&&Math.random()<.35){const r=Math.random();
@@ -1666,9 +2057,8 @@ const _pl3=plan;plan=function(p){const tod=SM%1440,hr=tod/60,d=dow();if(!slp(p,t
  if(r<.6){const v=pk(ALLV);if(v.b)return go(p,[v.b.dx,v.b.y1],{e:1,d:rnd(20,120)});if(v.sp&&v.sp.length){const q=pk(v.sp);return go(p,[q[0],q[1]],{e:0,ic:v.ic,d:rnd(10,70),o:1})}}
  if(r<.8&&BT.air)return go(p,[BT.air.dx,BT.air.y1],{e:0,ic:'✈️',d:rnd(10,40)})}_pl3(p)};
 /* ป้ายชื่อสถานที่ (วาดทับหลังเฟรม) */
-const _fr=frame;frame=function(now){_fr(now);if(lastF!==now||document.hidden||pxw.style.display==='none')return;g.setTransform(RS,0,0,RS,0,0);const used=[];for(const l of LB){if(!l.big&&cam.z<.5)continue;const sx=(l.x-cam.x)*cam.z+CW/2,sy=(l.y-cam.y)*cam.z+CH/2;if(sx<-60||sx>CW+60||sy<-20||sy>CH+20)continue;if(used.some(u=>Math.abs(u[0]-sx)<84&&Math.abs(u[1]-sy)<20))continue;used.push([sx,sy]);tag(sx,sy,l.t)}g.textAlign='left';g.textBaseline='alphabetic'};
-/* ปุ่มลัดไปดู ค่ายทหาร / ท่าเรือ / สนามบิน */
-const hud=$('.hud');[['army','🪖 ค่ายทหาร',AB&&[(AB.x0+AB.x1)/2+.5,(AB.y0+AB.y1)/2+.5,1.8]],['port','⚓ ท่าเรือ',[px+1,GH+5,1.4]],['air','✈️ สนามบิน',BT.air&&[BT.air.dx,BT.air.y1,1.5]]].forEach(a=>{if(!a[2])return;const b=document.createElement('button');b.dataset.v=a[0];b.textContent=a[1];b.type='button';b.onclick=()=>{fh=null;fol=null;const q=P(a[2][0],a[2][1]);pcx=q[0];pcy=q[1]-8;zC=a[2][2]};hud.insertBefore(b,$('#zi'))});
+const _fr=frame;frame=function(now){_fr(now);if(lastF!==now||!PXV||document.hidden||pxw.style.display==='none')return;g.setTransform(RS,0,0,RS,0,0);const used=[];for(const l of LB){if(!l.big&&cam.z<.5)continue;const sx=(l.x-cam.x)*cam.z+CW/2,sy=(l.y-cam.y)*cam.z+CH/2;if(sx<-60||sx>CW+60||sy<-20||sy>CH+20)continue;if(used.some(u=>Math.abs(u[0]-sx)<84&&Math.abs(u[1]-sy)<20))continue;used.push([sx,sy]);tag(sx,sy,l.t)}g.textAlign='left';g.textBaseline='alphabetic'};
+const hud=$('.hud');
 hud.addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b)setTimeout(()=>hudOn(b.dataset.v),0)});
 }
 
