@@ -210,7 +210,7 @@ header h1{background:linear-gradient(90deg,#fff 0%,#ffe9a8 40%,#fff 80%);backgro
 nav{background:rgba(10,18,54,.9);border:1px solid rgba(224,176,74,.5)}nav button{color:#aab3e6}
 nav button.on{background:linear-gradient(135deg,#f2c14e,#b8861b);color:#0a1236;box-shadow:0 12px 24px -8px rgba(224,176,74,.7)}
 .x{font-size:15px;padding:6px}.x:hover{transform:scale(1.2)}
-.modal{position:fixed;inset:0;background:rgba(5,11,42,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:none;align-items:flex-end;justify-content:center;z-index:20}
+.modal{position:fixed;inset:0;background:rgba(5,11,42,.66);display:none;align-items:flex-end;justify-content:center;z-index:20}
 .modal.on{display:flex}
 .sheet{width:100%;max-width:520px;background:var(--card);border-radius:30px 30px 0 0;padding:22px 20px calc(24px + env(safe-area-inset-bottom));max-height:90vh;overflow:auto;border-top:3px solid var(--gold);animation:rise .4s cubic-bezier(.2,.8,.2,1)}
 .sheet h3{font-family:'Noto Serif Thai',serif;margin-bottom:12px}
@@ -435,6 +435,7 @@ body{animation:none!important;background-attachment:scroll!important}
 }
 @media(prefers-reduced-motion:reduce){.train,.bk{animation:none!important}}
 
+body:has(#modal.on),body:has(#modal.on) .fb{animation-play-state:paused}
 /* ===== ตารางเรียน ===== */
 .ttw{display:grid;grid-template-columns:28px repeat(var(--n),minmax(0,1fr));border:2px solid var(--br);border-radius:14px;overflow:hidden;background:var(--card)}
 .ttl{font-size:9px;color:var(--mu);text-align:right;padding:2px 3px 0 0;box-sizing:border-box}
@@ -563,7 +564,7 @@ nav{left:6px;right:6px}nav button{padding:6px 2px;font-size:9.5px;flex:1;min-wid
   <div class="card">
     <h3>⚙️ เชื่อมต่อ Google Sheets</h3>
     <label>Apps Script Web App URL</label>
-    <input id="urlIn" placeholder="https://script.google.com/macros/s/AKfycbxIr0ckixaYRIkNhnwNyxVWJjnQi4ROBvdsSjZGZJ7_Jxcl6gah-H1n7E-5ioKNLt4/exec">
+    <input id="urlIn" placeholder="https://script.google.com/macros/s/AKfycbwr69Oiw1yPvWJYRFs8FB44brirZFa1qRGDRLBrMSVD729Z2fIWjMbk-KF2Qb_PYzxo/exec">
     <button class="btn" id="saveUrl">บันทึกและโหลดข้อมูล</button>
     <p style="font-size:12px;color:var(--mu);margin-top:12px;line-height:1.6">ปล่อยว่างไว้ = โหมดสาธิต (เก็บในเครื่องนี้)<br>ข้อมูลจะถูกเก็บในชีท <b>Transactions</b> และ <b>Events</b> โดยอัตโนมัติ</p>
   </div>
@@ -1215,10 +1216,10 @@ function bub(x,y,m){const w=34,h=28;x=Math.round(x);y=Math.round(y);g.fillStyle=
 function tag(x,y,t){g.font='700 13px "Fredoka","Prompt",sans-serif';const w=g.measureText(t).width+14;x=Math.round(x);y=Math.round(y);g.fillStyle='#ffd500';g.strokeStyle='#14162e';g.lineWidth=3;g.beginPath();rr(x-w/2,y-9,w,20,7);g.fill();g.stroke();g.fillStyle='#14162e';g.textAlign='center';g.textBaseline='middle';g.fillText(t,x,y+1)}
 cv.style.touchAction='none';
 const vis=(x,y)=>{const q=P(x,y),sx=(q[0]-cam.x)*cam.z+CW/2,sy=(q[1]-cam.y)*cam.z+CH/2;return sx>-100&&sx<CW+100&&sy>-170&&sy<CH+170};
-const pxw=$('.pxw');let lastF=0,PXV=true;try{new IntersectionObserver(es=>{PXV=es[es.length-1].isIntersecting},{threshold:0}).observe(pxw)}catch(e){}
+const pxw=$('.pxw');let lastF=0,PXV=true;const MODALEL=$('#modal');try{new IntersectionObserver(es=>{PXV=es[es.length-1].isIntersecting},{threshold:0}).observe(pxw)}catch(e){}
 const wsc=(p,fn)=>{if(!p.sc||p.sc===1)return fn();const q=P(p.x,p.y);g.save();g.translate(q[0],q[1]);g.scale(p.sc,p.sc);g.translate(-q[0],-q[1]);fn();g.restore()};
 function frame(now){if(document.hidden||pxw.style.display==='none'){last=now;requestAnimationFrame(frame);return}
- if(now-lastF<(!PXV?95:30)){requestAnimationFrame(frame);return}lastF=now;
+ if(now-lastF<(!PXV||MODALEL.classList.contains('on')?95:30)){requestAnimationFrame(frame);return}lastF=now;
  {const _ta=(!fol&&!fh)?'none':'auto';if(cv._ta!==_ta){cv._ta=_ta;cv.style.touchAction=_ta}}const dt=Math.min((now-(last||now))/1000,.1);last=now;const t=now/1000;
  sim=SPD[si]===1?realMin():sim+dt*SPD[si]/60;{const dd=(sim-lastSim+1440)%1440;dSM=dd>720?0:dd;SM+=dSM;lastSim=sim}lifeTick(dt);jUpd(dt,init);NP.forEach(p=>nUpd(p,dt));dogU(dt);
  CARS.forEach(c=>{c.p+=c.ln.dir*c.sp*dt;const L=c.ln.ax==='x'?GW:GH;if(c.p>L+3)c.p=-3;if(c.p<-3)c.p=L+3});
@@ -1271,11 +1272,15 @@ function elect(){if(modalOpen())return;window._sh=Date.now();const cs=C.cands||(
  $('#mBody').innerHTML='<h3>🗳️ เลือกตั้งประธานาธิบดี '+esc(C.name)+'</h3>'+cs.map((c,i)=>`<button class="btn ${['','in','out'][i]}" data-i="${i}">${esc(c.n)}<br><small>${c.t}</small></button>`).join('')+'<button class="btn ghost" id="eAuto">🎲 ให้ระบบเลือกให้</button>';
  $('#modal').classList.add('on');$$('#mBody [data-i]').forEach(b=>b.onclick=()=>win(cs[+b.dataset.i],'คุณเลือก'));$('#eAuto').onclick=()=>win(pk(cs),'ระบบเลือก')}
 function win(c,w){C.appr=62;C.pres=c;C.cr=c.cr;C.pend=0;C.cands=null;C.next=L.age+4;log('🗳️ '+w+' '+c.n+' เป็นประธานาธิบดี ('+c.t+')');sv();closeM();boom();cityUI()}
-function jobPick(){if(modalOpen())return;const f=FLD[L.field||'general'],o=f[1];
+function jobPick(){if(modalOpen())return;const f=FLD[L.field]||FLD.general,o=f[1];
  $('#mBody').innerHTML='<h3>🎓 เรียนจบแล้ว จะทำอาชีพอะไร?</h3><small>จากสาขาที่ชอบ: '+f[0]+'</small>'+o.map(k=>`<button class="btn" data-k="${k}">${JOBS[k].n} (฿${JOBS[k].sal.toLocaleString('th-TH')})</button>`).join('')+'<button class="btn ghost" id="jAuto">🎲 ให้ระบบเลือกให้</button>';
- $('#modal').classList.add('on');$$('#mBody [data-k]').forEach(b=>b.onclick=()=>{L.want=b.dataset.k;L.picked=1;closeM();log('🧭 เลือกอาชีพ '+JOBS[L.want].n)});$('#jAuto').onclick=()=>{L.want=pk(o);L.picked=1;closeM();log('🎲 ระบบเลือกอาชีพ '+JOBS[L.want].n)}}
+ $('#modal').classList.add('on');$$('#mBody [data-k]').forEach(b=>b.onclick=()=>{L.want=b.dataset.k;L.picked=1;closeM();log('🧭 เลือกอาชีพ '+JOBS[L.want].n);window.__jobDone&&__jobDone()});$('#jAuto').onclick=()=>{L.want=pk(o);L.picked=1;closeM();log('🎲 ระบบเลือกอาชีพ '+JOBS[L.want].n);window.__jobDone&&__jobDone()}}
 function jobGate(){if(L.picked)return true;if(!L.askAt){L.askAt=L.age;L.want=L.want||'office'}
- if(L.age>L.askAt+1){L.want=pk(FLD[L.field||'general'][1]);L.picked=1;log('🎲 ไม่ได้เลือก ระบบเลือกอาชีพให้');return true}
+ if(!L.askTs){L.askTs=Date.now();window.__jobMail&&__jobMail()}
+ if(Date.now()-L.askTs>=7200000){const k=pk((FLD[L.field]||FLD.general)[1]);L.want=k;L.picked=1;
+  try{const h=$('#mBody h3');if(modalOpen()&&h&&h.textContent.indexOf('จะทำอาชีพ')>=0)closeM()}catch(e){}
+  log('🎲 ไม่ได้เลือกใน 2 ชม. ระบบเลือกอาชีพให้: '+JOBS[k].n);lsSet('life',L);window.__jobDone&&__jobDone();
+  window.__mailNote&&__mailNote('jobdone','ครบ 2 ชั่วโมงแล้วยังไม่ได้เลือกอาชีพ ระบบจึงตัดสินใจเลือกให้เป็น '+JOBS[k].n+' (รายได้ ฿'+JOBS[k].sal.toLocaleString('th-TH')+' ต่อเดือน) เริ่มทำงานได้เลย');return true}
  if(Date.now()-(window._jp||0)>60000&&!modalOpen()){window._jp=Date.now();jobPick()}return false}
 /* โจร-ตำรวจ */
 function mkP(r,x,y){return{x,y,f:1,path:[],tg:null,ph:Math.random()*9|0,sp:r==='t'?2.8:3.4,skin:pk(SKN),hair:'#111',shirt:r==='t'?'#14162e':'#1d3fa8',pants:'#14162e',sym:'',pose:'',walk:false,nm:r==='t'?'🦹 โจร':'👮 ตำรวจ',home:HS[1]||HS[0],fav:[],wake:0,bed:0,in:false,until:0,wt:0,door:[0,0],mood:'',fam:'x',age:30,sc:1,run:true,sp2:{r,ttl:35}}}
@@ -1550,11 +1555,22 @@ const MAJ=/🗳|🏅|⚔️|🌋|🔥|🏛️|📣|🎓|💍|👶|✈️|สง�
 function annMap(t,good){const a=$('#ann');a.firstChild.textContent=t;a.classList.add('on');clearTimeout(a._t);a._t=setTimeout(()=>a.classList.remove('on'),3600);if(good){const r=$('.pxs').getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height*.4,30);setTimeout(()=>burst(r.left+r.width*.25,r.top+r.height*.5,16),300);setTimeout(()=>burst(r.left+r.width*.75,r.top+r.height*.5,16),550)}}
 xFlash=function(t){if(MAJ.test(t))annMap(t,GOODX.test(t))};
 /* จดหมายมินิเกม */
-const MAIL=[],MN={quiz:()=>L.job==='student'?'📝 ข้อสอบย่อยจากครู':'💼 งานด่วนจากหัวหน้า',math:'🧮 โจทย์เลขจากเพื่อน',react:'⚡ ท้าทายความเร็ว',mem:'🧠 เกมความจำ',tap:'⭐ เกมแตะดาว',exam:'📋 ประกาศสอบเลื่อนตำแหน่ง'};let GO=0;
+const MAIL=[],MN={quiz:()=>L.job==='student'?'📝 ข้อสอบย่อยจากครู':'💼 งานด่วนจากหัวหน้า',math:'🧮 โจทย์เลขจากเพื่อน',react:'⚡ ท้าทายความเร็ว',mem:'🧠 เกมความจำ',tap:'⭐ เกมแตะดาว',exam:'📋 ประกาศสอบเลื่อนตำแหน่ง',job:'✉️ เลือกอาชีพภายใน 2 ชม.',jobdone:'✉️ ผลการเลือกอาชีพ'};let GO=0;
 function mailUI(){const b=$('#mailBtn');b.classList.toggle('on',MAIL.length>0);b.querySelector('i').textContent=MAIL.length}
-function mailAdd(k){const n=Date.now();for(let i=MAIL.length-1;i>=0;i--)if(n-MAIL[i].t>600000)MAIL.splice(i,1);if(MAIL.length>=3||(k==='exam'&&MAIL.some(m=>m.k==='exam')))return;if(k!=='exam'&&Math.random()<.35)return;MAIL.push({k,t:n});mailUI()}
-function mailOpen(){if(modalOpen()||!MAIL.length)return;$('#mBody').innerHTML='<h3>📬 กล่องจดหมาย</h3>'+MAIL.map((m,i)=>'<button class="btn" data-m="'+i+'">'+(typeof MN[m.k]==='function'?MN[m.k]():MN[m.k]||'🎮 เกมสนุก')+'</button>').join('')+'<button class="btn ghost" id="mClose">ปิด</button>';$('#modal').classList.add('on');$$('#mBody [data-m]').forEach(b=>b.onclick=()=>{const m=MAIL.splice(+b.dataset.m,1)[0];mailUI();closeM();runReal(m.k)});$('#mClose').onclick=closeM}
+function mailAdd(k){const n=Date.now();for(let i=MAIL.length-1;i>=0;i--)if(!MAIL[i].keep&&n-MAIL[i].t>600000)MAIL.splice(i,1);if(MAIL.filter(m=>!m.keep).length>=3||(k==='exam'&&MAIL.some(m=>m.k==='exam')))return;if(k!=='exam'&&Math.random()<.35)return;MAIL.push({k,t:n});mailUI()}
+function mailOpen(){if(modalOpen()||!MAIL.length)return;$('#mBody').innerHTML='<h3>📬 กล่องจดหมาย</h3>'+MAIL.map((m,i)=>'<button class="btn" data-m="'+i+'">'+(typeof MN[m.k]==='function'?MN[m.k]():MN[m.k]||'🎮 เกมสนุก')+'</button>').join('')+'<button class="btn ghost" id="mClose">ปิด</button>';$('#modal').classList.add('on');$$('#mBody [data-m]').forEach(b=>b.onclick=()=>{const m=MAIL.splice(+b.dataset.m,1)[0];mailUI();closeM();if(m.k==='job'||m.k==='jobdone')return noteShow(m);runReal(m.k)});$('#mClose').onclick=closeM}
 $('#mailBtn').onclick=mailOpen;
+function noteShow(m){const j=m.k==='job',left=Math.max(0,7200000-(Date.now()-(L.askTs||Date.now()))),
+ msg=j?'เรียนจบแล้ว! เลือกอาชีพภายใน 2 ชั่วโมง (เหลือ '+Math.floor(left/3600000)+' ชม. '+Math.floor(left%3600000/60000)+' นาที) ถ้าไม่เลือก ระบบจะตัดสินใจเลือกให้เอง':m.msg;
+ if(!j&&L.note){delete L.note;lsSet('life',L)}
+ $('#mBody').innerHTML='<h3>'+(j?'✉️ เลือกอาชีพภายใน 2 ชม.':'✉️ ผลการเลือกอาชีพ')+'</h3><p style="margin:8px 0 14px;line-height:1.6">'+esc(msg)+'</p>'+(j?'<button class="btn" id="nGo">🎓 เลือกอาชีพเลย</button>':'')+'<button class="btn ghost" id="nOk">'+(j?'ไว้ทีหลัง':'รับทราบ')+'</button>';
+ $('#modal').classList.add('on');$('#nOk').onclick=closeM;if(j)$('#nGo').onclick=()=>{closeM();window._jp=0;jobPick()}}
+window.__jobMail=()=>{MAIL.push({k:'job',t:Date.now(),keep:1});mailUI();try{xTkr('✉️ มีจดหมายแจ้งเรื่องเลือกอาชีพ เช็คจดหมาย')}catch(e){}};
+window.__jobDone=()=>{for(let i=MAIL.length-1;i>=0;i--)if(MAIL[i].k==='job')MAIL.splice(i,1);mailUI()};
+window.__mailNote=(k,msg)=>{L.note={k,msg,t:Date.now()};lsSet('life',L);MAIL.push({k,t:Date.now(),msg,keep:1});mailUI();try{xTkr('✉️ มีจดหมายแจ้งผลเลือกอาชีพ เช็คจดหมาย')}catch(e){}};
+if(L.note&&L.note.msg)MAIL.push({k:L.note.k||'jobdone',t:Date.now(),msg:L.note.msg,keep:1});
+if(L.askTs&&!L.picked&&L.job==='student')MAIL.push({k:'job',t:Date.now(),keep:1});
+mailUI();
 const _go=gOpen;
 function runReal(k){GO=1;try{k==='exam'?examStart():_go(k)}finally{GO=0}}
 document.addEventListener('click',e=>{if(e.target.closest('[data-g],#mgB')){GO=1;setTimeout(()=>{GO=0},0)}},true);
